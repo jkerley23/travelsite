@@ -1,0 +1,11 @@
+/.amp
+/.idea
+/node_modules
+node_modules
+.sass-cache
+/assets/css/*
+!/assets/css/other/
+/assets/js/*
+!/assets/js/vendor/
+!/assets/js/other/
+
