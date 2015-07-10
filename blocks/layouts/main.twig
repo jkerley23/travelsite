@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- set the encoding of your site -->
+	<meta charset="utf-8">
+	<!-- set the viewport width and initial-scale on mobile devices  -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}MapquestDiscover{% endblock %}</title>
+	<!-- include the site stylesheet -->
+	<link media="all" rel="stylesheet" href="{{ asset('styles/all.css') }}">
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<link type="text/css" rel="stylesheet" href="{{ asset('styles/ie.css') }}">
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<!-- wrapper of the page -->
+	<div id="wrapper">
+		<div class="w1">
+			<!-- header of the page -->
+			<header id="header">
+				<div class="container">
+					<div class="top-adbox"><img src="{{ asset('images/ad1.jpg') }}" height="90" width="726" alt="728x90"></div>
+				</div>
+				<!-- header navbar of the page -->
+				<div class="header-navbar">
+					<div class="container">
+						<!-- logo of the site -->
+						<div class="logo"><a href="#"><img src="{{ asset('images/logo.png') }}" height="59" width="393" alt="Mapquest Discover"></a></div>
+						<!-- main navigation of the page -->
+						<nav id="nav">
+							<a href="#" class="opener"><span>Opener</span></a>
+							<ul>
+								<li><a href="#">DESTINATIONS</a></li>
+								<li><a href="#">TOP ARTICLES</a></li>
+								<li><a href="#">INSPIRATION</a></li>
+								<li><a href="#">OFF THE BEATEN PATH</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
+{% block main %}{% endblock %}
+
+</div>
+		<!-- footer of the page -->
+		<footer id="footer">
+			<div class="footer-top">
+				<div class="container">
+					<div class="row five-col">
+						<div class="col">
+							<h3>About</h3>
+							<!-- footer navigation of the page -->
+							<nav class="footer-nav">
+								<ul>
+									<li><a href="#">About MapQuest</a></li>
+									<li><a href="#">Contact us</a></li>
+									<li><a href="#">Advertise</a></li>
+									<li><a href="#">About Our Ads</a></li>
+								</ul>
+							</nav>
+						</div>
+						<div class="col">
+							<h3>Community</h3>
+							<!-- footer navigation of the page -->
+							<nav class="footer-nav">
+								<ul>
+									<li><a href="#">Forums</a></li>
+									<li><a href="#">MapQuest Meta</a></li>
+									<li><a href="#">Community guidelines</a></li>
+								</ul>
+							</nav>
+						</div>
+						<div class="col">
+							<h3>Reviews</h3>
+							<!-- footer navigation of the page -->
+							<nav class="footer-nav">
+								<ul>
+									<li><a href="#">Product reviews</a></li>
+									<li><a href="#">Write a review</a></li>
+								</ul>
+							</nav>
+						</div>
+						<div class="col">
+							<h3>Contribute</h3>
+							<!-- footer navigation of the page -->
+							<nav class="footer-nav">
+								<ul>
+									<li><a href="#">Send us a tip!</a></li>
+									<li><a href="#">Add to our database</a></li>
+									<li><a href="#">Write a review</a></li>
+									<li><a href="#">Start a discussion</a></li>
+									<li><a href="#">Ask a question</a></li>
+								</ul>
+							</nav>
+						</div>
+						<div class="col">
+							<h3>Live events</h3>
+							<!-- footer navigation of the page -->
+							<nav class="footer-nav">
+								<ul>
+									<li><a href="#">MapQuest Expand</a></li>
+									<li><a href="#">MapQuest Live</a></li>
+								</ul>
+							</nav>
+						</div>
+						<div class="col">
+							<h3>Popular topics</h3>
+							<!-- footer navigation of the page -->
+							<nav class="footer-nav">
+								<ul>
+									<li><a href="#">Mobile</a></li>
+									<li><a href="#">HD</a></li>
+									<li><a href="#">Alt</a></li>
+									<li><a href="#">Software</a></li>
+									<li><a href="#">Apple</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="row three-col">
+						<div class="col">
+							<h3>Follow MapQuest</h3>
+							<!-- social networks of the page -->
+							<ul class="social-networks">
+								<li><a href="#" class="facebook">facebook</a></li>
+								<li><a href="#" class="twitter">twitter</a></li>
+								<li><a href="#" class="gplus">gplus</a></li>
+								<li><a href="#" class="youtube">youtube</a></li>
+								<li><a href="#" class="instagram">instagram</a></li>
+								<li><a href="#" class="tumblr">tumblr</a></li>
+								<li><a href="#" class="pinterest">pinterest</a></li>
+								<li><a href="#" class="linkedin">linkedin</a></li>
+							</ul>
+						</div>
+						<div class="col">
+							<h3>MapQuest Apps</h3>
+							<!-- app links of the page -->
+							<ul class="app-links">
+								<li><a href="#" class="android">Android</a></li>
+								<li><a href="#" class="apple">iPhone</a></li>
+								<li><a href="#" class="apple">iPad</a></li>
+							</ul>
+							<span class="link-text">
+								<a href="#" class="link-arrow">More Apps from MapQuest</a>
+							</span>
+						</div>
+						<div class="col">
+							<h3>Subscribe To MapQuest Newsletter</h3>
+							<!-- suscribe form -->
+							<form action="#" class="suscribe-form">
+								<fieldset>
+									<input type="email" class="form-control" placeholder="email address">
+									<input type="submit" class="btn btn-blue" value="Suscribe">
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- include jQuery library -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- include custom JavaScript -->
+	<script src="{{ asset('scripts/jquery.main.js') }}"></script>
+</body>
+</html>
