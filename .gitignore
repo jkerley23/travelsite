@@ -8,4 +8,5 @@ node_modules
 /assets/js/*
 !/assets/js/vendor/
 !/assets/js/other/
+.DS_Store
 
