@@ -3,30 +3,8 @@
 {% block body_class %}index{% endblock %}
 {% block header_class %}alt{% endblock %}
 
-{% block main %}
+{% block body %}
 
-	<!-- main informative part of the page -->
-			<main id="main">
-				<div class="container">
-					<aside class="share-block">
-						<!-- search form of the page -->
-						<form action="#" class="search-form">
-							<fieldset>
-								<input type="search" placeholder="Search">
-								<button type="submit" class="btn-search">Search</button>
-							</fieldset>
-						</form>
-						<ul class="social-networks share">
-							<li><a href="https://www.facebook.com/MapQuest" class="facebook">facebook</a></li>
-							<li><a href="https://twitter.com/share" class="twitter">twitter</a></li>
-							<li><a href="https://plus.google.com/+mapquest/videos" class="gplus">gplus</a></li>
-						</ul>
-					</aside>
-					<!-- main content holder of the page -->
-					<div id="two-columns">
-						<!-- main content of the page -->
-						<div id="content">
-							<!-- featured article section of the page -->
 							<div class="featured-section">
 								<header class="header">
 									<strong class="title">Featured Articles</strong>
@@ -160,9 +138,10 @@
 									</div>
 								</footer>
 							</div>
-						</div>
-						<!-- sidebar of the page -->
-						<aside id="sidebar">
+{% endblock %}
+
+{% block right_rail %}
+
 								<strong class="title"><span>Book Your Travel</span></strong>
 								<div class="tab-holder">
 									<ul class="tabset">
@@ -200,10 +179,5 @@
 								</div>
 							</section>
 							<section class="adbox"><img src="images/ad2.jpg" height="1050" width="300" alt="Devil Ad 300x1050"></section>
-						</aside>
-					</div>
-				</div>
-			</main>
-
 
 {% endblock %}

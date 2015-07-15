@@ -41,7 +41,32 @@
 					</div>
 				</div>
 			</header>
-{% block main %}{% endblock %}
+
+{% block main %}
+
+<!-- main informative part of the page -->
+			<main id="main">
+				<div class="container">
+
+				{% block share_search %}
+					{% include "@blocks/partials/share_search.twig" %}
+				{% endblock %}
+
+					<!-- main content holder of the page -->
+					<div id="two-columns">
+						<!-- main content of the page -->
+						<div id="content">
+							{% block body %}{% endblock %}
+						</div>
+						<!-- sidebar of the page -->
+						<aside id="sidebar">
+							{% block right_rail %}{% endblock %}
+						</aside>
+					</div>
+				</div>
+			</main>
+
+{% endblock %}
 
 </div>
 		<!-- footer of the page -->

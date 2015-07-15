@@ -1,23 +1,9 @@
 home:
   path: /
   view: @blocks/pages/home.twig
-
-permalink:
-  type: post
-  view: @blocks/pages/permalink.twig
-
-feed:
-  path:
-    - /news/
-    - /news/page/{page:\d+}/
-  view: @blocks/pages/feed.twig
   trailing_slash: force
 
-events:
-  path: /events/
-  view: @blocks/pages/calendar.twig
+posts:
+  path: /{slug}
+  view: @blocks/pages/posts.twig
   trailing_slash: force
-
-contact:
-  path: /contact
-  view: @blocks/pages/contact.twig
