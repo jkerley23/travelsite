@@ -1,0 +1,26 @@
+{% extends '@blocks/layouts/main.twig' %}
+{% import "@blocks/macros/slug.twig" as slug %}
+{% import "@blocks/macros/pagination.twig" as pagination %}
+
+{% block body_class %}index{% endblock %}
+{% block header_class %}alt{% endblock %}
+
+{% block body %}
+
+<!-- recent article section of the page -->
+<script>
+(function() {
+  var cx = '013225728778573069482:ng2b0dncab4';
+  var gcse = document.createElement('script');
+  gcse.type = 'text/javascript';
+  gcse.async = true;
+  gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+      '//cse.google.com/cse.js?cx=' + cx;
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(gcse, s);
+})();
+</script>
+<gcse:searchresults-only></gcse:searchresults-only>
+
+{% endblock %}
+

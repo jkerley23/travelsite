@@ -397,7 +397,7 @@ h2 {
 }
 
 .share-block {
-	padding: 1px 0 35px;
+	padding: 1px 0 5px;
 	overflow: hidden;
 }
 
@@ -2223,10 +2223,12 @@ h2 {
 	}
 
 	.search-form {
+		position: relative;
 		float: none;
 		display: inline-block;
 		vertical-align: top;
 		margin: 0 0 10px;
+		top: 100px;
 	}
 
 	#content {
@@ -2301,4 +2303,4 @@ h2 {
 		padding: 0 3%;
 	}
 }
-
+

@@ -1,0 +1,80 @@
+{% extends '@blocks/layouts/main.twig' %}
+{% import "@blocks/macros/prop62.twig" as prop62 %}
+
+
+{% set article_prop62 = prop62.video_presence(post.contents) %}
+
+{% block body_class %}index{% endblock %}
+{% block header_class %}alt{% endblock %}
+
+{% block body %}
+
+<meta property="og:title" content="{{ post.title }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ post.slug }}">
+	{% set image = post.images.featured %}
+		{% if image|length > 0 %}
+<meta property="og:image" content="{{ post.images.featured }}" />
+		{% endif %}
+
+
+{% if post.status == 'published' and post.template_id == 0 %}
+
+<article class="page-article">
+<div class = "featured-image">
+{% if post.images.featured == true %}
+	<img src="{{ post.image_crops.featured }}" height="600" width="1060" alt="{{ post.featured_image_description }}">
+	<figcaption><em><sub>{{ post.featured_image_credit }}</sub></em></figcaption>
+{% else %}
+
+{% endif %}
+</div>
+&nbsp;
+<h1>{{ post.title|raw }}</h1>
+	<aside class="meta">
+		<div class="meta-info">
+			<div class="share-info">
+				<ul class="social-networks">
+					<li><a href="http://www.facebook.com/sharer/sharer.php?m2w" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;" class="facebook">facebook</a></li>
+					<li><a href="https://twitter.com/share?&via=MapQuest" target="_blank" class="twitter">twitter</a></li>
+					<li><a href="https://plus.google.com/share?url=[URL]" target="_blank" class="gplus">gplus</a></li>
+				</ul>
+			</div>
+			<span class="author-info"><a href="/contributor/{{ post.contributor_slug }}" 
+				class="author-avatar"> 
+				{% if post.contributor.metadata.image == true %}
+				<img src="{{ post.contributor.metadata.image_thumbnail }}" height="24" width="24" alt="img description">
+				{% else %}
+				<img src="{{ asset('images/anon.jpg') }}" height="24" width="24" alt="img description">
+				{% endif %} </a>
+		by <a href="/contributor/{{ post.contributor_slug }}">{{ post.byline }}</a> | {{ post.published.date|date('F j, Y') }} </span>
+		</div>
+	</aside>
+	{{ post.contents|raw }}
+</article>
+
+{% set tags = post.tags %}
+
+<div class="article-info">
+
+	{% if tags == true %}
+	<div class="tag-holder">
+		<span>Tags:</span>
+		<!-- tags of the page -->
+		<ul class="tags">
+			{% for tag in tags %}
+		<li><a href="/tag/{{tag}}">{{tag}}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+		{% else %}
+	{% endif %}
+</div>
+{% else %}
+
+{% do res.redirect('/notfound.html', 301) %}
+
+			{% endif %}
+
+{% endblock %}
+

@@ -1,9 +1,61 @@
 home:
-  path: /
+  path: 
+    - /
+    - /page/{page:\d+}
   view: @blocks/pages/home.twig
+  layers: @layers/tracking.yml
   trailing_slash: force
 
 posts:
-  path: /{slug}
-  view: @blocks/pages/posts.twig
+  type: post
+  args:
+    site_ids: [912]
+  view: @blocks/pages/article.twig
+  layers: @layers/tracking.yml
   trailing_slash: force
+
+searches:
+  path: /search/
+  view: @blocks/pages/search.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
+
+tags:
+  path: 
+    - /tag/{tag}
+    - /tag/{tag}/page/{page:\d+}
+  view: @blocks/pages/tag.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
+
+videos:
+  path: 
+    - /video
+    - /video/page/{page:\d+}
+  view: @blocks/pages/video.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
+
+quests:
+  path: 
+    - /quest
+    - /quest/page/{page:\d+}
+  view: @blocks/pages/quest.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
+
+contributors:
+  path: 
+    - /contributor/{slug}
+    - /contributor/{slug}/page/{page:\d+}
+  view: @blocks/pages/contributor.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
+
+ad:
+  path: /_uac/adpage.html
+  view: @blocks/pages/adpage.twig
+
+notfound:
+  path: /notfound.html
+  view: @blocks/notfound.twig

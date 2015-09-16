@@ -1,0 +1,105 @@
+body { margin:0; padding:0; font-family: Helvetica, Arial, sans-serif; }
+a img { border:none; }
+.clear { clear:both; }
+
+.mainWrapper { width:100%; max-width:290px; }
+
+.mainWrapper .rs_searchbox{ float:none; color:black; font-weight:400; padding:0; position:relative; font-size:12px; font-family:Helvetica, Arial, sans-serif; vertical-align:middle; }
+.mainWrapper .rs_searchbox form { clear:both; }
+.mainWrapper .rs_searchbox .rs_searchbox_hide { display:none; }
+
+.mainWrapper .rs_products { margin:0; padding:5px 0 10px; list-style:none; font-size:13px; }
+.mainWrapper .rs_products li { padding:5px 10px; border-right:1px solid black; color:black; cursor: pointer; display:inline-block; text-align:left; font-weight:700; }
+.mainWrapper .rs_products li.first_tab { padding-left:0; }
+.mainWrapper .rs_products li.last_tab { padding-right:0; border-right:none; }
+.mainWrapper .rs_products li.highlight_tab { color:#0099ff; }
+.mainWrapper .rs_products li .rs_product_icon { display:inline-block; vertical-align:middle; height:18px; margin:0 5px 0 0; margin-top:-5px; background-image:url(../images/products.png); background-repeat:no-repeat; }
+.mainWrapper .rs_products li.highlight_tab .rs_product_icon { background-image:url(../images/products_highlight.png); }
+.mainWrapper .rs_products li #iconHotel { width:21px; background-position:-0px -0px; }
+.mainWrapper .rs_products li #iconAir { width:17px; background-position:-22px -0px; }
+.mainWrapper .rs_products li #iconCar { width:19px; background-position:-60px -0px; }
+
+.mainWrapper .rs_searchbox .rs_rooms { display:none; }
+.mainWrapper .rs_searchbox #rs_guests { display:none; }
+.mainWrapper .rs_searchbox .rs_adults_input,
+.mainWrapper .rs_searchbox .rs_child_input { display:none; }
+
+.mainWrapper .rs_searchbox .rs_no_margin { margin-right:0 !important; }
+
+input[type='text']::-ms-clear { display: none; }
+select,
+.mainWrapper .rs_searchbox .rs_autosuggest,
+.mainWrapper .rs_searchbox .rs_from,
+.mainWrapper .rs_searchbox .rs_to,
+.mainWrapper .rs_searchbox .rs_chk_in,
+.mainWrapper .rs_searchbox .rs_chk_out,
+.mainWrapper .rs_searchbox .rs_rooms,
+.mainWrapper .rs_searchbox .rs_time_in,
+.mainWrapper .rs_searchbox .rs_time_out,
+.mainWrapper .rs_searchbox .rooms,
+.mainWrapper .rs_searchbox .rs_select_box{ border:1px solid #bbb; outline:none; font-size:12px; color:#636363; }
+.mainWrapper .rs_searchbox .rs_form_row { margin-bottom:10px; }
+
+.mainWrapper .rs_searchbox .rs_air_form .rs_air_options { position:relative; margin:0 0 5px; font-size:12px; }
+.mainWrapper .rs_searchbox .rs_air_form .rs_air_options input { vertical-align:middle; margin:-2px 3px 0 0; }
+.mainWrapper .rs_searchbox .rs_air_form .rs_air_options label { display:inline; margin-right:10px; }
+.mainWrapper .rs_searchbox .rs_air_form .rs_chk_out_row { margin-right:0; }
+.mainWrapper .rs_searchbox .rs_air_form .air_clear { display:block; }
+.mainWrapper .rs_searchbox .rs_air_form .last_rooms { margin-right:0; }
+
+.mainWrapper .rs_searchbox .rs_car_form .rs_droppff_div { display:none; }
+.mainWrapper .rs_searchbox .rs_car_form .rs_different_row { width:100%; margin:-8px 0 5px; }
+.mainWrapper .rs_searchbox .rs_car_form .rs_form_row label{ font-size: 12px; display:inline; }
+.mainWrapper .rs_searchbox .rs_car_form .rs_second_time { margin-right:2%; }
+
+.mainWrapper .rs_searchbox .rs_autosuggest, .mainWrapper .rs_searchbox .rs_from, .mainWrapper .rs_searchbox .rs_to { box-sizing: content-box; height:18px; width:100%; width:calc(100% - 22px); width:-webkit-calc(100% - 22px); padding:5px 10px; }
+
+.mainWrapper .rs_searchbox .rs_droppff_div, #air_one_way, #air_multi_dest { display: none; }
+
+.mainWrapper .rs_searchbox .rs_date_input_container{ position:relative; cursor:pointer; }
+.mainWrapper .rs_searchbox .rs_date_input_container input{ display:none; }
+.mainWrapper .rs_searchbox .rs_chk_in,
+.mainWrapper .rs_searchbox .rs_chk_out{ cursor:pointer; background-image:url(../images/calendar.gif); background-position:right; background-repeat:no-repeat; height:25px; width:100%; width:calc(100% - 22px); width:-webkit-calc(100% - 22px); padding:5px 10px; }
+
+.mainWrapper .rs_searchbox .rs_mobi_date_container{ width:48%; color:#636363; background-color:white; display:inline-block; *display:inline; zoom:1; border:1px solid #bbb; text-align: center; margin-bottom:12px; }
+.mainWrapper .rs_searchbox .rs_mobi_title{ padding:7px 0; }
+.mainWrapper .rs_searchbox .rs_mobi_chk_day{ font-size:45px; margin:7px 0; }
+.mainWrapper .rs_searchbox .rs_mobi_chk_month{ margin-bottom:7px; }
+.mainWrapper .rs_searchbox .rs_mobi_in{ float:left; }
+.mainWrapper .rs_searchbox .rs_mobi_out{ float:right; }
+
+.mainWrapper .rs_searchbox .rs_autosuggest_row { width:100%; margin-right:2%; }
+.mainWrapper .rs_searchbox .rs_date,
+.mainWrapper .rs_searchbox .rs_people{ display:inline-block; width:49%; margin-right:2%; vertical-align: middle; float:left; }
+.mainWrapper .rs_searchbox .rs_date { display:none; }
+.mainWrapper .rs_searchbox .rs_rooms_row{ display:inline-block; width:49%; margin-right:2%; vertical-align: middle; float:left; }
+.mainWrapper .rs_searchbox .rs_guest_row{ display:inline-block; width:49%; margin-right:0; vertical-align: middle; float:left; }
+
+.mainWrapper .rs_searchbox .rs_select_box,
+.mainWrapper .rs_searchbox .rs_time,  
+.mainWrapper .rs_searchbox .rooms{ width:100%; display:inline-block; height:30px; padding:5px; }
+
+.mainWrapper .rs_searchbox .rs_button_row{ float:none; width:100%; display:block; clear:both; vertical-align: middle; position:relative; text-transform:uppercase; font-size:11px; }
+.mainWrapper .rs_searchbox .rs_search { padding:0; background: #7db239; border:none; outline:none; width:42.5%; height:30px; line-height:30px; float:left; color:white; text-transform:uppercase; font-family:Helvetica, Arial, sans-serif; font-size:14px; font-weight:700; cursor: pointer; text-align:center; -webkit-transition: background-color .35s; -moz-transition: background-color .35s; transition: background-color .35s; }
+.mainWrapper .rs_searchbox .rs_deals { display:block; padding:0; background: #E35B41; border:none; outline:none; width:42.5%; height:30px; line-height:30px; float:right; color:white; text-decoration:none; font-family:Helvetica, Arial, sans-serif; font-size:14px; font-weight:700; cursor: pointer; text-align:center; -webkit-transition: background-color .35s; -moz-transition: background-color .35s; transition: background-color .35s; }
+.mainWrapper .rs_searchbox .rs_or { float:left; width:15%; line-height:30px; text-align:center; }
+.mainWrapper .rs_searchbox .rs_home_searchbox_contain{ padding:10px 0; background:#7db239; background-size:100% auto; }
+
+@media only screen and (min-width:450px){
+	.mainWrapper .rs_searchbox { font-size:14px; }
+
+	.mainWrapper .rs_searchbox .label { display:block; }
+	.mainWrapper .rs_searchbox .rs_mobi_date_container{ display:none; }
+	.mainWrapper .rs_searchbox .rs_mobi{ display:none; }
+	.mainWrapper .rs_searchbox .rs_date_input_container .rs_cal_icon,
+	.mainWrapper .rs_searchbox .rs_date_input_container input{ display:block; }
+
+	.mainWrapper .rs_searchbox .rs_date { display:inline-block; }
+
+	.mainWrapper .rs_searchbox .rs_air_form .last_rooms { margin-right:2%; }
+
+	.mainWrapper .rs_searchbox .rs_car_form .rs_second_time { margin-right:0; }
+
+	.mainWrapper .rs_searchbox .rs_mobile_room_counter{ display:none; }
+	.mainWrapper .rs_searchbox .rs_last_time { margin-right: 0 !important; }
+}

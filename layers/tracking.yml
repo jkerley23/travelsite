@@ -1,0 +1,34 @@
+var site_id: 912
+
+when (req.route == 'home'):
+  var pagename: 'Parachute main'
+  var prop1: 'main'
+  var prop2: 'main'
+
+when (req.route == 'posts'):
+  var pagename: (post.title)
+  var prop1: 'article'
+  var prop65: 'blogger_content'
+
+when (req.route == 'searches'):
+  var prop1: 'search'
+  var prop2: 'search'
+
+when (req.route == 'tags'):
+  var prop1: 'tag'
+  var prop2: 'tag'
+
+when (req.route == 'videos'):
+  var pagename: 'video | category main'
+  var prop1: 'category'
+  var prop2: 'video'
+
+when (req.route == 'quests'):
+  var pagename: 'quest | category main'
+  var prop1: 'category'
+  var prop2: 'quest'
+
+when (req.route == 'contributors'):
+  var prop1: 'writer'
+  var prop2: 'writer'
+

@@ -1,0 +1,53 @@
+{% extends '@blocks/layouts/main.twig' %}
+{% import "@blocks/macros/pagination.twig" as pagination %}
+
+{% block body_class %}index{% endblock %}
+{% block header_class %}alt{% endblock %}
+
+{% set qPosts = api.posts.query({ 
+	site_ids: [912],
+	page: req.params.page|default(1),
+	tags: ['quest'],
+    limit: 10
+}) %}
+
+{% set quests = qPosts.results %}
+{% block body %}
+
+<!-- recent article section of the page -->
+<div class="recent-articles">
+		{% set pagination_vars = {
+		'page': qPosts.page,
+		'next_page_size': qPosts.next_page_size,
+		'pathlink': '/quest',
+		'content_type': 'Quests'
+		}
+	%}
+	<header class="header">
+		{{ pagination.format(pagination_vars)}}
+		<strong class="title">Find Your Quest</strong>
+	</header>
+	<ul class="article-list recent">
+		{% for item in quests %}
+		<li>
+		<div class="image-holder"><a href="{{ item.relative_path }}">
+		  {% if item.image == true %}
+			<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
+		  {% else %}
+			<img src="{{ asset('images/noimage.jpg') }}" height="100" width="150" alt="Parachute from MapQuest">
+		  {% endif %}
+			</a>
+		</div>
+			<div class="details">
+				<h2><a href="{{ item.relative_path }}">{{ item.title|raw }}</a></h2>
+				<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}"> {{ item.byline }} </a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ item.published|date('F j, Y') }}</time> </span></aside>
+			</div>
+		</li>
+		 {% endfor %}
+	</ul>
+	<footer class="footer">
+{{ pagination.format(pagination_vars)}}
+	</footer>
+</div>
+{% endblock %}
+

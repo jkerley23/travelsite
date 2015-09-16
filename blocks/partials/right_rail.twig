@@ -1,0 +1,33 @@
+<script type='text/javascript' src='http://o.aolcdn.com/ads/adsWrapper.js'></script>
+	<script type='text/javascript'>
+	adSetAdURL('/_uac/adpage.html');
+	</script>
+<strong class="title"><span>Book Your Travel</span></strong>
+				{% block reservation %}
+					{% include "@blocks/partials/reservation.twig" %}
+				{% endblock %}
+
+<section class="adbox">						
+	<script type='text/javascript'>
+	<!--
+		htmlAdWH('93478113', 'rr', 'rr', 'f');
+	//--></section>
+	</script>
+</section>
+{# {'food':'Food', 'baseball':'Baseball', 'new-york-city':'New York City', 'city':'City Guides'} #}
+<section class="widget">
+	<strong class="title"><span>Popular Topics</span></strong>
+	<nav class="aside-nav">		
+		<ul>
+			{% set arr = vars.topic_tags|json_decode %}
+			{% for path,name in arr %}
+			<li><a href="/tag/{{path}}">{{name}}</a></li>
+		{% endfor %}
+		</ul>
+	</nav>
+</section>
+
+<div class="fb-page" data-width="300" data-href="https://www.facebook.com/MapQuest" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/MapQuest"><a href="https://www.facebook.com/MapQuest">MapQuest</a></blockquote></div></div>
+
+
+

@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script type='text/javascript' src='http://o.aolcdn.com/ads/adsWrapper.js'></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- include custom JavaScript -->
+	<script src="{{ asset('scripts/jquery.main.js') }}"></script>
+	<script type="text/javascript" src="http://secure.rezserver.com/public/js/searchbox/searchbox.min.js"></script>
+	<script type='text/javascript'>
+	adSetAdURL('/_uac/adpage.html');
+	</script>
 	<!-- set the encoding of your site -->
 	<meta charset="utf-8">
 	<!-- set the viewport width and initial-scale on mobile devices  -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{% block title %}MapquestDiscover{% endblock %}</title>
+	<title>{% block title %}Parachute by MapQuest{% endblock %}</title>
 	<!-- include the site stylesheet -->
 	<link media="all" rel="stylesheet" href="{{ asset('styles/all.css') }}">
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -13,33 +21,100 @@
 		<link type="text/css" rel="stylesheet" href="{{ asset('styles/ie.css') }}">
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<![endif]-->
+	<meta property="og:title" content="Parachute by MapQuest">
+    <meta property="og:type" content="Website">
+    <meta property="og:url" content="parachute.mapquest.com">
+    <meta property="og:image" content="{{ asset('images/parachuteLogo.jpg') }}">
 </head>
 <body>
+	<!-- facebook SDK -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '996077447091790',
+      xfbml      : true,
+      version    : 'v2.4'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<div id="fb-root"></div>
+<script src="https://connect.facebook.net/en_US/all.js"></script>
+<script type="text/javascript">
+    FB.init({
+        appId      : '996077447091790', // App ID
+        status     : true, // check login status
+        cookie     : {{ cookie }}, // enable cookies to allow the server to access the session
+        oauth      : true,
+        xfbml      : true
+    });
+    FB.Canvas.setSize({height:600});
+    setTimeout("FB.Canvas.setAutoGrow()",500);
+    FB.Canvas.scrollTo(0,0);
+</script>
 	<!-- wrapper of the page -->
 	<div id="wrapper">
 		<div class="w1">
 			<!-- header of the page -->
 			<header id="header">
-				<div class="container">
-					<div class="top-adbox"><img src="{{ asset('images/ad1.jpg') }}" height="90" width="726" alt="728x90"></div>
-				</div>
+				<div class="ad-container">
+					<div class="top-adbox">
+						<script type='text/javascript'>
+							<!--
+								htmlAdWH('93478112', 'lb', 'lb', 'f');
+							//-->
+						</script>
+					</div>
+					<div>
+
+	<!-- Google custom search -->						
+	<script> 
+			(function() {
+		var cx = '013225728778573069482:ng2b0dncab4';
+	    var gcse = document.createElement('script');
+	    gcse.type = 'text/javascript';
+	    gcse.async = true;
+	    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+	        '//cse.google.com/cse.js?cx=' + cx;
+	    var s = document.getElementsByTagName('script')[0];
+	    s.parentNode.insertBefore(gcse, s);
+	  })();
+	</script>
+</div>
+</div>
 				<!-- header navbar of the page -->
 				<div class="header-navbar">
 					<div class="container">
 						<!-- logo of the site -->
-						<div class="logo"><a href="#"><img src="{{ asset('images/logo.png') }}" height="59" width="393" alt="Mapquest Discover"></a></div>
+						<div class="logo"><a href="/"><img src="{{ asset('images/parachuteLogo.jpg') }}" height="auto" width="393" alt="Parachute by MapQuest"></a></div>
 						<!-- main navigation of the page -->
+						
 						<nav id="nav">
 							<a href="#" class="opener"><span>Opener</span></a>
 							<ul>
-								<li><a href="#">VIDEOS</a></li>
-								<li><a href="#">EXPERTS</a></li>
-								<li><a href="http://www.mapquest.com/directions">DIRECTIONS</a></li>
-								<li><a href="https://contributor.mapquest.com/registration/">CONTRIBUTE</a></li>
+								<li><a href="/video/">VIDEOS</a></li>
+								<li><a href="/quest/">QUESTS</a></li>
+								<li><a href="http://www.mapquest.com/directions" target="blank">DIRECTIONS</a></li>
+								<li><a href="https://contributor.mapquest.com/registration/" target="blank">CONTRIBUTE</a></li>
 							</ul>
 						</nav>
 					</div>
 				</div>
+				<div class="search-container">
+<form action="/search/" class="search-form">
+<fieldset>
+  <input type="search" name="q" placeholder="Search ... ">
+  <button type="submit" class="btn-search">Search</button>
+</fieldset>
+</form>
+</div>
 			</header>
 
 {% block main %}
@@ -47,10 +122,6 @@
 <!-- main informative part of the page -->
 			<main id="main">
 				<div class="container">
-
-				{% block share_search %}
-					{% include "@blocks/partials/share_search.twig" %}
-				{% endblock %}
 
 					<!-- main content holder of the page -->
 					<div id="two-columns">
@@ -60,7 +131,9 @@
 						</div>
 						<!-- sidebar of the page -->
 						<aside id="sidebar">
-							{% block right_rail %}{% endblock %}
+							{% block right_rail %}
+								{% include "@blocks/partials/right_rail.twig" %}
+							{% endblock %}
 						</aside>
 					</div>
 				</div>
@@ -79,10 +152,10 @@
 							<!-- footer navigation of the page -->
 							<nav class="footer-nav">
 								<ul>
-									<li><a href="http://company.mapquest.com/">About MapQuest</a></li>
-									<li><a href="https://support.mapquest.com/hc/en-us/requests/new">Contact us</a></li>
-									<li><a href="http://advertising.aol.com/brands/mapquest">Advertise</a></li>
-									<li><a href="http://adinfo.aol.com/about-our-ads/">About Our Ads</a></li>
+									<li><a href="http://company.mapquest.com/" target="_blank">About MapQuest</a></li>
+									<li><a href="https://support.mapquest.com/hc/en-us/requests/new" target="_blank">Contact us</a></li>
+									<li><a href="http://advertising.aol.com/brands/mapquest" target="_blank">Advertise</a></li>
+									<li><a href="http://adinfo.aol.com/about-our-ads/" target="_blank">About Our Ads</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -91,10 +164,10 @@
 							<!-- footer navigation of the page -->
 							<nav class="footer-nav">
 								<ul>
-									<li><a href="http://www.mapquest.com/directions">Directions</a></li>
-									<li><a href="http://www.mapquest.com/mlb-gameday-guides/">Key to the City</a></li>
-									<li><a href="https://developer.mapquest.com/">Business Solutions</a></li>
-									<li><a href="http://blog.mapquest.com/">MapQuest Blog</a></li>
+									<li><a href="http://www.mapquest.com/directions" target="_blank">Directions</a></li>
+									<li><a href="http://www.mapquest.com/mlb-gameday-guides/" target="_blank">Key to the City</a></li>
+									<li><a href="https://developer.mapquest.com/" target="_blank">Business Solutions</a></li>
+									<li><a href="http://blog.mapquest.com/" target="_blank">MapQuest Blog</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -103,7 +176,7 @@
 							<!-- footer navigation of the page -->
 							<nav class="footer-nav">
 								<ul>
-									<li><a href="https://contributor.mapquest.com/registration/">Become a MapQuest Contributor</a></li>
+									<li><a href="https://contributor.mapquest.com/registration/" target="_blank">Become a MapQuest Contributor</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -117,24 +190,23 @@
 							<h3>Follow MapQuest</h3>
 							<!-- social networks of the page -->
 							<ul class="social-networks">
-								<li><a href="https://www.facebook.com/MapQuest" class="facebook">facebook</a></li>
-								<li><a href="https://twitter.com/mapquest" class="twitter">twitter</a></li>
-								<li><a href="https://plus.google.com/+mapquest/videos" class="gplus">gplus</a></li>
-								<li><a href="https://www.youtube.com/user/mapquest" class="youtube">youtube</a></li>
-								<li><a href="https://instagram.com/mapquest/" class="instagram">instagram</a></li>
-								<li><a href="https://www.linkedin.com/company/mapquest" class="linkedin">linkedin</a></li>
+								<li><a href="https://www.facebook.com/MapQuest" class="facebook" target="_blank">facebook</a></li>
+								<li><a href="https://twitter.com/mapquest" class="twitter" target="_blank">twitter</a></li>
+								<li><a href="https://plus.google.com/+mapquest/videos" class="gplus" target="_blank">gplus</a></li>
+								<li><a href="https://www.youtube.com/user/mapquest" class="youtube" target="_blank">youtube</a></li>
+								<li><a href="https://instagram.com/mapquest/" class="instagram" target="_blank">instagram</a></li>
+								<li><a href="https://www.linkedin.com/company/mapquest" class="linkedin" target="_blank">linkedin</a></li>
 							</ul>
 						</div>
 						<div class="col">
 							<h3>MapQuest Apps</h3>
 							<!-- app links of the page -->
 							<ul class="app-links">
-								<li><a href="https://play.google.com/store/apps/details?id=com.mapquest.android.ace" class="android">Android</a></li>
-								<li><a href="https://itunes.apple.com/app/mapquest-maps-gps-voice-navigation/id316126557?mt=8" class="apple">iPhone</a></li>
-								<li><a href="https://itunes.apple.com/app/mapquest-maps-gps-voice-navigation/id316126557?mt=8" class="apple">iPad</a></li>
+								<li><a href="https://play.google.com/store/apps/details?id=com.mapquest.android.ace" class="android" target="_blank">Android</a></li>
+								<li><a href="https://itunes.apple.com/app/mapquest-maps-gps-voice-navigation/id316126557?mt=8" class="apple" target="_blank">iPhone</a></li>
 							</ul>
 							<span class="link-text">
-								<a href="http://mobile.mapquest.com/#intro" class="link-arrow">More Apps from MapQuest</a>
+								<a href="http://mobile.mapquest.com/#intro" class="link-arrow" target="_blank">More Apps from MapQuest</a>
 							</span>
 						</div>
 					</div>
@@ -143,8 +215,6 @@
 		</footer>
 	</div>
 	<!-- include jQuery library -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<!-- include custom JavaScript -->
-	<script src="{{ asset('scripts/jquery.main.js') }}"></script>
+{% include "@blocks/partials/tracking.twig" %}
 </body>
 </html>

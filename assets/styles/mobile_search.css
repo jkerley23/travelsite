@@ -1,0 +1,29 @@
+.rs_cal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99999;
+}
+
+.rs_cal .rs_cal_box {
+	display: block;
+	height: 100%;
+}
+
+.rs_cal table {
+	width: 100%;
+	height: 92%;
+}
+
+.rs_cal .rs_calClose td{
+	border-bottom: 0px !important;
+}
+
+@media only screen and (max-height: 400px){
+	.rs_cal table {
+		width: 100%;
+		height: 86%;
+	}
+}
