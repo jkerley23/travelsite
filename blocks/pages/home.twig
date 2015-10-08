@@ -6,16 +6,15 @@
 
 
 {% set featuredPosts = api.posts.query({ 
-	site_ids: [912],
-	zone: 'Featured Articles V 2.0',
+	site_ids: [979],
+	zone: 'Featured Articles',
     limit: 4
 }) %}
 
 {% set rPosts = api.posts.query({ 
-	site_ids: [912],
+	site_ids: [979],
 	page: req.params.page|default(1),
 	status: published,
-	template_ids: [0],
     limit: 10
 }) %}
 

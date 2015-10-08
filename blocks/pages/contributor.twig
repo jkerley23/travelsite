@@ -4,16 +4,15 @@
 {% block body_class %}index{% endblock %}
 {% block header_class %}alt{% endblock %}
 {% set contributor = api.contributors.getBySlug({ 
-	site_id: 912,
+	site_id: 979,
 	slug: req.params.slug
 }) %} 
 
 {% set cPosts = api.posts.query({ 
-	site_ids: [912],
+	site_ids: [979],
 	page: req.params.page|default(1),
 	contributor_slugs: [req.params.slug],
 	status: published,
-	template_ids: [0],
     limit: 10
 }) %}
 
