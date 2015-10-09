@@ -28,7 +28,7 @@ function runOmni()
   {% if vars.prop1 == 'article' %}
   s_265.prop9="bsd:{{ post.id }}";
   s_265.prop22="{{ post.contributor_slug }}";
-  s_265.prop23="{{ post.published.date|date('m-d-y') }}";
+  s_265.prop23="{{ post.published.date|date('m-d-Y') }}";
   s_265.prop65="{{ vars.prop65 }}";
   {% endif %}
   s_265.prop54="blogsmith";
