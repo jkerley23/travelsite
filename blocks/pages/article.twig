@@ -8,7 +8,6 @@
 {% block header_class %}alt{% endblock %}
 
 {% block body %}
-
 <meta property="og:title" content="{{ post.title }}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{ post.slug }}">
@@ -19,10 +18,9 @@
 
 
 {% if post.status == 'published' %}
-
 <article class="page-article">
 <div class = "featured-image">
-{% if post.images.featured == true %}
+{% if post.images.featured == true %} 
 	<img src="{{ post.image_crops.featured }}" height="600" width="1060" alt="{{ post.featured_image_description }}">
 	<figcaption><em><sub>{{ post.featured_image_credit }}</sub></em></figcaption>
 {% else %}
@@ -31,6 +29,7 @@
 </div>
 &nbsp;
 <h1>{{ post.title|raw }}</h1>
+	{{ prettydump(post) }}  
 	<aside class="meta">
 		<div class="meta-info">
 			<div class="share-info">

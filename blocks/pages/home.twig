@@ -28,7 +28,7 @@
 	<div class="featured-section">
 		<header class="header">
 			<strong class="title">Featured Articles</strong>
-		</header> 
+		</header> {{ prettydump(featuredPosts) }}
 		<div class="article-holder">
 			<div class="featured-article">
 				<div class="image-holder"><a href="{{ mainFeature.relative_path }}"><img src="{{ mainFeature.image_crops.mainfeature }}" height="360" width="485" alt="{{ mainFeature.featured_image_credit }}"></a></div>

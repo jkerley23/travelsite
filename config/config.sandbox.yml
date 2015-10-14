@@ -1,2 +1,3 @@
-amp.site_id: 912
+amp.site_id: 979
 amp.qa_db: false
+amp.debug: true
