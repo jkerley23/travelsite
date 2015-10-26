@@ -16,6 +16,7 @@
 
 {% set taggedPosts = tPosts.results %}
 {% block body %} 
+	<title>Articles About {{ tag|capitalize }}</title>
 <!-- recent article section of the page -->
 <div class="recent-articles">
 			{% set pagination_vars = {

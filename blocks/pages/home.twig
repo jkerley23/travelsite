@@ -23,11 +23,11 @@
 {% set recentPosts = rPosts.results %}
 
 {% block body %}
+<title>Parachute by MapQuest</title>
 <meta property="og:title" content="Parachute by MapQuest">
     <meta property="og:type" content="Website">
     <meta property="og:url" content="parachute.mapquest.com">
     <meta property="og:image" content="{{ asset('images/parachuteLogo.jpg') }}">
-    
 {% if rPosts.page == 1 %}
 	<div class="featured-section">
 		<header class="header">
