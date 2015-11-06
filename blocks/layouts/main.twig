@@ -11,15 +11,16 @@
 	</script>
 	<!-- set the encoding of your site -->
 	<meta charset="utf-8">
+	<meta property="og:title" content="{{ post.title}}"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="http://{{ post.url }}"/>
+		{% set image = post.images.featured %}
+			{% if image == true %}
+  	<meta property="og:image" content="{{ post.images.featured }}" />
+			{% endif %}
+	<meta property="og:description" content="{{ post.contents|truncate(250) }}" />
 	<!-- set the viewport width and initial-scale on mobile devices  -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta property="og:title" content="{{ post.title }}">
-<meta property="og:type" content="article">
-<meta property="og:url" content="{{ post.url }}">
-	{% set image = post.images.featured %}
-		{% if image|length > 0 %}
-<meta property="og:image" content="{{ post.images.featured }}" />
-		{% endif %}
 	<!-- include the site stylesheet -->
 	<link media="all" rel="stylesheet" href="{{ asset('styles/all.css') }}">
 	<link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">

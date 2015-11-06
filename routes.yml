@@ -59,3 +59,7 @@ ad:
 notfound:
   path: /notfound.html
   view: @blocks/notfound.twig
+
+rss_feed:
+  path: /rss.xml
+  view: @blocks/feeds/classic-feed.twig
