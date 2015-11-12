@@ -3,6 +3,20 @@
 
 {% block body_class %}index{% endblock %}
 {% block header_class %}alt{% endblock %}
+{% block meta %}
+  <meta name="title" content="Quest Inspiration from Locals - MapQuest" />
+  <meta name="description" content="Find your next bucket-list item, with tips from local insiders." />
+  <meta name="H1" content="Local Events"/>
+  <!-- fb opengraph tags -->
+  <meta property="og:title" content="Quest Inspiration from Locals - MapQuest"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="http://parachute.mapquest.com/quest/"/>
+	{% set image = post.images.featured %}
+		{% if image == true %}
+	 <meta property="og:image" content="{{ post.images.featured }}" />
+		{% endif %}
+ <meta property="og:description" content="Find your next bucket-list item, with tips from local insiders." />
+{% endblock %}
 
 {% set qPosts = api.posts.query({ 
 	site_ids: [979],

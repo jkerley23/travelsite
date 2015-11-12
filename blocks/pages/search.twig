@@ -3,6 +3,20 @@
 
 {% block body_class %}index{% endblock %}
 {% block header_class %}alt{% endblock %}
+{% block meta %}
+  <meta name="title" content="Search Results for {{ req.get.q }} - MapQuest" />
+  <meta name="description" content="Search results from local insiders on {{ req.get.q }}." />
+  <meta name="H1" content="Local Events"/>
+  <!-- fb opengraph tags -->
+  <meta property="og:title" content="Search Results for {{ req.get.q }} - MapQuest"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="http://parachute.mapquest.com/search/?q={{ req.get.q }}/"/>
+	{% set image = post.images.featured %}
+		{% if image == true %}
+	 <meta property="og:image" content="{{ post.images.featured }}" />
+		{% endif %}
+ <meta property="og:description" content="Search results from local insiders on {{ req.get.q }}." />
+{% endblock %}
 
 {% block body %}
 	<title>Parachute Search Results</title>

@@ -6,10 +6,22 @@
 
 {% block body_class %}index{% endblock %}
 {% block header_class %}alt{% endblock %}
-
+{% block meta %}
+  <meta name="title" content="{{ post.title }}" />
+  <meta name="description" content=" {{post.contents|truncate(250)}}"/>
+  <meta name="H1" content="Local Events"/>
+  <!-- fb opengraph tags -->
+  <meta property="og:title" content="{{ post.title}}"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="http://{{ post.url }}"/>
+	{% set image = post.images.featured %}
+		{% if image == true %}
+	 <meta property="og:image" content="{{ post.images.featured }}" />
+		{% endif %}
+ <meta property="og:description" content="{{ post.contents|truncate(250) }}" />
+{% endblock %}
 {% block body %}
 <title>{{ post.title }}</title>
-
 {% if post.status == 'published' %}
 <article class="page-article">
 <div class = "featured-image">

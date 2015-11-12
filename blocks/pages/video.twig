@@ -3,6 +3,20 @@
 
 {% block body_class %}index{% endblock %}
 {% block header_class %}alt{% endblock %}
+{% block meta %}
+  <meta name="title" content="Videos on Parachute - MapQuest" />
+  <meta name="description" content="Videos about local people, places and events." />
+  <meta name="H1" content="Local Events"/>
+  <!-- fb opengraph tags -->
+  <meta property="og:title" content="Videos on Parachute - MapQuest"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="http://parachute.mapquest.com/video/"/>
+	{% set image = post.images.featured %}
+		{% if image == true %}
+	 <meta property="og:image" content="{{ post.images.featured }}" />
+		{% endif %}
+ <meta property="og:description" content="Videos about local people, places and events." />
+{% endblock %}
 
 {% set vPosts = api.posts.query({ 
 	site_ids: [979],

@@ -11,14 +11,22 @@
 	</script>
 	<!-- set the encoding of your site -->
 	<meta charset="utf-8">
-	<meta property="og:title" content="{{ post.title}}"/>
-	<meta property="og:type" content="website"/>
-	<meta property="og:url" content="http://{{ post.url }}"/>
+	<!-- meta tags -->
+	{% block meta %}
+	  <meta name="title" content="Events, Concerts, and Local News in Your Area - MapQuest" />
+	  <meta name="description" content="Insider tips by locals. Find places to eat and drink, things to add to your bucket-list, or catch an emerging band on tour."/>
+	  <meta name="keywords" content="local,travel"/>
+	  <meta name="H1" content="Local Events"/>
+	  <!-- fb opengraph tags -->
+	  <meta property="og:title" content="Events, Concerts, and Local News in Your Area - MapQuest"/>
+	  <meta property="og:type" content="website"/>
+	  <meta property="og:url" content="http://parachute.mapquest.com"/>
 		{% set image = post.images.featured %}
 			{% if image == true %}
-  	<meta property="og:image" content="{{ post.images.featured }}" />
+  	  <meta property="og:image" content="{{ post.images.featured }}" />
 			{% endif %}
-	<meta property="og:description" content="{{ post.contents|truncate(250) }}" />
+	  <meta property="og:description" content="Insider tips by locals. Find places to eat and drink, things to add to your bucket-list, or catch an emerging band on tour." />
+{% endblock %}
 	<!-- set the viewport width and initial-scale on mobile devices  -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- include the site stylesheet -->

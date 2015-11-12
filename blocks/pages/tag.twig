@@ -3,6 +3,20 @@
 
 {% block body_class %}index{% endblock %}
 {% block header_class %}alt{% endblock %}
+{% block meta %}
+  <meta name="title" content="Articles about {{ tag|capitalize }} - MapQuest" />
+  <meta name="description" content="Articles from local insiders about {{ tag|capitalize }}." />
+  <meta name="H1" content="Local Events"/>
+  <!-- fb opengraph tags -->
+  <meta property="og:title" content="Articles about {{ tag|capitalize }} - Parachute by MapQuest"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="http://parachute.mapquest.com/tag/{{ tag }}/"/>
+	{% set image = post.images.featured %}
+		{% if image == true %}
+	 <meta property="og:image" content="{{ post.images.featured }}" />
+		{% endif %}
+ <meta property="og:description" content="Articles from local insiders about {{ tag|capitalize }}." />
+{% endblock %}
 
 {% set tag = req.params.tag|regex_replace('/%20/', ' ') %}
 

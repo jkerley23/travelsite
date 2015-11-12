@@ -3,6 +3,20 @@
 
 {% block body_class %}index{% endblock %}
 {% block header_class %}alt{% endblock %}
+{% block meta %}
+  <meta name="title" content="Articles written by {{ contributor.byline }}" />
+  <meta name="description" content=" Articles published on Parachute written by {{ contributor.byline }} - MapQuest "/>
+  <meta name="H1" content="Local Events"/>
+  <!-- fb opengraph tags -->
+  <meta property="og:title" content="Articles written by {{ contributor.byline }}"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="http://parachute.mapquest.com/contributor/{{ req.params.slug }}/"/>
+	{% set image = post.images.featured %}
+		{% if image == true %}
+	 <meta property="og:image" content="{{ post.images.featured }}" />
+		{% endif %}
+ <meta property="og:description" content="Articles published on Parachute written by {{ contributor.byline }} - MapQuest" />
+{% endblock %}
 {% set contributor = api.contributors.getBySlug({ 
 	site_id: 979,
 	slug: req.params.slug
