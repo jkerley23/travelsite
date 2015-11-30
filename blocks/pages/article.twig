@@ -8,7 +8,7 @@
 {% block header_class %}alt{% endblock %}
 {% block meta %}
   <meta name="title" content="{{ post.title }}" />
-  <meta name="description" content=" {{post.contents|truncate(250)}}"/>
+  <meta name="description" content=" {{post.contents|truncate(250)|striptags}}"/>
   <meta name="H1" content="Local Events"/>
   <!-- fb opengraph tags -->
   <meta property="og:title" content="{{ post.title}}"/>
@@ -18,7 +18,7 @@
 		{% if image == true %}
 	 <meta property="og:image" content="{{ post.images.featured }}" />
 		{% endif %}
- <meta property="og:description" content="{{ post.contents|truncate(250)|raw }}" />
+ <meta property="og:description" content="{{ post.contents|truncate(250)|striptags }}" />
 {% endblock %}
 {% block body %}
 <title>{{ post.title }}</title>
