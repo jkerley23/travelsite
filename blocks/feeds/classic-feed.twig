@@ -1,0 +1,8 @@
+{%- set params = {
+    page: 1,
+	site_ids: [979],
+	status: published,
+    limit: 25
+} -%}
+{%- set posts = api.posts.query(params) -%}
+{%- include "@blocks/feeds/rss-header-footer.twig" with { 'posts': posts.results } -%}

@@ -1,0 +1,35 @@
+{% for post in posts %}
+{% spaceless %}
+	{# Build list of categories and dedup results #}
+	{% set cats = [] %}
+	{% if post.categories is not empty %}
+		{% for cat in post.categories %}
+		{% set cats = cats|merge({(cat.name|lower):[]})%}
+		{% endfor %}
+	{% endif %}
+	{% if post.tags is not empty %}
+		{% for cat in post.tags %}
+			{% set cats = cats|merge({(cat|lower):[]})%}
+		{% endfor %}
+	{% endif %}
+{% endspaceless %}
+<item>
+	<title><![CDATA[{{ post.title|raw }}]]></title>
+	<link>http://{{ post.url }}</link>
+	<guid isPermaLink="false">http://{{ post.url }}</guid>
+	<description>
+	<![CDATA[
+	{{ post.contents|regex_replace('~<script\\ .*?<\\/.*?script>~i','')|regex_replace('~<style\\b[^>]*>(.*?)<\\/style>~s','')|regex_replace('/%/', '')|raw|truncate(250) }}
+	]]>
+	</description>
+	{% if cats is not empty %}
+		{% set cats = cats|keys %}
+		{% for item in cats|sort %}
+		    <category>{{ item }}</category>
+		{% endfor %}
+	{% endif %}
+	<dc:creator><![CDATA[{{ post.contributor.byline }}]]></dc:creator>
+	<pubDate>{{ post.published|date("D, d M Y H:i:s O") }}</pubDate>
+	<dc:identifier>{{ post.site_id }}|{{ post.id }}</dc:identifier>
+</item>
+{% endfor %}

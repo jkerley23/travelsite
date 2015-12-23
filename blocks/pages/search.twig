@@ -11,17 +11,17 @@
   <meta property="og:title" content="Search Results for {{ req.get.q }} - MapQuest"/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="http://parachute.mapquest.com/search/?q={{ req.get.q }}/"/>
-	{% set image = post.images.featured %}
-		{% if image == true %}
-	 <meta property="og:image" content="{{ post.images.featured }}" />
-		{% endif %}
+  {% set image = post.images.featured %}
+    {% if image == true %}
+   <meta property="og:image" content="{{ post.images.featured }}" />
+    {% endif %}
  <meta property="og:description" content="Search results from local insiders on {{ req.get.q }}." />
 {% endblock %}
 
 {% block body %}
-	<title>Parachute Search Results</title>
-
+  <title>Parachute Search Results</title>
 <!-- recent article section of the page -->
+{% autoescape 'js' %}
 <script>
 (function() {
   var cx = '013225728778573069482:ng2b0dncab4';
@@ -35,6 +35,7 @@
 })();
 </script>
 <gcse:searchresults-only></gcse:searchresults-only>
+{% endautoescape %}
 
 {% endblock %}
 

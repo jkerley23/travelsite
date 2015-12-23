@@ -6,6 +6,13 @@ bN_cfg = {
   // The "h" parameter whitelists this hostname for beacon initialization.
   // Note: Can be a string or an array of hostnames. Use "location.hostname" to match URL of current page
   h: location.hostname
+  //amp tracking
+/*  {% if vars.prop1 == 'article' %}
+  p: {
+    'cms_src': 'AMP',
+    'dL_cmsID': 'bsd:{{ post.id }}'
+  }
+  {% endif %}*/
 };
 
 function runOmni()

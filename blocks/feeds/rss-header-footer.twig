@@ -1,0 +1,16 @@
+{% do res.type('text/xml') %}
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+<channel>
+<title>{{ vars.title }}</title>
+<link>http://{{ req.host ~ req.path }}</link>
+<image>
+	<url>http://www.blogcdn.com/parachute.mapquest.com/media/2015/10/pchutelogoamp2.png</url>
+	<title>{{ vars.title }}</title>
+	<link>http://{{ req.host ~ req.path }}</link>
+</image>
+<language>en-us</language>
+<description>{{ vars.description }}</description>
+{% include "@blocks/feeds/rss-item.twig" with { 'posts': posts } %}
+</channel>
+</rss>

@@ -22,7 +22,7 @@
 {% endblock %}
 {% block body %}
 <title>{{ post.title }}</title>
-{% if post.status == 'published' %}
+{% if post.status == 'published' or 'pending' %}
 <article class="page-article">
 <div class = "featured-image">
 {% if post.images.featured == true %} 

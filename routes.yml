@@ -52,6 +52,14 @@ contributors:
   layers: @layers/tracking.yml
   trailing_slash: force
 
+popular:
+  path: 
+    - /popular
+    - /popular/page/{page:\d+}
+  view: @blocks/pages/popular.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
+
 ad:
   path: /_uac/adpage.html
   view: @blocks/pages/adpage.twig
