@@ -1,0 +1,23 @@
+{% spaceless %}
+    {% set result = http('http://api.komentary.aol.com/oauth2/token',{
+        method: 'POST',
+        cache_bypass: 'true',
+        headers: {
+            'Authorization' : 'Basic MDRmMjk0Y2NiYWRjNTM0ZTY1N2U5NTZhNDY5MzU2MmE5MmFiY2VhYzo0OWZmY2E2YS01YzdhLTRhMjQtOWM5Ni1hNzRiNDBmNTA5ZTA=',
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: {
+          'grant_type': 'client_credentials'
+        }
+        })
+    %}
+
+    {% if result.body.access_token %}
+    {
+        "scope": "{{result.body.scope}}",
+        "access_token": "{{result.body.access_token}}",
+        "token_type": "{{result.body.token_type}}",
+        "expires_in": {{result.body.expires_in}}
+    }
+    {% endif %}
+{% endspaceless %}

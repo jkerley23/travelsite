@@ -1,0 +1,37 @@
+{%  set result = http('https://auth.komentary.aol.com/oauth2/token', {
+        method: 'POST',
+        cache_bypass: 'true',
+        headers: {
+            'Authorization' : 'Basic MDRmMjk0Y2NiYWRjNTM0ZTY1N2U5NTZhNDY5MzU2MmE5MmFiY2VhYzo0OWZmY2E2YS01YzdhLTRhMjQtOWM5Ni1hNzRiNDBmNTA5ZTA=',
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: {
+            'grant_type': 'client_credentials'
+        }
+    })
+%}
+
+{% if result.ok and result.body %}
+
+    {%  set setStream = http('http://api.komentary.aol.com/v1/comments/setStreamInfo', {
+            method: 'POST',
+            cache_bypass: 'true',
+            headers: {
+                'Authorization' : 'Bearer ' ~ result.body.access_token
+            },
+            data: {
+                'site_id': {{ config.komentary.site_id }}, 
+                'stream_uid':'post-' ~ req.site.PostID, 
+                'stream_url': req.protocol ~ '//' ~ req.host ~ '/' ~ req.get.date ~ '/' ~ req.get.slug ~ '/'
+            }
+        })
+    %}
+
+    {% if setStream.ok and setStream.body %}
+        {#comment is ready to go#}
+    {% else %}
+        {#stream is not set#}
+    {% endif %}
+{% else %}
+{#token not set#}
+{% endif %}

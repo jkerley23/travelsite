@@ -1,3 +1,21 @@
 amp.site_id: 979
 amp.qa_db: false
 amp.debug: true
+site_name: Parachute by MapQuest
+
+# You should already have all of the below values from Omniture team and also on existing pages.
+omniture:
+
+  # Example: account: aoltestdev,devaolsvc
+  account: <omniture-account> 
+
+  # Example: channel: us.amptesting
+  channel: us.mqpchute
+  # Example: prefix: amp
+  prefix: map
+
+  # This should always be set to true for all external user facing sites, this triggers comscore beacon
+  mmx: true 
+
+  # Example: link_internal_filters: javascript:,aol.com
+  link_internal_filters: javascript:,parachute.mapquest.com
