@@ -9,35 +9,35 @@
     {% set yahoo = (content|regex_match('~https?:\\/\\/screen\\.yahoo\\.com~', 'i')) ? true : false %}
     {% if aol_on or youtube or vimeo or hulu or vevo or yahoo %}
 
-    {% if aol_on %}
-    {% set video_presence_array = video_presence_array|merge(['video_5min_entrybody']) %}
-    {% endif %}
-    {% if youtube %}
-    {% set video_presence_array = video_presence_array|merge(['video_youtube_entrybody']) %}
-    {% endif %}
-    {% if vimeo %}
-    {% set video_presence_array = video_presence_array|merge(['video_vimeo_entrybody']) %}
-    {% endif %}
-    {% if hulu %}
-    {% set video_presence_array = video_presence_array|merge(['video_hulu_entrybody']) %}
-    {% endif %}
-    {% if vevo %}
-    {% set video_presence_array = video_presence_array|merge(['video_vevo_entrybody']) %}
-    {% endif %}
-    {% if yahoo %}
-    {% set video_presence_array = video_presence_array|merge(['video_yahoo_entrybody']) %}
-    {% endif %}
+        {% if aol_on %}
+            {% set video_presence_array = video_presence_array|merge(['video_5min_entrybody']) %}
+        {% endif %}
+        {% if youtube %}
+            {% set video_presence_array = video_presence_array|merge(['video_youtube_entrybody']) %}
+        {% endif %}
+        {% if vimeo %}
+            {% set video_presence_array = video_presence_array|merge(['video_vimeo_entrybody']) %}
+        {% endif %}
+        {% if hulu %}
+            {% set video_presence_array = video_presence_array|merge(['video_hulu_entrybody']) %}
+        {% endif %}
+        {% if vevo %}
+            {% set video_presence_array = video_presence_array|merge(['video_vevo_entrybody']) %}
+        {% endif %}
+        {% if yahoo %}
+            {% set video_presence_array = video_presence_array|merge(['video_yahoo_entrybody']) %}
+        {% endif %}
 
     {% elseif content|regex_match('~(<object(.*)<\/object>)~', 'i') %}
 
-    {% set video_presence_array = video_presence_array|merge(['video_other3rd_entrybody']) %}
+        {% set video_presence_array = video_presence_array|merge(['video_other3rd_entrybody']) %}
 
     {% endif %}
 
     {% if video_presence_array %}
-    {% set video_presence = video_presence_array|join('|') %}
-    {% else %}
-    {% set video_presence = 'video_novideo' %}
+        {% set video_presence = video_presence_array|join('|') %}
+    {% else %}     
+        {% set video_presence = 'video_novideo' %}
     {% endif %}
 
     {{ video_presence }}
