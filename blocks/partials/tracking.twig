@@ -6,10 +6,14 @@
   {% set params = params|merge({page_type: 'post', post: post, video_presence: ''~article_prop62} ) %}
 {% elseif req.route == 'tags' and req.params.tag %}
   {% set params = params|merge({page_type: 'tag', tag: req.params.tag}) %}
-{% elseif req.route == 'videos'  %}
+{% elseif req.route == 'videos' %}
   {% set params = params|merge({page_type: 'category', category: { name: 'video' }}) %}
-{% elseif req.route == 'quests'  %}
+{% elseif req.route == 'quests' %}
   {% set params = params|merge({page_type: 'category', category: { name: 'quest' }}) %}
+{% elseif req.route == 'contributors' %}
+  {% set params = params|merge({page_type: 'writer', page_name: 'writer |' ~contributor.slug,  prop: {'1': 'writer', '2': 'writer'}}) %}
+{% elseif req.route == 'searches' %}
+  {% set params = params|merge({page_type: 'search', page_name: 'search results', omni_custom: {eVar11: 'sTerms:'~req.get.q }}) %}
 {% else  %}
   {% set params = params|merge({page_type: 'custom'}) %}
 {% endif %} 

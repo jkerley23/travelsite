@@ -7,7 +7,7 @@ site_name: Parachute by MapQuest
 omniture:
 
   # Example: account: aoltestdev,devaolsvc
-  account: <omniture-account> 
+  account: aolsvc
 
   # Example: channel: us.amptesting
   channel: us.mqpchute
