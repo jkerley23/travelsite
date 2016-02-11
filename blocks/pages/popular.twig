@@ -19,12 +19,12 @@
 {% endblock %}
 
 {% set popPosts = api.posts.topPosts({ 
-	site_ids: 979,
-    limit: 5,
-    status: published
+	site_ids: [979],
+    page: req.params.page|default(1),
+    status: published,
+    limit: 20
 }) %}
 
-{% set popular = popPosts.results %}
 {% block body %}
 		<title>Popular Articles</title>
 
@@ -43,7 +43,7 @@
 		<a href="/"><strong class="title">Recent Articles</strong></a>
 	</header>
 	<ul class="article-list recent">
-		{% for item in popular %}
+		{% for item in popPosts %}
 		<li>
 			<div class="image-holder"><a href="{{ item.relative_path }}">
 		  {% if item.image == true %}
