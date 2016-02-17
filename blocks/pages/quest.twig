@@ -18,6 +18,12 @@
  <meta property="og:description" content="Find your next bucket-list item, with tips from local insiders." />
 {% endblock %}
 
+{% set featuredPosts = api.posts.query({ 
+	site_ids: [979],
+	zone: 'Featured Quests',
+    limit: 4
+}) %}
+
 {% set qPosts = api.posts.query({ 
 	site_ids: [979],
 	page: req.params.page|default(1),
@@ -25,10 +31,39 @@
     limit: 10
 }) %}
 
+{% set mainFeature = featuredPosts.results[0] %}
+{% set mainFeatureList = featuredPosts.results|slice(1,4) %}
 {% set quests = qPosts.results %}
+
 {% block body %}
 	<title>Find Your Quest</title>
 
+{% if qPosts.page == 1 %}
+	<div class="featured-section">
+		<header class="header">
+			<strong class="title">Featured Quests</strong>
+		</header> 
+		<div class="article-holder">
+			<div class="featured-article">
+				<div class="image-holder"><a href="{{ mainFeature.relative_path }}"><img src="{{ mainFeature.image_crops.mainfeature }}" height="360" width="485" alt="{{ mainFeature.featured_image_credit }}"></a></div>
+				<div class="details">
+					<h1><a href="{{ mainFeature.relative_path }}"><strong>{{ mainFeature.title_facebook|raw }}</strong></a></h1>
+					<aside class="meta"><span class="author">by <a href="/contributor/{{ mainFeature.contributor_slug }}">{{ mainFeature.byline }}</a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ mainFeature.published|date('F j, Y') }}</time> </span></aside>
+				</div>
+			</div>
+			<ul class="article-list">
+			{% for item in mainFeatureList %}	<li>
+					<div class="image-holder"><a href="{{ item.relative_path }}"><img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}"></a></div>
+					<div class="details">
+						<h2><a href="{{ item.relative_path }}">{{ item.title_facebook|raw }}</a></h2>
+						<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}">{{ item.byline }}</a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ item.published|date('F j, Y') }}</time> </span></aside>
+					</div>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+	</div>
+{% endif %}
 <!-- recent article section of the page -->
 <div class="recent-articles">
 		{% set pagination_vars = {
