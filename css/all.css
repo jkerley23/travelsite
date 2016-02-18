@@ -2326,5 +2326,19 @@ h2 {
 		width: 100%;
 		padding: 0 3%;
 	}
+	.recent-articles .header .title {
+	font-size: 13px;
+	line-height: 20px;
+	color: #fff;
+	font-weight: 400;
+	display: inline-block;
+	vertical-align: top;
+	padding: 5px 5px 5px;
+	min-width: 120px;
+	text-align: center;
+	background: #F59701;
+	margin-top: 7px;
+	max-width: 50%;
+	}
 }
 

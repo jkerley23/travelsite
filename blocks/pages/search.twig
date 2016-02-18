@@ -21,9 +21,8 @@
 {% block body %}
   <title>Parachute Search Results</title>
 <!-- recent article section of the page -->
-{% autoescape 'js' %}
 <script>
-(function() {
+(function() 
   var cx = '013225728778573069482:ng2b0dncab4';
   var gcse = document.createElement('script');
   gcse.type = 'text/javascript';
@@ -32,10 +31,9 @@
       '//cse.google.com/cse.js?cx=' + cx;
   var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(gcse, s);
-})();
+)();
 </script>
 <gcse:searchresults-only></gcse:searchresults-only>
-{% endautoescape %}
 
 {% endblock %}
 
