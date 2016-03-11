@@ -54,7 +54,12 @@
 		</div>
 	</aside>
 	{{ post.contents|raw }}
+	{% if post.published.date >= '2016-02-05'%}
+		{{post.contributor.bio|raw}}
+	{% endif %}
 </article>
+
+{{prettydump(post)}}
 
 {% set tags = post.tags %}
 
