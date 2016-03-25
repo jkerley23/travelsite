@@ -54,12 +54,10 @@
 		</div>
 	</aside>
 	{{ post.contents|raw }}
-	{% if post.published.date >= '2016-02-05'%}
+{# 	{% if post.published.date >= '2016-02-05'%}
 		{{post.contributor.bio|raw}}
-	{% endif %}
+	{% endif %} #}
 </article>
-
-{{prettydump(post)}}
 
 {% set tags = post.tags %}
 
