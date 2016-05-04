@@ -1,0 +1,10 @@
+{% set video = api.videos.get({ id: arg }) %}
+
+{% if video and video.status == 'available' %}
+	<div class="inline-video">
+		<div class="vdb_player vdb_{{ config.video.56e9e811e4b0804c04175232 ~  config.video.56e9e80bbbe5bf0de8e25706 }}">
+			<script type="text/javascript"
+					src="//delivery.vidible.tv/jsonp/pid={{ config.video.56e9e811e4b0804c04175232 }}/vid={{ video.aol_video_id }}/{{ config.video.56e9e80bbbe5bf0de8e25706 }}.js"></script>
+		</div>
+	</div>
+{% endif %}

@@ -80,6 +80,11 @@ a:hover {
 	text-decoration: underline;
 }
 
+iframe { 
+	width: 100%; 
+
+}
+
 input,
 textarea,
 select {
@@ -286,16 +291,16 @@ h2 {
 
 .logo {
 	float: left;
-	width: 320px;
 	height: auto;
 	margin: 0 10px 4px 0;
+	padding: 12px 0 10px 10px;
 }
 
 /* main naviagation styles */
 
 #nav {
 	overflow: hidden;
-	padding: 43px 23px 0 5px; /* close button transition */
+	padding: 17px 23px 50px 5px; /* close button transition */
 }
 
 #nav .opener {
@@ -375,7 +380,7 @@ h2 {
 }
 
 #nav li {
-	color: #F59701;
+	color: #17DBFF;
 	float: left;
 	font-weight: 700;
 	font-size: 24px;
@@ -830,7 +835,7 @@ h2 {
 
 .recent-articles .header {
 	overflow: hidden;
-	border-bottom: 2px solid #F59701 ;
+	border-bottom: 2px solid #00bfe6 ;
 	margin-bottom: 20px;
 }
 
@@ -844,7 +849,7 @@ h2 {
 	padding: 5px 5px 4px;
 	min-width: 220px;
 	text-align: center;
-	background: #F59701;
+	background: #00bfe6;
 	margin-top: 7px;
 	max-width: 50%;
 }
@@ -1786,7 +1791,7 @@ h2 {
 	display: block;
 	padding: 7px 6px;
 	color: #000;
-	background: #8cc63f;
+	background: #17DBFF;
 	text-align: center;
 	min-width: 52px;
 }

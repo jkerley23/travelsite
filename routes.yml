@@ -60,6 +60,14 @@ popular:
   layers: @layers/tracking.yml
   trailing_slash: force
 
+nascar:
+  path: 
+    - /nascar
+    - /nascar/page/{page:\d+}
+  view: @blocks/pages/nascar.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
+
 ad:
   path: /_uac/adpage.html
   view: @blocks/pages/adpage.twig
@@ -71,3 +79,11 @@ notfound:
 rss_feed:
   path: /rss.xml
   view: @blocks/feeds/classic-feed.twig
+
+denver_feed:
+  path: /tag/denver/rss.xml
+  view: @blocks/feeds/denver-feed.twig
+
+appboy_manifest:
+  path: /manifest.json
+  view: @blocks/pages/appboy_manifest.twig
