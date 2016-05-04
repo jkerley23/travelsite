@@ -1,13 +1,12 @@
-<script type='text/javascript' src='http://o.aolcdn.com/ads/adsWrapper.js'></script>
-	<script type='text/javascript'>
-	adSetAdURL('/_uac/adpage.html');
-	</script>
+<script type='text/javascript'>
+adSetAdURL('/_uac/adpage.html');
+</script>
 <strong class="title"><span>Book Your Travel</span></strong>
 				{% block reservation %}
 					{% include "@blocks/partials/reservation.twig" %}
 				{% endblock %}
 
-<section class="adbox">						
+<section class="adbox">
 	<script type='text/javascript'>
 	<!--
 		htmlAdWH('93513133', 'rr', 'rr', 'f');
@@ -27,7 +26,7 @@
 </script>
 <section class="widget">
 	<strong class="title"><span>Popular Topics</span></strong>
-	<nav class="aside-nav">		
+	<nav class="aside-nav">
 		<ul>
 			{% set arr = vars.topic_tags|json_decode %}
 			{% for path,name in arr %}

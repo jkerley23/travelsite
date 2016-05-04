@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" type="text/css" href="{{ asset('styles/rs_searchbox.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('styles/rs_calendar_style.css') }}">
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
 <script>
 var searchbox_options = {
@@ -16,7 +16,7 @@ var searchbox_options = {
 			chk_in:".rs_chk_in, .rs_chk_in_calendar, .rs_date_chk_in",
 			chk_out:".rs_chk_out, .rs_chk_out_calendar, .rs_date_chk_out",
 			chk_in_display:".rs_date_chk_in",
-			chk_out_display:".rs_date_chk_out"	
+			chk_out_display:".rs_date_chk_out"
 		},
 		calendar:{
 			output_format:"<div class='rs_mobi_chk_day'>[d]</div><div class='rs_mobi_chk_month'>[F]</div>"
@@ -31,43 +31,43 @@ var searchbox_options = {
 			chk_in:".rs_chk_in, .rs_chk_in_calendar, .rs_date_chk_in",
 			chk_out:".rs_chk_out, .rs_chk_out_calendar, .rs_date_chk_out",
 			chk_in_display:".rs_date_chk_in",
-			chk_out_display:".rs_date_chk_out",				
+			chk_out_display:".rs_date_chk_out",
 			search:".rs_search"
 		},
 		calendar:{
 			output_format:"<div class='rs_mobi_chk_day'>[d]</div><div class='rs_mobi_chk_month'>[F]</div>"
 		},
-		select_name:true		
+		select_name:true
 	},
 	air: {
 		elements: {
 			adults : '.rs_adults_input',
-			children : '.rs_child_input',			
+			children : '.rs_child_input',
 			chk_in: '.rs_chk_in, .rs_mobi_in',
 			chk_out: '.rs_chk_out, .rs_mobi_out',
 			chk_in_display: '.rs_mobiin',
 			chk_in1_display: '.rs_mobi1',
 			chk_out_display: '.rs_mobiout',
-			search:".rs_search"	
+			search:".rs_search"
 		},
 		calendar: {
 			output_format: '<div class="rs_mobi_chk_day">[d]</div><div class="rs_mobi_chk_month">[F]</div>'
 		}
 	},
 	vp:{
-		enabled:false	
+		enabled:false
 	}
 };
 
 $(document).ready(function() {
 	$('#rs_mq_multi').searchbox(searchbox_options);
-	
+
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		$("<link/>", {
 		   rel: "stylesheet",
 		   type: "text/css",
 		   href: "css/mobile_search.css"
-		}).appendTo("head");	
+		}).appendTo("head");
 	}
 
 	$('#different_return').click(function(){
@@ -88,17 +88,17 @@ $(document).ready(function() {
 	$('.multi-city').click(function(){
 		window.open("http://secure.rezserver.com/flights/?refid=5101&search_type=multi")
 		return false;
-	});	
+	});
 	var $icons = $('.rs_tabs');
     	$icons.click(function(){
        $icons.removeClass('highlight_tab');
        $(this).addClass('highlight_tab');
     });
 });
- 
+
 </script>
 
-<!--[if lte IE 8]>	
+<!--[if lte IE 8]>
 	<style type="text/css">
 		.mainWrapper { width:290px; }
 
@@ -128,7 +128,7 @@ $(document).ready(function() {
 </head>
 <body>
 
-<div class="mainWrapper">	
+<div class="mainWrapper">
 	<ul class="rs_products">
 		<li class="rs_tabs highlight_tab first_tab" id="rs_hotel_tab" data-tab="rs_hotel_form"><div class="rs_product_icon" id="iconHotel"></div>Hotels</li>
 		<li class="rs_tabs" id="rs_car_tab" data-tab="rs_car_form"><div class="rs_product_icon" id="iconCar"></div>Cars</li>
@@ -182,7 +182,7 @@ $(document).ready(function() {
 				<button type="submit" class="rs_search" data-rs_ga_track='["click",["Searchbox - home page", "Submit"]]' title='Search'>Search</button>
 				<div class="rs_or">or</div>
 				<a href="http://secure.rezserver.com/home/?refid=5101" target="_blank" class="rs_deals">Start Over</a>
-			</div>	
+			</div>
 			<div class='clear'></div>
 			<input type="hidden" name="refclickid" value="pchutewidget">
 		</form>
@@ -214,13 +214,13 @@ $(document).ready(function() {
 					</div>
 				</div>
 				<div class='clear'></div>
-			</div>				
+			</div>
 
 			<div class="rs_form_row rs_date rs_chk_in_row rs_no_border">
 				<div class='rs_date_input_container'>
 					<input name="rs_pu_date" class="rs_chk_in rs_border_radius" value="Pick Up">
 				</div>
-			</div>	
+			</div>
 			<div class="rs_form_row rs_rooms_row rs_second_time">
 				<select name="rs_pu_time" class="rs_time_in rs_time"></select>
 			</div>
@@ -243,7 +243,7 @@ $(document).ready(function() {
 			<div class="clear"></div>
 			<input type="hidden" name="refclickid" value="pchutewidget">
 		</form>
-		<form name="air" class="air rs_air_form rs_searchbox_hide" target="_blank">	
+		<form name="air" class="air rs_air_form rs_searchbox_hide" target="_blank">
 			<div class="rs_air_options">
 				<input type="radio" class="round-trip" name="air-radio" id="round-trip" checked><label for="round-trip">Round Trip</label>
 				<input type="radio" class="one-way" name="air-radio" id="one-way"><label for="one-way">One way</label>
@@ -275,27 +275,27 @@ $(document).ready(function() {
 					<div class='clear'></div>
 
 					<div class='clear'></div>
-				</div>	
-				
+				</div>
+
 				<div class="rs_form_row rs_date rs_chk_in_row rs_no_border">
 					<div class='rs_date_input_container'>
 						<input name="rs_chk_in" class="rs_chk_in rs_border_radius" value="Depart">
 					</div>
-				</div>	
+				</div>
 
-				
+
 				<div class="rs_form_row rs_date rs_chk_out_row">
 					<div class='rs_date_input_container'>
 						<input name="rs_chk_out" class="rs_chk_out" value="Return">
 					</div>
 				</div>
-				<select name="rs_adults" class="rs_adults_input pax"></select>				
+				<select name="rs_adults" class="rs_adults_input pax"></select>
 				<select name="rs_children" class="rs_child_input pax"></select>
 				<select name="rs_cabin" class="rs_child_input pax">
 					<option value=''>Economy/Coach</option>
 					<option value='Business'>Business</option>
 					<option value='First'>First</option>
-				</select>					
+				</select>
 	            <input type="hidden" name="refclickid" id="air_refclickid">
 				<div class="rs_button_row">
 					<button type="submit" class="rs_search">Search</button>
@@ -305,12 +305,12 @@ $(document).ready(function() {
 				<div class="clear"></div>
 			</div>
 			<div id="air_one_way">
-				<div class="rs_form_row rs_origin_row">				
+				<div class="rs_form_row rs_origin_row">
 					<input name="rs_o_city1" class="from autosuggest rs_from" value='Enter a City or Airport' onclick='$(this).val("");' autocomplete="off">
 				</div>
 				<div class="rs_form_row rs_destination_row">
 					<input name="rs_d_city1" class="to autosuggest rs_to" value='Enter a City or Airport' onclick='$(this).val("");' autocomplete="off">
-				</div>	
+				</div>
 				<div class='rs_mobi'>
 					<div class='rs_mobi_date_container rs_mobi_in'>
 						<div class='rs_mobi_title'>Depart</div>
@@ -322,7 +322,7 @@ $(document).ready(function() {
 					<div class='clear'></div>
 
 
-				</div>	
+				</div>
 				<div class="rs_form_row rs_date rs_chk_in_row rs_no_border">
 					<div class='rs_date_input_container'>
 						<input name="rs_chk_in1" class="rs_chk_in rs_border_radius" value="Depart">
@@ -330,15 +330,15 @@ $(document).ready(function() {
 				</div>
 				<div class="clear air_clear"></div>
 				<select name="rs_adults" class="rs_adults_input pax">
-				</select>			
+				</select>
 				<select name="rs_children" class="rs_child_input pax">
 				</select>
 				<select name="rs_cabin" class="rs_child_input pax">
 					<option value=''>Economy/Coach</option>
 					<option value='Business'>Business</option>
 					<option value='First'>First</option>
-				</select>		
-	            <input type="hidden" name="refclickid" id="air_oneway_refclickid">		
+				</select>
+	            <input type="hidden" name="refclickid" id="air_oneway_refclickid">
 				<div class="rs_button_row">
 					<button type="submit" class="rs_search">Search</button>
 					<div class="rs_or">or</div>
