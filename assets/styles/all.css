@@ -2236,7 +2236,7 @@ h2 {
 		padding: 5px 5px 5px;
 		min-width: 180px;
 		text-align: center;
-		background: #F59701;
+		background: #00bfe6;
 		margin-top: 7px;
 		max-width: 50%;
 }
@@ -2368,6 +2368,7 @@ h2 {
 
 	.logo {
 		width: 240px;
+		padding-top: 25px;
 	}
 
 	.article-list.recent li .image-holder {
@@ -2466,9 +2467,9 @@ h2 {
 		display: inline-block;
 		vertical-align: top;
 		padding: 5px 5px 5px;
-		min-width: 120px;
+		min-width: 100px;
 		text-align: center;
-		background: #F59701;
+		background: #00bfe6;
 		margin-top: 7px;
 		max-width: 50%;
 	}
