@@ -5,13 +5,13 @@
 {% block header_class %}alt{% endblock %}
 
 
-{% set featuredPosts = api.posts.query({ 
+{% set featuredPosts = api.posts.query({
 	site_ids: [979],
 	zone: 'Featured Articles',
     limit: 4
 }) %}
 
-{% set rPosts = api.posts.query({ 
+{% set rPosts = api.posts.query({
 	site_ids: [979],
 	page: req.params.page|default(1),
 	status: published,
@@ -27,7 +27,7 @@
 	<div class="featured-section">
 		<header class="header">
 			<strong class="title">Featured Articles</strong>
-		</header> 
+		</header>
 		<div class="article-holder">
 			<div class="featured-article">
 				<div class="image-holder"><a href="{{ mainFeature.relative_path }}"><img src="{{ mainFeature.image_crops.mainfeature }}" height="360" width="485" alt="{{ mainFeature.featured_image_credit }}"></a></div>
@@ -54,15 +54,14 @@
 		{% set pagination_vars = {
 			'page': rPosts.page,
 			'next_page_size': rPosts.next_page_size,
-			'pathlink': '' 
+			'pathlink': ''
 			}
 		%}
 		<header class="header">
-			<script src="https://pv.webbyawards.com/cloud/sitebug.js" data-id="1226" data-display-rank="false" data-pos="top-left" id="webby-pv-bug"></script>
 			{{ pagination.format(pagination_vars)}}
 			<strong class="title">Recent Articles</strong>
  			<a href="/popular"><strong class="title" style="background-color:#515657">Popular Articles</strong></a>
-		</header> 
+		</header>
 		<ul class="article-list recent">
 			{% for item in recentPosts %}
 			<li>

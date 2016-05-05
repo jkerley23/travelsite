@@ -1,6 +1,6 @@
-{# {%- if req.secure == true -%}
-    {%- do res.redirect('http://'~req.host~req.path~(req.query ? '?' ~ req.query : ''), 301) -%}
-{%- endif -%} #}
+{%- if req.secure != true -%}
+    {%- do res.redirect('https://'~req.host~req.path~(req.query ? '?' ~ req.query : ''), 301) -%}
+{%- endif -%}
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +34,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- include the site stylesheet -->
 	<link media="all" rel="stylesheet" href="{{ asset('styles/all.css') }}">
-	<link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+	<link rel="icon" href="{{ asset('images/favicon2.ico') }}" type="image/x-icon">
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 		<link type="text/css" rel="stylesheet" href="{{ asset('styles/ie.css') }}">
@@ -139,7 +139,7 @@
 							<ul>
 								<li><a href="/video/">VIDEOS</a></li>
 								<li><a href="/quest/">QUESTS</a></li>
-								<li><a href="http://www.mapquest.com/directions" target="blank">DIRECTIONS</a></li>
+								<li><a href="https://www.mapquest.com/directions" target="blank">DIRECTIONS</a></li>
 								<li><a href="https://contributor.mapquest.com/registration/" target="blank">CONTRIBUTE</a></li>
 							</ul>
 						</nav>
@@ -205,7 +205,7 @@
 									<li><a href="https://www.mapquest.com/directions" target="_blank">Driving Directions</a></li>
 									<li><a href="https://www.mapquest.com/search" target="_blank">Find Place or Address</a></li>
 									<li><a href="https://developer.mapquest.com/" target="_blank">Business Solutions</a></li>
-									<li><a href="http://blog.mapquest.com/" target="_blank">MapQuest Blog</a></li>
+									<li><a href="https://bookings.mapquest.com/refclickid=&refclickid=pchutefooter&refid=5101" target="_blank">Book Travel</a></li>
 								</ul>
 							</nav>
 						</div>
