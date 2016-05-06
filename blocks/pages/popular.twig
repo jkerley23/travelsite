@@ -18,7 +18,7 @@
  <meta property="og:description" content="Popular articles about travel, local people, places and events." />
 {% endblock %}
 
-{% set popPosts = api.posts.topPosts({ 
+{% set popPosts = api.posts.topPosts({
 	site_ids: [979],
     page: req.params.page|default(1),
     status: published,
@@ -29,7 +29,7 @@
 		<title>Popular Articles</title>
 
 <!-- recent article section of the page -->
-<div class="recent-articles">			
+<div class="recent-articles">
 			{% set pagination_vars = {
 			'page': popPosts.page,
 			'next_page_size': popPosts.next_page_size,
@@ -49,7 +49,7 @@
 		  {% if item.image == true %}
 			<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
 		  {% else %}
-			<img src="{{ asset('images/noimage.jpg') }}" height="100" width="150" alt="Parachute from MapQuest">
+			<img src="{{ asset('images/noimage2.png') }}" height="100" width="150" alt="Parachute from MapQuest">
 		  {% endif %}
 			</a>
 		</div>

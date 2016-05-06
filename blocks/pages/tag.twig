@@ -20,7 +20,7 @@
 
 {% set tag = req.params.tag|regex_replace('/%20/', ' ') %}
 
-{% set tPosts = api.posts.query({ 
+{% set tPosts = api.posts.query({
 	site_ids: [979],
 	page: req.params.page|default(1),
 	tags: [tag],
@@ -29,7 +29,7 @@
 }) %}
 
 {% set taggedPosts = tPosts.results %}
-{% block body %} 
+{% block body %}
 	<title>Articles About {{ tag|capitalize }}</title>
 <!-- recent article section of the page -->
 <div class="recent-articles">
@@ -50,7 +50,7 @@
 			 {% if item.image == true %}
 				<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
 			 {% else %}
-				<img src="{{ asset('images/noimage.jpg') }}" height="100" width="150" alt="Parachute from MapQuest">
+				<img src="{{ asset('images/noimage2.png') }}" height="100" width="150" alt="Parachute from MapQuest">
 			 {% endif %}
 				</a>
 			</div>

@@ -18,13 +18,13 @@
  <meta property="og:description" content="Videos about local people, places and events." />
 {% endblock %}
 
-{% set featuredPosts = api.posts.query({ 
+{% set featuredPosts = api.posts.query({
 	site_ids: [979],
 	zone: 'Featured Videos',
     limit: 4
 }) %}
 
-{% set vPosts = api.posts.query({ 
+{% set vPosts = api.posts.query({
 	site_ids: [979],
 	page: req.params.page|default(1),
 	tags: ['video'],
@@ -42,7 +42,7 @@
 	<div class="featured-section">
 		<header class="header">
 			<strong class="title">Featured Videos</strong>
-		</header> 
+		</header>
 		<div class="article-holder">
 			<div class="featured-article">
 				<div class="image-holder"><a href="{{ mainFeature.relative_path }}"><img src="{{ mainFeature.image_crops.mainfeature }}" height="360" width="485" alt="{{ mainFeature.featured_image_credit }}"></a></div>
@@ -66,7 +66,7 @@
 {% endif %}
 
 <!-- recent article section of the page -->
-<div class="recent-articles">			
+<div class="recent-articles">
 			{% set pagination_vars = {
 			'page': vPosts.page,
 			'next_page_size': vPosts.next_page_size,
@@ -85,7 +85,7 @@
 		  {% if item.image == true %}
 			<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
 		  {% else %}
-			<img src="{{ asset('images/noimage.jpg') }}" height="100" width="150" alt="Parachute from MapQuest">
+			<img src="{{ asset('images/noimage2.png') }}" height="100" width="150" alt="Parachute from MapQuest">
 		  {% endif %}
 			</a>
 		</div>

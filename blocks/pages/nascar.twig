@@ -18,13 +18,13 @@
  <meta property="og:description" content="Find your next bucket-list item, with tips from local insiders." />
 {% endblock %}
 
-{% set featuredPosts = api.posts.query({ 
+{% set featuredPosts = api.posts.query({
 	site_ids: [979],
 	zone: 'Featured NASCAR',
     limit: 4
 }) %}
 
-{% set nPosts = api.posts.query({ 
+{% set nPosts = api.posts.query({
 	site_ids: [979],
 	page: req.params.page|default(1),
 	tags: ['nascar'],
@@ -42,7 +42,7 @@
 	<div class="featured-section">
 		<header class="header">
 			<strong class="title">NASCAR Articles</strong>
-		</header> 
+		</header>
 		<div class="article-holder">
 			<div class="featured-article">
 				<div class="image-holder"><a href="{{ mainFeature.relative_path }}"><img src="{{ mainFeature.image_crops.mainfeature }}" height="360" width="485" alt="{{ mainFeature.featured_image_credit }}"></a></div>
@@ -89,7 +89,7 @@
 		  {% if item.image == true %}
 			<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
 		  {% else %}
-			<img src="{{ asset('images/noimage.jpg') }}" height="100" width="150" alt="Parachute from MapQuest">
+			<img src="{{ asset('images/noimage2.png') }}" height="100" width="150" alt="Parachute from MapQuest">
 		  {% endif %}
 			</a>
 		</div>

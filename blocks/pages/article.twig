@@ -26,7 +26,7 @@
 {% if post.status == 'published' or 'pending' %}
 <article class="page-article">
 <div class = "featured-image">
-{% if post.images.featured == true %} 
+{% if post.images.featured == true %}
 	<img src="{{ post.image_crops.featured }}" height="600" width="1060" alt="{{ post.featured_image_description }}">
 	<figcaption><em><sub>{{ post.featured_image_credit }}</sub></em></figcaption>
 {% else %}
@@ -41,11 +41,11 @@
 				<ul class="social-networks">
 					<li><a href="http://www.facebook.com/sharer/sharer.php?m2w" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;" class="facebook">facebook</a></li>
 					<li><a href="https://twitter.com/intent/tweet?text={{post.title}} {{post.url}}&via=MQchute" target="_blank" class="twitter">twitter</a></li>
-					<li><a href="https://plus.google.com/share?url=[URL]" target="_blank" class="gplus">gplus</a></li>
+					<li><a href="https://plus.google.com/share?url={{post.url}}" target="_blank" class="gplus">gplus</a></li>
 				</ul>
 			</div>
-			<span class="author-info"><a href="/contributor/{{ post.contributor_slug }}" 
-				class="author-avatar"> 
+			<span class="author-info"><a href="/contributor/{{ post.contributor_slug }}"
+				class="author-avatar">
 				{% if post.contributor.metadata.image == true %}
 				<img src="{{ post.contributor.metadata.image_thumbnail }}" height="24" width="24" alt="img description">
 				{% else %}

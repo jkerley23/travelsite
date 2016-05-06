@@ -17,12 +17,12 @@
 		{% endif %}
  <meta property="og:description" content="Articles published on Parachute written by {{ contributor.byline }} - MapQuest" />
 {% endblock %}
-{% set contributor = api.contributors.getBySlug({ 
+{% set contributor = api.contributors.getBySlug({
 	site_id: 979,
 	slug: req.params.slug
-}) %} 
+}) %}
 
-{% set cPosts = api.posts.query({ 
+{% set cPosts = api.posts.query({
 	site_ids: [979],
 	page: req.params.page|default(1),
 	contributor_slugs: [req.params.slug],
@@ -31,15 +31,15 @@
 }) %}
 
 {% set contributorPosts = cPosts.results %}
-{% block body %} 
+{% block body %}
 <title>Articles by {{ contributor.byline }}</title>
 
 <!-- recent article section of the page -->
-<div class="recent-articles">			
+<div class="recent-articles">
 		{% set pagination_vars = {
 			'page': cPosts.page,
 			'next_page_size': cPosts.next_page_size,
-			'pathlink': '/contributor/'~req.params.slug 
+			'pathlink': '/contributor/'~req.params.slug
 			}
 		%}
 	<header class="header">
@@ -53,7 +53,7 @@
 			 {% if item.image == true %}
 				<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
 			 {% else %}
-				<img src="{{ asset('images/noimage.jpg') }}" height="100" width="150" alt="Parachute from MapQuest">
+				<img src="{{ asset('images/noimage2.png') }}" height="100" width="150" alt="Parachute from MapQuest">
 				{% endif %}
 			</a>
 		</div>
