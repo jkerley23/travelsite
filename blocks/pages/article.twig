@@ -1,7 +1,6 @@
 {% extends '@blocks/layouts/main.twig' %}
 {% import "@blocks/macros/prop62.twig" as prop62 %}
 
-
 {% set article_prop62 = prop62.video_presence(post.contents) %}
 {% set video = api.videos.get({ id: 1043 }) %}
 
@@ -65,10 +64,10 @@
 		</div>
 	</div>
 {% endif %}
-	{% if post.published.date >= '2016-05-03'%}
+	{# {% if post.published.date >= '2016-05-03'%}
 		<em>{{post.contributor.bio|raw}}</em>
 		<p>
-	{% endif %}
+	{% endif %} #}
 {% set tags = post.tags %}
 
 <div class="article-info">

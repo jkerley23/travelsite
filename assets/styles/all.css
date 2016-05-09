@@ -293,6 +293,25 @@ h2 {
 
 /* main naviagation styles */
 
+.button {
+    background-color: #364248; /* Green */
+    border: none;
+    border-radius: .5em;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font: 16px Helvetica,Arial,sans-serif;
+}
+
+.button:hover {
+	opacity: 9;
+	filter: alpha(opacity=900);
+	zoom: 1;
+}
+
+
 #nav {
 	overflow: hidden;
 	padding: 17px 23px 50px 5px; /* close button transition */
