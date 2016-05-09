@@ -1,5 +1,5 @@
 home:
-  path: 
+  path:
     - /
     - /page/{page:\d+}
   view: @blocks/pages/home.twig
@@ -21,7 +21,7 @@ searches:
   trailing_slash: force
 
 tags:
-  path: 
+  path:
     - /tag/{tag}
     - /tag/{tag}/page/{page:\d+}
   view: @blocks/pages/tag.twig
@@ -29,7 +29,7 @@ tags:
   trailing_slash: force
 
 videos:
-  path: 
+  path:
     - /video
     - /video/page/{page:\d+}
   view: @blocks/pages/video.twig
@@ -37,7 +37,7 @@ videos:
   trailing_slash: force
 
 quests:
-  path: 
+  path:
     - /quest
     - /quest/page/{page:\d+}
   view: @blocks/pages/quest.twig
@@ -45,7 +45,7 @@ quests:
   trailing_slash: force
 
 contributors:
-  path: 
+  path:
     - /contributor/{slug}
     - /contributor/{slug}/page/{page:\d+}
   view: @blocks/pages/contributor.twig
@@ -53,7 +53,7 @@ contributors:
   trailing_slash: force
 
 popular:
-  path: 
+  path:
     - /popular
     - /popular/page/{page:\d+}
   view: @blocks/pages/popular.twig
@@ -61,7 +61,7 @@ popular:
   trailing_slash: force
 
 nascar:
-  path: 
+  path:
     - /nascar
     - /nascar/page/{page:\d+}
   view: @blocks/pages/nascar.twig
@@ -87,3 +87,7 @@ denver_feed:
 appboy_manifest:
   path: /manifest.json
   view: @blocks/pages/appboy_manifest.twig
+
+appboy_service_worker:
+  path: /service-worker.js
+  view: @blocks/pages/appboy_service_worker.twig

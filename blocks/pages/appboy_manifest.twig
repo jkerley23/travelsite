@@ -1,6 +1,6 @@
-{%- do res.type('text/json') -%}
 {%- set manifest = {
-  "gcm_sender_id": "606769297233"
-} 
--%}  
-{{manifest|json_encode}}
+  'gcm_sender_id': '606769297233'
+}
+-%}
+{%- do res.type('application/json') -%}
+{{manifest|json_encode|raw}}
