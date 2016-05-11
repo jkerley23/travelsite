@@ -15,7 +15,7 @@
 		{% if image == true %}
 	 <meta property="og:image" content="{{ post.images.featured }}" />
 		{% endif %}
- <meta property="og:description" content="Find your next bucket-list item, with tips from local insiders." />
+ <meta property="og:description" content="Here's why you should try visiting a NASCAR track, with insider tips from locals." />
 {% endblock %}
 
 {% set featuredPosts = api.posts.query({
@@ -65,11 +65,6 @@
 	</div>
 {% endif %}
 <!-- recent article section of the page -->
-<!-- TAG START { player: "AOL Skin5 default player", owner: "Parachute", for: "Parachute" } -->
-<div id="56e9e811e4b0804c04175232" class="vdb_player vdb_56e9e811e4b0804c0417523256e9e80bbbe5bf0de8e25706">
-    <script type="text/javascript" src="//delivery.vidible.tv/jsonp/pid=56e9e811e4b0804c04175232/vid=570e64f4e4b0f608c3cabc11/56e9e80bbbe5bf0de8e25706.js"></script>
-</div>
-<!-- TAG END { date: 04/13/16 } -->
 <div class="recent-articles">
 		{% set pagination_vars = {
 		'page': nPosts.page,
