@@ -25,7 +25,8 @@
 	page: req.params.page|default(1),
 	tags: [tag],
 	status: published,
-    limit: 15
+    limit: 15,
+    tags_exclude: ['xMQx']
 }) %}
 
 {% set taggedPosts = tPosts.results %}

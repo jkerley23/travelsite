@@ -2,7 +2,10 @@
 {% import "@blocks/macros/prop62.twig" as prop62 %}
 
 {% set article_prop62 = prop62.video_presence(post.contents) %}
-{% set video = api.videos.get({ id: 1043 }) %}
+{# {% set video = api.videos.get({ id: 1043 }) %} #}
+{% if tags == ['xMQx'] %}
+	{% do res.redirect('/', 301) %}
+			{% endif %}
 
 {% block body_class %}index{% endblock %}
 {% block header_class %}alt{% endblock %}
@@ -26,7 +29,7 @@
 <article class="page-article">
 <div class = "featured-image">
 {% if post.images.featured == true %}
-	<img src="{{ post.image_crops.featured }}" height="600" width="1060" alt="{{ post.featured_image_description }}">
+	<img src="{{ post.image_crops.featured }}" height="600" width="1060" alt="{{ post.featured_image_description }}" onload="appboy.registerAppboyPushMessages()">
 	<figcaption><em><sub>{{ post.featured_image_credit }}</sub></em></figcaption>
 {% else %}
 
@@ -73,6 +76,7 @@
 <div class="article-info">
 
 	{% if tags == true %}
+		&nbsp;
 	<div class="tag-holder">
 		<span>Tags:</span>
 		<!-- tags of the page -->
@@ -89,9 +93,7 @@
 
 <div class="fb-comments" data-href="http://{{ post.url }}" data-width="100%" data-numposts="10"></div>
 {% else %}
-{% do res.redirect('/notfound.html', 301) %}
-
-			{% endif %}
-
+		{% do res.redirect('/notfound.html', 301) %}
+	{% endif %}
 {% endblock %}
 

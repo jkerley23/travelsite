@@ -62,8 +62,8 @@ popular:
 
 nascar:
   path:
-    - /nascar
-    - /nascar/page/{page:\d+}
+    - /motorsports
+    - /motorsports/page/{page:\d+}
   view: @blocks/pages/nascar.twig
   layers: @layers/tracking.yml
   trailing_slash: force

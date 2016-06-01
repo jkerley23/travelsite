@@ -27,7 +27,8 @@
 	page: req.params.page|default(1),
 	contributor_slugs: [req.params.slug],
 	status: published,
-    limit: 15
+    limit: 15,
+    tags_exclude: ['xMQx']
 }) %}
 
 {% set contributorPosts = cPosts.results %}

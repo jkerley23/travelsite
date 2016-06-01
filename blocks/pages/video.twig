@@ -28,7 +28,8 @@
 	site_ids: [979],
 	page: req.params.page|default(1),
 	tags: ['video'],
-    limit: 15
+    limit: 15,
+    tags_exclude: ['xMQx']
 }) %}
 
 {% set mainFeature = featuredPosts.results[0] %}

@@ -27,8 +27,9 @@
 {% set nPosts = api.posts.query({
 	site_ids: [979],
 	page: req.params.page|default(1),
-	tags: ['nascar'],
-    limit: 15
+	tags: ['nascar', 'motorsports'],
+    limit: 15,
+    tags_exclude: ['xMQx']
 }) %}
 
 {% set mainFeature = featuredPosts.results[0] %}
@@ -36,12 +37,12 @@
 {% set nascar = nPosts.results %}
 
 {% block body %}
-	<title>Find Your Inner NASCAR</title>
+	<title>Motorsports Articles from Parachute</title>
 
 {% if nPosts.page == 1 %}
 	<div class="featured-section">
 		<header class="header">
-			<strong class="title">NASCAR Articles</strong>
+			<strong class="title">Motorsports Articles</strong>
 		</header>
 		<div class="article-holder">
 			<div class="featured-article">
@@ -75,7 +76,7 @@
 	%}
 	<header class="header">
 		{{ pagination.format(pagination_vars)}}
-		<strong class="title">Find your inner NASCAR</strong>
+		<strong class="title">Recent Motorsports Articles</strong>
 	</header>
 	<ul class="article-list recent">
 		{% for item in nascar %}

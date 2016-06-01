@@ -22,12 +22,11 @@
 	site_ids: [979],
     page: req.params.page|default(1),
     status: published,
-    limit: 20
+    limit: 20,
+    tags_exclude: ['xMQx']
 }) %}
-
 {% block body %}
 		<title>Popular Articles</title>
-
 <!-- recent article section of the page -->
 <div class="recent-articles">
 			{% set pagination_vars = {
