@@ -302,14 +302,14 @@ h2 {
     margin-top: 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font: 16px Helvetica,Arial,sans-serif;
+    font: 18px Helvetica,Arial,sans-serif;
 }
 
 .button:hover {
 	opacity: 9;
 	filter: alpha(opacity=900);
 	zoom: 1;
+	cursor: pointer;
 }
 
 

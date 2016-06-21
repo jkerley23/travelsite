@@ -91,3 +91,11 @@ appboy_manifest:
 appboy_service_worker:
   path: /service-worker.js
   view: @blocks/pages/appboy_service_worker.twig
+
+soundslocal:
+  path:
+    - /soundslocal
+    - /soundslocal/page/{page:\d+}
+  view: @blocks/pages/soundslocal.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
