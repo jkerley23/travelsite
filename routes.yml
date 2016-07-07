@@ -68,6 +68,14 @@ nascar:
   layers: @layers/tracking.yml
   trailing_slash: force
 
+mlb:
+  path:
+    - /mlb
+    - /mlb/page/{page:\d+}
+  view: @blocks/pages/mlb.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
+
 ad:
   path: /_uac/adpage.html
   view: @blocks/pages/adpage.twig
