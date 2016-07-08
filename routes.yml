@@ -76,6 +76,14 @@ mlb:
   layers: @layers/tracking.yml
   trailing_slash: force
 
+parks:
+  path:
+    - /national-parks
+    - /national-parks/page/{page:\d+}
+  view: @blocks/pages/parks.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
+
 ad:
   path: /_uac/adpage.html
   view: @blocks/pages/adpage.twig
