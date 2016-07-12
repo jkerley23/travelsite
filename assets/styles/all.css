@@ -227,8 +227,16 @@ h2 {
 	margin: 0 0 12px;
 	color: #000;
 	font-weight: 500;
+}
+
+h3 {
+	font-size: 1.5em;
+	line-height: 1.2em;
+	margin: 0 0 12px;
+	color: #000;
+	font-weight: 500;
 	padding-top: 25px;
-    padding-bottom: 25px;
+	padding-bottom: 25px;
 }
 
 /* wrapper styles */
