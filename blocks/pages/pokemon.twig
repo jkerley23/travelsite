@@ -1,0 +1,104 @@
+{% extends '@blocks/layouts/main.twig' %}
+{% import "@blocks/macros/pagination.twig" as pagination %}
+
+{% block body_class %}index{% endblock %}
+{% block header_class %}alt{% endblock %}
+{% block meta %}
+  <meta name="title" content="MapQuest Pokemon Maps and Tips | Local tips for Pokemon Go." />
+  <meta name="description" content="Everything you need to play Pokemon Go in your city." />
+  <meta name="H1" content="Pokemon Go Tips"/>
+  <!-- fb opengraph tags -->
+  <meta property="og:title" content="MapQuest Pokemon Maps and Tips | Local tips for Pokemon Go."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="http://parachute.mapquest.com/pokego/"/>
+	{% set image = post.images.featured %}
+		{% if image == true %}
+	 <meta property="og:image" content="{{ post.images.featured }}" />
+		{% endif %}
+ <meta property="og:description" content="Everything you need to play Pokemon Go in your city." />
+{% endblock %}
+
+{% set featuredPosts = api.posts.query({
+	site_ids: [979],
+	zone: 'Featured Pokemon',
+    limit: 4
+}) %}
+
+{% set pokePosts = api.posts.query({
+	site_ids: [979],
+	page: req.params.page|default(1),
+	tags: ['Pokemon', 'Pokemon Go', 'Pokemon Map'],
+    limit: 25,
+    tags_exclude: ['xMQx']
+}) %}
+
+{% set mainFeature = featuredPosts.results[0] %}
+{% set mainFeatureList = featuredPosts.results|slice(1,4) %}
+{% set pokemon = pokePosts.results %}
+
+{% block body %}
+	<title>Pokemon Go Articles from MapQuest</title>
+
+{% if pokePosts.page == 1 %}
+	<div class="featured-section">
+		<header class="header">
+			<strong class="title">Pokemon Go Articles</strong>
+		</header>
+		<div class="article-holder">
+			<div class="featured-article">
+				<div class="image-holder"><a href="{{ mainFeature.relative_path }}"><img src="{{ mainFeature.image_crops.mainfeature }}" height="360" width="485" alt="{{ mainFeature.featured_image_credit }}"></a></div>
+				<div class="details">
+					<h1><a href="{{ mainFeature.relative_path }}"><strong>{{ mainFeature.title_facebook|raw }}</strong></a></h1>
+					<aside class="meta"><span class="author">by <a href="/contributor/{{ mainFeature.contributor_slug }}">{{ mainFeature.byline }}</a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ mainFeature.published|date('F j, Y') }}</time> </span></aside>
+				</div>
+			</div>
+			<ul class="article-list">
+			{% for item in mainFeatureList %}	<li>
+					<div class="image-holder"><a href="{{ item.relative_path }}"><img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}"></a></div>
+					<div class="details">
+						<h2><a href="{{ item.relative_path }}">{{ item.title_facebook|raw }}</a></h2>
+						<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}">{{ item.byline }}</a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ item.published|date('F j, Y') }}</time> </span></aside>
+					</div>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+	</div>
+{% endif %}
+<!-- recent article section of the page -->
+<div class="recent-articles">
+		{% set pagination_vars = {
+		'page': pokePosts.page,
+		'next_page_size': pokePosts.next_page_size,
+		'pathlink': '/pokego',
+		'content_type': 'Pokemon Go'
+		}
+	%}
+	<header class="header">
+		{{ pagination.format(pagination_vars)}}
+		<strong class="title">Recent Pokemon Go Articles</strong>
+	</header>
+	<ul class="article-list recent">
+		{% for item in pokemon %}
+		<li>
+		<div class="image-holder"><a href="{{ item.relative_path }}">
+		  {% if item.image == true %}
+			<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
+		  {% else %}
+			<img src="{{ asset('images/noimage2.png') }}" height="100" width="150" alt="Parachute from MapQuest">
+		  {% endif %}
+			</a>
+		</div>
+			<div class="details">
+				<h2><a href="{{ item.relative_path }}">{{ item.title|raw }}</a></h2>
+				<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}"> {{ item.byline }} </a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ item.published|date('F j, Y') }}</time> </span></aside>
+			</div>
+		</li>
+		 {% endfor %}
+	</ul>
+	<footer class="footer">
+{{ pagination.format(pagination_vars)}}
+	</footer>
+</div>
+{% endblock %}
+

@@ -84,6 +84,14 @@ parks:
   layers: @layers/tracking.yml
   trailing_slash: force
 
+pokemon:
+  path:
+    - /pokego/
+    - /pokego/page/{page:\d+}
+  view: @blocks/pages/pokemon.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
+
 ad:
   path: /_uac/adpage.html
   view: @blocks/pages/adpage.twig
