@@ -20,12 +20,12 @@
 
 {% set featuredPosts = api.posts.query({
 	site_ids: [979],
-	zone: 'Featured NASCAR',
+	zone: 'Featured Sounds Local',
     limit: 4
 }) %}
 
 {% set nPosts = api.posts.query({
-	site_ids: [979],
+	site_ids: [979, 1032],
 	page: req.params.page|default(1),
 	tags: ['sounds local'],
     limit: 15,

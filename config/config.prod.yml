@@ -13,7 +13,7 @@ omniture:
   prefix: map
 
   # This should always be set to true for all external user facing sites, this triggers comscore beacon
-  mmx: true 
+  mmx: true
 
   # Example: link_internal_filters: javascript:,aol.com
   link_internal_filters: javascript:,parachute.mapquest.com

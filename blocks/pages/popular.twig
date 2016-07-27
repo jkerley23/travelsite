@@ -19,7 +19,7 @@
 {% endblock %}
 
 {% set popPosts = api.posts.topPosts({
-	site_ids: [979],
+	site_ids: [979, 1032],
     page: req.params.page|default(1),
     status: published,
     limit: 20,

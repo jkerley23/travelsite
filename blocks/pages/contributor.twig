@@ -18,16 +18,16 @@
  <meta property="og:description" content="Articles published on Parachute written by {{ contributor.byline }} - MapQuest" />
 {% endblock %}
 {% set contributor = api.contributors.getBySlug({
-	site_id: 979,
+	site_id: [979, 1032],
 	slug: req.params.slug
 }) %}
 
 {% set cPosts = api.posts.query({
-	site_ids: [979],
+	site_ids: [979, 1032],
 	page: req.params.page|default(1),
 	contributor_slugs: [req.params.slug],
 	status: published,
-    limit: 15,
+    limit: 20,
     tags_exclude: ['xMQx']
 }) %}
 

@@ -9,7 +9,7 @@ home:
 posts:
   type: post
   args:
-    site_ids: [979]
+    site_ids: [979, 1032]
   view: @blocks/pages/article.twig
   layers: @layers/tracking.yml
   trailing_slash: force

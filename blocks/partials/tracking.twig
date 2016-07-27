@@ -18,5 +18,8 @@
   {% set params = params|merge({page_type: 'category', category: { name: 'popular' }}) %}
 {% else  %}
   {% set params = params|merge({page_type: 'custom'}) %}
-{% endif %} 
+{% endif %}
+{% if post.site_id == 1032 %}
+	{% set params = params|merge({ site_id: '1032'}) %}
+{% endif %}
 {{ amp.analytics(params) }}

@@ -21,11 +21,11 @@
 {% set tag = req.params.tag|regex_replace('/%20/', ' ') %}
 
 {% set tPosts = api.posts.query({
-	site_ids: [979],
+	site_ids: [979, 1032],
 	page: req.params.page|default(1),
 	tags: [tag],
 	status: published,
-    limit: 15,
+    limit: 20,
     tags_exclude: ['xMQx']
 }) %}
 

@@ -16,7 +16,7 @@
   <!-- fb opengraph tags -->
   <meta property="og:title" content="{{ post.title}}"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:url" content="http://{{ post.url }}"/>
+  <meta property="og:url" content="https://{{ post.url }}"/>
 	{% set image = post.images.featured %}
 		{% if image == true %}
 	 <meta property="og:image" content="{{ post.images.featured }}" />
@@ -27,6 +27,7 @@
 <title>{{ post.title }}</title>
 {% if post.status == 'published' or 'pending' %}
 <article class="page-article">
+	<base target="_blank">
 <div class = "featured-image">
 {% if post.images.featured == true %}
 	<img src="{{ post.image_crops.featured }}" height="600" width="1060" alt="{{ post.featured_image_description }}" onload="appboy.registerAppboyPushMessages()">
@@ -37,6 +38,7 @@
 </div>
 &nbsp;
 <h1>{{ post.title|raw }}</h1>
+{# {{ prettydump(post) }} #}
 	<aside class="meta">
 		<div class="meta-info">
 			<div class="share-info">
@@ -91,7 +93,7 @@
 </div>
 </article>
 
-<div class="fb-comments" data-href="http://{{ post.url }}" data-width="100%" data-numposts="10"></div>
+<div class="fb-comments" data-href="https://{{ post.url }}" data-width="100%" data-numposts="10"></div>
 {% else %}
 		{% do res.redirect('/notfound.html', 301) %}
 	{% endif %}
