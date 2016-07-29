@@ -123,3 +123,12 @@ soundslocal:
   view: @blocks/pages/soundslocal.twig
   layers: @layers/tracking.yml
   trailing_slash: force
+
+cats:
+  path:
+    - /catquest
+    - /catquest/page/{page:\d+}
+  view: @blocks/pages/catquest.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
+

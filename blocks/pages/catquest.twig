@@ -1,0 +1,89 @@
+{% extends '@blocks/layouts/main.twig' %}
+{% import "@blocks/macros/pagination.twig" as pagination %}
+
+{% block body_class %}index{% endblock %}
+{% block header_class %}alt{% endblock %}
+{% block meta %}
+  <meta name="title" content="Everything There is About Cats - MapQuest" />
+  <meta name="description" content="From local to travel to things you didn't want to know, we've got all the cat info possible from local contributors." />
+  <meta name="H1" content="Cats"/>
+  <!-- fb opengraph tags -->
+  <meta property="og:title" content="Everything There is About Cats  - MapQuest"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="http://parachute.mapquest.com/quest/"/>
+	{% set image = post.images.featured %}
+		{% if image == true %}
+	 <meta property="og:image" content="{{ post.images.featured }}" />
+		{% endif %}
+ <meta property="og:description" content="From local to travel to things you didn't want to know, we've got all the cat info possible from local contributors." />
+{% endblock %}
+
+{% set catPosts = api.posts.query({
+	site_ids: [979, 1032],
+	page: req.params.page|default(1),
+	tags: ['CatQuest'],
+    limit: 25,
+    tags_exclude: ['xMQx']
+}) %}
+
+{% set mainFeature = featuredPosts.results[0] %}
+{% set mainFeatureList = featuredPosts.results|slice(1,4) %}
+{% set cats = catPosts.results %}
+
+{% block body %}
+	<title>Find Your CatQuest</title>
+
+{% if catPosts.page == 1 %}
+	<div class="map-holder">
+		<iframe height="600" width="100%" maxwidth="1060 px" border="0" marginwidth="0" marginheight="0" src="https://www.mapquest.com/embed/my-maps/182840e3-abae-4fc1-a97e-3f32a4310b33?center=39.740986355883585,-98.3056640625&zoom=4&maptype=map"></iframe>
+	</div>
+{# 			<ul class="article-list"> #}
+			{# {% for item in mainFeatureList %}	<li>
+					<div class="image-holder"><a href="{{ item.relative_path }}"><img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}"></a></div>
+					<div class="details">
+						<h2><a href="{{ item.relative_path }}">{{ item.title_facebook|raw }}</a></h2>
+						<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}">{{ item.byline }}</a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ item.published|date('F j, Y') }}</time> </span></aside>
+					</div>
+				</li>
+			{% endfor %}
+			</ul>
+		</div> #}
+	{# </div> #}
+{% endif %}
+<!-- recent article section of the page -->
+<div class="recent-articles">
+		{% set pagination_vars = {
+		'page': catPosts.page,
+		'next_page_size': catPosts.next_page_size,
+		'pathlink': '/catquest',
+		'content_type': 'Kitties'
+		}
+	%}
+	<header class="header">
+		{{ pagination.format(pagination_vars)}}
+		<strong class="title">Take a CatQuest</strong>
+	</header>
+	<ul class="article-list recent">
+		{% for item in cats %}
+		<li>
+		<div class="image-holder"><a href="{{ item.relative_path }}">
+		  {% if item.image == true %}
+			<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
+		  {% else %}
+			<img src="{{ asset('images/noimage2.png') }}" height="100" width="150" alt="Parachute from MapQuest">
+		  {% endif %}
+			</a>
+		</div>
+			<div class="details">
+				<h2><a href="{{ item.relative_path }}">{{ item.title|raw }}</a></h2>
+				<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}"> {{ item.byline }} </a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ item.published|date('F j, Y') }}</time> </span></aside>
+			</div>
+		</li>
+		 {% endfor %}
+	</ul>
+	<footer class="footer">
+{{ pagination.format(pagination_vars)}}
+	</footer>
+</div>
+{% endblock %}
+

@@ -130,9 +130,12 @@
 				<div class="header-navbar">
 					<div class="container">
 						<!-- logo of the site -->
+					{% if req.route == 'cats' or 'CatQuest' in post.tags %}
+						<div class="logo"><a href="/"><img src="{{ asset('images/logo_drkblue2_catquest.png') }}" height="auto" width="393" alt="Parachute by MapQuest"></a></div>
+					{% else %}
 						<div class="logo"><a href="/"><img src="{{ asset('images/logo_drkblue2.png') }}" height="auto" width="393" alt="Parachute by MapQuest"></a></div>
+					{% endif %}
 						<!-- main navigation of the page -->
-
 						<nav id="nav">
 							<a href="#" class="opener"><span>Opener</span></a>
 							<ul>
