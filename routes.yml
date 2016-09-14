@@ -132,3 +132,11 @@ cats:
   layers: @layers/tracking.yml
   trailing_slash: force
 
+news:
+  path:
+    - /news
+    - /news/page/{page:\d+}
+  view: @blocks/pages/news.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
+

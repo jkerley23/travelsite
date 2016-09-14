@@ -2,10 +2,10 @@
 {% import "@blocks/macros/prop62.twig" as prop62 %}
 
 {% set article_prop62 = prop62.video_presence(post.contents) %}
-{# {% set video = api.videos.get({ id: 1043 }) %} #}
-{% if tags == ['xMQx'] %}
+{# {% set video = api.videos.get({ id: {{video.aol_video_id}} }) %} #}
+{# {% if path == ['/xMQx/'] %}
 	{% do res.redirect('/', 301) %}
-			{% endif %}
+			{% endif %} #}
 
 {% block body_class %}index{% endblock %}
 {% block header_class %}alt{% endblock %}
@@ -94,6 +94,8 @@
 </article>
 
 <div class="fb-comments" data-href="https://{{ post.url }}" data-width="100%" data-numposts="10"></div>
+{% elseif post.pending_visibility == 'password_protected' %}
+{% do res.redirect('/notfound.html', 301) %}
 {% else %}
 		{% do res.redirect('/notfound.html', 301) %}
 	{% endif %}

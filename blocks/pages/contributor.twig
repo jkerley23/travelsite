@@ -18,8 +18,9 @@
  <meta property="og:description" content="Articles published on Parachute written by {{ contributor.byline }} - MapQuest" />
 {% endblock %}
 {% set contributor = api.contributors.getBySlug({
-	site_id: [979, 1032],
-	slug: req.params.slug
+	site_id: 979,
+	include_expired: true,
+	slug: req.params.slug,
 }) %}
 
 {% set cPosts = api.posts.query({
@@ -28,13 +29,13 @@
 	contributor_slugs: [req.params.slug],
 	status: published,
     limit: 20,
-    tags_exclude: ['xMQx']
+    tags_exclude: ['xMQx'],
+    include_expired: true,
 }) %}
 
 {% set contributorPosts = cPosts.results %}
 {% block body %}
 <title>Articles by {{ contributor.byline }}</title>
-
 <!-- recent article section of the page -->
 <div class="recent-articles">
 		{% set pagination_vars = {
@@ -50,7 +51,7 @@
 	<ul class="article-list recent">
 		{% for item in contributorPosts %}
 		<li>
-			<div class="image-holder"><a href="{{ item.relative_path }}">
+			<div class="image-holder"><a href="{{ item.relative_path|replace({'//':'/'}) }}">
 			 {% if item.image == true %}
 				<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
 			 {% else %}
@@ -59,7 +60,7 @@
 			</a>
 		</div>
 			<div class="details">
-				<h2><a href="{{ item.relative_path }}">{{ item.title|raw }}</a></h2>
+				<h2><a href="{{ item.relative_path|replace({'//':'/'}) }}">{{ item.title|raw }}</a></h2>
 				<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}"> {{ item.byline }} </a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ item.published|date('F j, Y') }}</time> </span></aside>
 			</div>
 		</li>

@@ -46,18 +46,18 @@
 		</header>
 		<div class="article-holder">
 			<div class="featured-article">
-				<div class="image-holder"><a href="{{ mainFeature.relative_path }}"><img src="{{ mainFeature.image_crops.mainfeature }}" height="360" width="485" alt="{{ mainFeature.featured_image_credit }}"></a></div>
+				<div class="image-holder"><a href="{{ mainFeature.relative_path|replace({'//':'/'}) }}"><img src="{{ mainFeature.image_crops.mainfeature }}" height="360" width="485" alt="{{ mainFeature.featured_image_credit }}"></a></div>
 				<div class="details">
-					<h1><a href="{{ mainFeature.relative_path }}"><strong>{{ mainFeature.title_facebook|raw }}</strong></a></h1>
-					<aside class="meta"><span class="author">by <a href="/contributor/{{ mainFeature.contributor_slug }}">{{ mainFeature.byline }}</a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ mainFeature.published|date('F j, Y') }}</time> </span></aside>
+					<h1><a href="{{ mainFeature.relative_path|replace({'//':'/'}) }}"><strong>{{ mainFeature.title_facebook|raw }}</strong></a></h1>
+					<aside class="meta"><span class="author">by <a href="/contributor/{{ mainFeature.contributor_slug }}">{{ mainFeature.byline }}</a> |</span> <span class="date">posted <time>{{ mainFeature.published|date('F j, Y') }}</time> </span></aside>
 				</div>
 			</div>
 			<ul class="article-list">
 			{% for item in mainFeatureList %}	<li>
-					<div class="image-holder"><a href="{{ item.relative_path }}"><img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}"></a></div>
+					<div class="image-holder"><a href="{{ item.relative_path|replace({'//':'/'}) }}"><img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}"></a></div>
 					<div class="details">
-						<h2><a href="{{ item.relative_path }}">{{ item.title_facebook|raw }}</a></h2>
-						<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}">{{ item.byline }}</a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ item.published|date('F j, Y') }}</time> </span></aside>
+						<h2><a href="{{ item.relative_path|replace({'//':'/'}) }}">{{ item.title_facebook|raw }}</a></h2>
+						<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}">{{ item.byline }}</a> |</span> <span class="date">posted <time>{{ item.published|date('F j, Y') }}</time> </span></aside>
 					</div>
 				</li>
 			{% endfor %}
@@ -81,7 +81,7 @@
 	<ul class="article-list recent">
 		{% for item in nascar %}
 		<li>
-		<div class="image-holder"><a href="{{ item.relative_path }}">
+		<div class="image-holder"><a href="{{ item.relative_path|replace({'//':'/'}) }}">
 		  {% if item.image == true %}
 			<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
 		  {% else %}
@@ -90,8 +90,8 @@
 			</a>
 		</div>
 			<div class="details">
-				<h2><a href="{{ item.relative_path }}">{{ item.title|raw }}</a></h2>
-				<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}"> {{ item.byline }} </a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ item.published|date('F j, Y') }}</time> </span></aside>
+				<h2><a href="{{ item.relative_path|replace({'//':'/'}) }}">{{ item.title|raw }}</a></h2>
+				<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}"> {{ item.byline }} </a> |</span> <span class="date">posted <time>{{ item.published|date('F j, Y') }}</time> </span></aside>
 			</div>
 		</li>
 		 {% endfor %}
