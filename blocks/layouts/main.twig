@@ -112,42 +112,55 @@
 					<div>
 
 	<!-- Google custom search -->
-	<script>
-			(function() {
-		var cx = '012371198347892973785:ng2b0dncab4';
-	    var gcse = document.createElement('script');
-	    gcse.type = 'text/javascript';
-	    gcse.async = true;
-	    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-	        '//cse.google.com/cse.js?cx=' + cx;
-	    var s = document.getElementsByTagName('script')[0];
-	    s.parentNode.insertBefore(gcse, s);
-	  })();
-	</script>
+<script>
+		(function() {
+	var cx = '012371198347892973785:ng2b0dncab4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
 </div>
 </div>
-				<!-- header navbar of the page -->
-				<div class="header-navbar">
-					<div class="container">
-						<!-- logo of the site -->
-					{% if req.route == 'cats' or 'CatQuest' in post.tags %}
-						<div class="logo"><a href="/"><img src="{{ asset('images/logo_drkblue2_catquest.png') }}" height="auto" width="393" alt="Parachute by MapQuest"></a></div>
-					{% else %}
-						<div class="logo"><a href="/"><img src="{{ asset('images/logo_drkblue2.png') }}" height="auto" width="393" alt="Parachute by MapQuest"></a></div>
-					{% endif %}
-						<!-- main navigation of the page -->
-						<nav id="nav">
-							<a href="#" class="opener"><span>Opener</span></a>
-							<ul>
-								<li><a href="/video/">VIDEOS</a></li>
-								<li><a href="/quest/">QUESTS</a></li>
-								<li><a href="https://www.mapquest.com/directions" target="blank">DIRECTIONS</a></li>
-								<li><a href="https://contributor.mapquest.com/registration/" target="blank">CONTRIBUTE</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-				<div class="search-container">
+
+	<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84360094-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- header navbar of the page -->
+<div class="header-navbar">
+	<div class="container">
+		<!-- logo of the site -->
+	{% if req.route == 'cats' or 'CatQuest' in post.tags %}
+		<div class="logo"><a href="/"><img src="{{ asset('images/logo_drkblue2_catquest.png') }}" height="auto" width="393" alt="Parachute by MapQuest"></a></div>
+	{% else %}
+		<div class="logo"><a href="/"><img src="{{ asset('images/logo_drkblue2.png') }}" height="auto" width="393" alt="Parachute by MapQuest"></a></div>
+	{% endif %}
+		<!-- main navigation of the page -->
+		<nav id="nav">
+			<a href="#" class="opener"><span>Opener</span></a>
+			<ul>
+				<li><a href="/video/">VIDEOS</a></li>
+				<li><a href="/quest/">QUESTS</a></li>
+				<li><a href="https://www.mapquest.com/directions" target="blank">DIRECTIONS</a></li>
+				<li><a href="https://contributor.mapquest.com/registration/" target="blank">CONTRIBUTE</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<div class="search-container">
 <form action="/search/" class="search-form">
 <fieldset>
   <input type="search" name="q" placeholder="Search ... ">
@@ -160,101 +173,101 @@
 {% block main %}
 
 <!-- main informative part of the page -->
-			<main id="main">
-				<div class="container">
+<main id="main">
+	<div class="container">
 
-					<!-- main content holder of the page -->
-					<div id="two-columns">
-						<!-- main content of the page -->
-						<div id="content">
-							{% block body %}{% endblock %}
-						</div>
-						<!-- sidebar of the page -->
-						<aside id="sidebar">
-							{% block right_rail %}
-								{% include "@blocks/partials/right_rail.twig" %}
-							{% endblock %}
-						</aside>
-					</div>
-				</div>
-			</main>
+		<!-- main content holder of the page -->
+		<div id="two-columns">
+			<!-- main content of the page -->
+			<div id="content">
+				{% block body %}{% endblock %}
+			</div>
+			<!-- sidebar of the page -->
+			<aside id="sidebar">
+				{% block right_rail %}
+					{% include "@blocks/partials/right_rail.twig" %}
+				{% endblock %}
+			</aside>
+		</div>
+	</div>
+</main>
 
 {% endblock %}
 
 </div>
 		<!-- footer of the page -->
-		<footer id="footer">
-			<div class="footer-top">
-				<div class="container">
-					<div class="row five-col">
-						<div class="col">
-							<h3>About</h3>
-							<!-- footer navigation of the page -->
-							<nav class="footer-nav">
-								<ul>
-									<li><a href="http://company.mapquest.com/" target="_blank">About MapQuest</a></li>
-									<li><a href="mailto:parachute@mapquest.com" target="_blank">Contact Us</a></li>
-									<li><a href="http://advertising.aol.com/brands/mapquest" target="_blank">Advertise</a></li>
-									<li><a href="http://adinfo.aol.com/about-our-ads/" target="_blank">About Our Ads</a></li>
-								</ul>
-							</nav>
-						</div>
-						<div class="col">
-							<h3>More MapQuest</h3>
-							<!-- footer navigation of the page -->
-							<nav class="footer-nav">
-								<ul>
-									<li><a href="https://www.mapquest.com/directions" target="_blank">Driving Directions</a></li>
-									<li><a href="https://www.mapquest.com/search" target="_blank">Find Place or Address</a></li>
-									<li><a href="https://developer.mapquest.com/" target="_blank">Business Solutions</a></li>
-									<li><a href="https://bookings.mapquest.com/refclickid=&refclickid=pchutefooter&refid=5101" target="_blank">Book Travel</a></li>
-								</ul>
-							</nav>
-						</div>
-						<div class="col">
-							<h3>Even More</h3>
-							<!-- footer navigation of the page -->
-							<nav class="footer-nav">
-								<ul>
-									<li><a href="https://contributor.mapquest.com/registration/" target="_blank">Become a Contributor</a></li>
-									<li><a href="https://parachute.mapquest.com/2016/05/23/parachute-by-mapquest-custom-content-solutions/" target="_blank">Custom Content Solutions</a></li>
-								</ul>
-							</nav>
-						</div>
-					</div>
+<footer id="footer">
+	<div class="footer-top">
+		<div class="container">
+			<div class="row five-col">
+				<div class="col">
+					<h3>About</h3>
+					<!-- footer navigation of the page -->
+					<nav class="footer-nav">
+						<ul>
+							<li><a href="http://company.mapquest.com/" target="_blank">About MapQuest</a></li>
+							<li><a href="mailto:parachute@mapquest.com" target="_blank">Contact Us</a></li>
+							<li><a href="http://advertising.aol.com/brands/mapquest" target="_blank">Advertise</a></li>
+							<li><a href="http://adinfo.aol.com/about-our-ads/" target="_blank">About Our Ads</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col">
+					<h3>More MapQuest</h3>
+					<!-- footer navigation of the page -->
+					<nav class="footer-nav">
+						<ul>
+							<li><a href="https://www.mapquest.com/directions" target="_blank">Driving Directions</a></li>
+							<li><a href="https://www.mapquest.com/search" target="_blank">Find Place or Address</a></li>
+							<li><a href="https://developer.mapquest.com/" target="_blank">Business Solutions</a></li>
+							<li><a href="https://bookings.mapquest.com/refclickid=&refclickid=pchutefooter&refid=5101" target="_blank">Book Travel</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col">
+					<h3>Even More</h3>
+					<!-- footer navigation of the page -->
+					<nav class="footer-nav">
+						<ul>
+							<li><a href="https://contributor.mapquest.com/registration/" target="_blank">Become a Contributor</a></li>
+							<li><a href="https://parachute.mapquest.com/2016/05/23/parachute-by-mapquest-custom-content-solutions/" target="_blank">Custom Content Solutions</a></li>
+						</ul>
+					</nav>
 				</div>
 			</div>
-			<div class="footer-bottom">
-				<div class="container">
-					<div class="row three-col">
-						<div class="col">
-							<h3>Follow MapQuest</h3>
-							<!-- social networks of the page -->
-							<ul class="social-networks">
-								<li><a href="https://www.facebook.com/pchutebymq/" class="facebook" target="_blank">facebook</a></li>
-								<li><a href="https://twitter.com/MQchute" class="twitter" target="_blank">twitter</a></li>
-								<li><a href="https://plus.google.com/+mapquest/videos" class="gplus" target="_blank">gplus</a></li>
-								<li><a href="https://www.youtube.com/user/mapquest" class="youtube" target="_blank">youtube</a></li>
-								<li><a href="https://instagram.com/mapquest/" class="instagram" target="_blank">instagram</a></li>
-								<li><a href="https://www.linkedin.com/company/mapquest" class="linkedin" target="_blank">linkedin</a></li>
-							</ul>
-						</div>
-						<div class="col">
-							<h3>MapQuest Apps</h3>
-							<!-- app links of the page -->
-							<ul class="app-links">
-								<li><a href="https://play.google.com/store/apps/details?id=com.mapquest.android.ace" class="android" target="_blank">Android</a></li>
-								<li><a href="https://itunes.apple.com/app/mapquest-maps-gps-voice-navigation/id316126557?mt=8" class="apple" target="_blank">iPhone</a></li>
-							</ul>
-							<span class="link-text">
-								<a href="http://mobile.mapquest.com/#intro" class="link-arrow" target="_blank">More Apps from MapQuest</a>
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
+		</div>
 	</div>
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="row three-col">
+				<div class="col">
+					<h3>Follow MapQuest</h3>
+					<!-- social networks of the page -->
+					<ul class="social-networks">
+						<li><a href="https://www.facebook.com/pchutebymq/" class="facebook" target="_blank">facebook</a></li>
+						<li><a href="https://twitter.com/MQchute" class="twitter" target="_blank">twitter</a></li>
+						<li><a href="https://plus.google.com/+mapquest/videos" class="gplus" target="_blank">gplus</a></li>
+						<li><a href="https://www.youtube.com/user/mapquest" class="youtube" target="_blank">youtube</a></li>
+						<li><a href="https://instagram.com/mapquest/" class="instagram" target="_blank">instagram</a></li>
+						<li><a href="https://www.linkedin.com/company/mapquest" class="linkedin" target="_blank">linkedin</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<h3>MapQuest Apps</h3>
+					<!-- app links of the page -->
+					<ul class="app-links">
+						<li><a href="https://play.google.com/store/apps/details?id=com.mapquest.android.ace" class="android" target="_blank">Android</a></li>
+						<li><a href="https://itunes.apple.com/app/mapquest-maps-gps-voice-navigation/id316126557?mt=8" class="apple" target="_blank">iPhone</a></li>
+					</ul>
+					<span class="link-text">
+						<a href="http://mobile.mapquest.com/#intro" class="link-arrow" target="_blank">More Apps from MapQuest</a>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+</div>
 	<!-- include jQuery library -->
 {% include "@blocks/partials/tracking.twig" %}
 </body>
