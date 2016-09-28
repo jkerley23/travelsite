@@ -1,0 +1,51 @@
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+* {max-height: 1000000px;}
+
+body {
+    height: 100%;
+    color: $base-text-color;
+    background: $base-background-color;
+    font: #{$font-size-base}/#{$line-height-base} $base-font-family;
+    min-width: $base-min-width;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @include media('<tablet') {
+        font-size: 15px;
+    }
+}
+
+// adaptive images
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+// google map fix
+.gm-style img {max-width: none}
+
+#wrapper{
+    @include size(100%);
+    display: table;
+    table-layout: fixed;
+}
+.w1 {
+    width:100%;
+    display: table-row;
+}
+
+.container{
+    @include clearfix;
+    max-width: 1054px;
+    margin: 0 auto;
+    padding: 0 15px;
+    @include media('<tablet') {
+        padding: 0 10px;
+    }
+}

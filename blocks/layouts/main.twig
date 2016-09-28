@@ -1,6 +1,7 @@
 {%- if req.secure != true -%}
     {%- do res.redirect('https://'~req.host~req.path~(req.query ? '?' ~ req.query : ''), 301) -%}
 {%- endif -%}
+{%- import "@blocks/macros/asset-file.twig" as assetfile -%}
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,7 @@
 	<!-- set the viewport width and initial-scale on mobile devices  -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- include the site stylesheet -->
-	<link media="all" rel="stylesheet" href="{{ asset('styles/all.css') }}">
+	<link media="all" rel="stylesheet" href="{{ asset('styles/'~assetfile.assetfile('all.min.css')) }}">
 	<link rel="icon" href="{{ asset('images/favicon2.ico') }}" type="image/x-icon">
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>

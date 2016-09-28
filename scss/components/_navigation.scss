@@ -1,0 +1,139 @@
+#nav{
+    float: right;
+    width: 75%;
+    text-align: right;
+    padding: 0 10px 25px 0;
+    @include media('<desktop') {
+        padding-right: 0;
+    }
+    @include media('<tablet') {
+        width: 100%;
+        text-align: left;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 40px;
+        padding: 0;
+    }
+    .home-page &{
+        float: none;
+        width: 100%;
+        padding: 0 0 25px;
+        @include media('<tablet') {
+            bottom: auto;
+            top: 0;
+            height: 55px;
+            padding: 0;
+            position: relative;
+            z-index: 5;
+            width: auto;
+            margin: 0 -10px;
+        }
+    }
+    .nav-opener{
+        @include size(40px, 40px);
+        position: absolute;
+        right: 10px;
+        top: -38px;
+        text-decoration: none;
+        display: none;
+        @include media('<tablet'){
+            display: block;
+        }
+        .home-page &{
+            top: 0;
+        }
+        &:before,
+        &:after,
+        span{
+            @include size(30px, 4px);
+            position: absolute;
+            left: 5px;
+            top: 10px;
+            right: 5px;
+            background: $crown;
+            border-radius: 2px;
+        }
+        &:before,
+        &:after{
+            content:'';
+        }
+        &:after{
+            top: auto;
+            bottom: 10px;
+        }
+        span{
+            top: 50%;
+            margin: -2px 0 0;
+        }
+    }
+    .nav-drop{
+        @include media('<tablet') {
+            @include css3(transition, all 0.25s ease);
+            max-height:0;
+            position: absolute;
+            top: 100%;
+            left:  0;
+            right: 0;
+            overflow: hidden;
+        }
+    }
+    &.nav-active{
+        .nav-drop{
+            @include media('<tablet') {
+                max-height:4000px;
+            }
+        }
+        ul{
+            @include media('<tablet') {
+                @include css3(transition, all 0.25s ease);
+                @include css3(transform, translateY(0));
+            }
+        }
+    }
+    ul{
+        @include listreset;
+        @include font(18px, 1.389);
+        @include media('<desktop') {
+            font-size: 15px;
+        }
+        @include media('<tablet') {
+            @include css3(transition, all 0.25s ease);
+            @include css3(transform, translateY(-100%));
+            background: $white;
+            border-top: 1px solid $alto;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+        }
+        li{
+            @include align;
+            margin: 0 15px 0 48px;
+            letter-spacing: 0.3px;
+            @include media('<desktop'){
+                margin: 0 15px 0 25px;
+            }
+            @include media('<tablet') {
+                display: block;
+                margin: 0 ;
+            }
+            a{
+                display: inline-block;
+                color: $code-gray;
+                text-decoration: none;
+                @include media('<tablet') {
+                    padding: 10px;
+                    display: block;
+                }
+            }
+            &:hover,
+            &.active{
+                a{
+                    color: $crown;
+                    @include media('<tablet') {
+                        background: $crown;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}

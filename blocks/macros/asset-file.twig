@@ -1,0 +1,13 @@
+{%- macro assetfile(file) -%}
+	{%- if config.env == 'dev' -%}
+		{{ file|regex_replace('~.min~', '') }}
+	{%- else -%}
+		{%- set manifest = include('@blocks/rev-manifest.twig')|trim|json_decode -%}
+		{%- set rev_path = attribute(manifest, file) -%}
+		{%- if rev_path is not empty -%}
+			{{ rev_path }}
+		{%- else -%}
+			{{ file }}
+		{%- endif -%}
+	{%- endif -%}
+{%- endmacro -%}
