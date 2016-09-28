@@ -32,7 +32,7 @@ gulp.task('css-rev', function() {
       ])
     .pipe(rev())
     .pipe(gulp.dest('assets/styles/'))
-    .pipe(rev.manifest('manifest.twig'))
+    .pipe(rev.manifest('rev-manifest.twig'))
     .pipe(gulp.dest('blocks/'))
     .pipe(revDel({dest: 'assets/styles/'}))
     .pipe(gulp.dest('assets/styles/'));
