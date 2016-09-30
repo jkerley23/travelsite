@@ -1,6 +1,5 @@
 {% extends '@blocks/layouts/main.twig' %}
 {% import "@blocks/macros/pagination.twig" as pagination %}
-
 {% block body_class %}index{% endblock %}
 {% block header_class %}alt{% endblock %}
 {% block meta %}
@@ -37,9 +36,24 @@
 {% set nascar = nPosts.results %}
 
 {% block body %}
-	<title>Sounds Local from Parachute by MapQuest</title>
+	<title>Sounds Local from Parachute</title>
 
-<img src="{{ asset('images/ComingSoon.jpg') }}" alt="Coming soon from MapQuest">
+<img src="{{ asset('images/ComingSoon.jpg') }}" alt="Coming soon from Parachute">
+</br>
+</br>
+<em><h2>Sounds Local</em> is a new web series from Parachute.
+</br>
+</br>
+Six bands give us a tour of their home city, highlighting their favorite places to eat, drink and sing.
+</br>
+</br>
+Part <em>No Reservations</em>, part <em>Behind the Music</em>, <em>Sounds Local</em> gives bands a chance to share their world with fans, and for music-lovers and travel-bugs to discover destinations and music in a new way.</h2>
+</br>
+</br>
+<div align="center"><div class='woobox-offer' data-offer='qukgg9'></div></div>
+</br>
+</br>
+<div align="center"><iframe src="https://player.vimeo.com/video/185019323" width="940" height="660" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
 
 {# {% if nPosts.page == 1 %}
 	<div class="featured-section">
