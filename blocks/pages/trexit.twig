@@ -8,14 +8,14 @@
   <meta name="description" content="Everything you need to know before moving to Canada if Donald Trump wins the election." />
   <meta name="H1" content="Moving to Canada Tips"/>
   <!-- fb opengraph tags -->
-  <meta property="og:title" content="MapQuest Pokemon Maps and Tips | Local tips for Pokemon Go."/>
+  <meta property="og:title" content="Move to Canada if Trump Wins"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="http://parachute.mapquest.com/pokego/"/>
+  <meta property="og:url" content="http://parachute.mapquest.com/trexit/"/>
 	{% set image = post.images.featured %}
 		{% if image == true %}
 	 <meta property="og:image" content="{{ post.images.featured }}" />
 		{% endif %}
- <meta property="og:description" content="Everything you need to play Pokemon Go in your city." />
+ <meta property="og:description" content="Everything you need to know before moving to Canada if Donald Trump wins the election." />
 {% endblock %}
 
 {% set featuredPosts = api.posts.query({
@@ -70,8 +70,8 @@
 		{% set pagination_vars = {
 		'page': trumpPosts.page,
 		'next_page_size': trumpPosts.next_page_size,
-		'pathlink': '/pokego',
-		'content_type': 'Pokemon Go'
+		'pathlink': '/trexit',
+		'content_type': 'Trump'
 		}
 	%}
 	<header class="header">
