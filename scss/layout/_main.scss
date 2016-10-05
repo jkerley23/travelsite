@@ -5,9 +5,9 @@
 
 .intro-text{
     @include font(18px, 20px);
-    color: $white;
+    color: #ded0c5;
     width: 100%;
-    background: $crown;
+    background: #1b2f57;
     text-align: center;
     padding: 30px 0;
     text-transform: uppercase;
@@ -27,7 +27,7 @@
     }
     &:after {
         @include arrow(21px 21px 0);
-        border-top-color: $crown;
+        border-top-color: #1b2f57;
         top: 100%;
         left: 50%;
         margin: 0 0 0 -21px;
@@ -42,6 +42,7 @@
 
 .featurd-block{
     overflow: hidden;
+    background: #ded0c5;
     .feature-post{
         overflow: hidden;
         margin: 0 -15px;
@@ -57,7 +58,7 @@
         }
         .textbox{
             @include position(0);
-            color: $white;
+            color: #ded0c5;
             .block{
                 @include size(100%);
                 display: table;
@@ -113,12 +114,12 @@
                 @include size(228px, 44px);
                 @include font(18px, 24px);
                 padding: 10px;
-                color: $white;
+                color: #ded0c5;
                 display: block;
                 border-radius: 22px;
                 text-align: center;
                 font-weight: 300;
-                background: $crown;
+                background: #1b2f57;
                 text-decoration: underline;
                 @include media('<tablet') {
                     @include size(150px, 34px);
@@ -126,7 +127,7 @@
                     padding: 5px;
                 }
                 &:hover{
-                    background: $elf-green;
+                    background: #e8aa23;
                 }
             }
         }
@@ -142,15 +143,19 @@
         overflow: hidden;
         padding: 30px 9999px;
         margin: 0 -9999px;
-        background: $fuscous-gray;
+        background: #1b2f57;
         @include media('<tablet') {
             padding: 15px 9999px;
         }
         &:nth-child(even){
-            background: $crown;
+            background: #ded0c5;
+
+            h2 {
+                color: #1b2f57;
+            }
         }
         &:hover{
-            background: $elf-green;
+            background: #e8aa23;
         }
         .img-holder{
             @include align(middle);
@@ -172,7 +177,7 @@
             @include align(middle);
             width: 46%;
             margin: 0 -2px;
-            color: $white;
+            color: #ded0c5;
             padding: 0 0 0 35px;
             @include media('<tablet') {
                 padding: 0 0 0 15px;
@@ -210,7 +215,7 @@
         }
         .link{
             @include font(20px, 1.2);
-            color: $white;
+            color: #d53b1f;
             @include media('<desktop') {
                 font-size: 16px;
             }
@@ -262,7 +267,7 @@
     h1{
         @include font(60px, 1);
         font-weight: 400;
-        color: $crown;
+        color: #1b2f57;
         margin: 0 0 22px;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -278,7 +283,7 @@
         @include font(40px, 1);
         font-weight: 600;
         display: block;
-        color: $fuscous-gray;
+        color: #d53b1f;
         letter-spacing: 1.2px;
         margin: 0 0 13px;
         @include media('<desktop') {
@@ -290,10 +295,10 @@
     }
     .holder{
         @include clearfix;
-        background: $fuscous-gray;
+        background: #1b2f57;
         padding: 50px 9999px 20px;
         margin: 0 -9999px;
-        color: $white;
+        color: #ded0c5;
         position: relative;
         z-index: 3;
         @include media('<tablet') {
@@ -301,7 +306,7 @@
         }
         &:before {
             @include arrow(21px 21px 0);
-            border-top-color: $fuscous-gray;
+            border-top-color: #1b2f57;
             top: 100%;
             left: 50%;
             margin: 0 0 0 -21px;
@@ -342,7 +347,7 @@
                 overflow: hidden;
                 li{
                     a{
-                        color: $white;
+                        color: #ded0c5;
                         text-decoration: none;
                         &:hover{
                             text-decoration: underline;
@@ -372,7 +377,7 @@
 .location-block{
     @include clearfix;
     width: 100%;
-    background: $crown;
+    background: #a0c3bd;
     padding: 81px 0 61px;
     @include media('<tablet') {
         padding: 35px 0 20px;
@@ -384,7 +389,7 @@
         @include font(40px, 1);
         font-weight: 600;
         display: block;
-        color: $white;
+        color: #d53b1f;
         letter-spacing: 1.2px;
         margin: 0 0 35px;
         @include media('<desktop') {
@@ -407,8 +412,8 @@
     @include clearfix;
     position: relative;
     padding: 37px 0 43px;
-    background: $fuscous-gray;
-    color: $white;
+    background: #1b2f57;
+    color: #1b2f57;
     font-weight: 600;
     letter-spacing: 0.6px;
     @include media('<tablet') {
@@ -416,7 +421,7 @@
     }
     &:before {
         @include arrow(21px 21px 0);
-        border-top-color: $fuscous-gray;
+        border-top-color: #1b2f57;
         top: 100%;
         left: 50%;
         margin: 0 0 0 -21px;
@@ -428,7 +433,7 @@
         @include font(40px, 1);
         font-weight: 600;
         display: block;
-        color: $white;
+        color: #ded0c5;
         letter-spacing: 1.2px;
         margin: 0 0 25px;
         @include media('<desktop') {
@@ -454,7 +459,7 @@
         }
     }
     .link{
-        color: $white;
+        color: #ded0c5;
         text-decoration: none;
         &:hover{
             text-decoration: underline;
@@ -465,6 +470,7 @@
 .recent-block{
     overflow: hidden;
     padding: 68px 0 25px;
+    background: #ded0c5;
     @include media('<tablet') {
         padding: 35px 0 25px;
     }
@@ -489,7 +495,7 @@
         @include font(40px, 1);
         font-weight: 600;
         display: block;
-        color: $crown;
+        color: #1b2f57;
         letter-spacing: 1.2px;
         margin: 0 0 55px;
         @include media('<desktop') {
@@ -526,7 +532,7 @@
         @include font(40px, 1);
         font-weight: 600;
         display: block;
-        color: $crown;
+        color: #1b2f57;
         letter-spacing: 1.2px;
         margin: 0 0 26px;
         @include media('<desktop') {

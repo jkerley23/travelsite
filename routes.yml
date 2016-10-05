@@ -99,7 +99,7 @@ sl_index:
   trailing_slash: force
 
 sl_episode:
-  path: /soundslocal/episode/{page:\d+}
+  path: /soundslocal/episode/{slug}
   view: @blocks/pages/soundslocal_episode.twig
   layers: @layers/tracking.yml
   trailing_slash: force

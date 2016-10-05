@@ -127,9 +127,9 @@
             &:hover,
             &.active{
                 a{
-                    color: $crown;
+                    color: #d53b1f;
                     @include media('<tablet') {
-                        background: $crown;
+                        background: #d53b1f;
                         color: $white;
                     }
                 }

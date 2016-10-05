@@ -1,115 +1,204 @@
 {%- import "@blocks/macros/asset-file.twig" as assetfile -%}
-<!DOCTYPE html>
+{%- import "@blocks/macros/resize.twig" as resize -%}
+
+{% set episode = api.data.query({
+    schema_name: "sl_episode",
+    filters: {
+        instance: {
+                slug : req.params.slug|striptags,
+            }
+        }
+        }).results
+    %}
+
+{# {{prettydump(episode)}} #}
+
+ <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+ <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoundsLocal</title>
+    <title>Sounds Local</title>
     <link media="all" rel="stylesheet" href="{{ asset('styles/'~assetfile.assetfile('sl-main.min.css')) }}">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700" rel="stylesheet">
+    <link rel="shortcut icon" href="{{asset('images/sl_favicon2.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('images/sl_favicon2.ico')}}" type="image/x-icon">
+    <meta name="google-site-verification" content="O11SM7EL9ZaCmA0pZjEt4sWpND7KEYlmlQf5qDH0hu8"/>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
     <script type="text/javascript" src="{{ asset('scripts/jquery.sl-main.js') }}" defer></script>
 </head>
-<body class="home-page">
+<body>
     <div id="wrapper">
         <div class="w1">
         <header id="header">
             <div class="container">
+                <strong class="logo"><a href="/soundslocal"><img src="{{asset('images/SLlogo.png') }}"></a></strong>
                 <nav id="nav">
                     <a href="#" class="nav-opener"><span></span></a>
                     <div class="nav-drop">
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Episodes</a></li>
-                            <li><a href="#">Download the App</a></li>
-                            <li><a href="#">mapquest.com</a></li>
+                            <li><a href="/soundslocal">Episodes</a></li>
+                            <li><a href="/" target="_blank">Parachute</a></li>
+                            <li><a href="https://www.mapquest.com" target="_blank">MapQuest</a></li>
                         </ul>
                     </div>
                 </nav>
-                <strong class="logo"><a href="#"><img src="images/logo.png" alt="Sounds Local"></a></strong>
             </div>
         </header>
         <main id="main">
-            <div class="intro-text">
+            {% for item in episode %}
+                {% set item = item.instance %}
+            {% if item.episode_live == true %}
+            <div class="video-block">
+                {{item.video_tag|raw}}
+            </div>
+            <article class="info-post">
                 <div class="container">
-                    <p>Parachute by mapquest brings you around the country where local artists give you a tour of the town.</p>
+                    <header class="head">
+                        <h1>{{item.band_name}}</h1>
+                        <h2>{{item.location}}</h2>
+                    </header>
+                    <div class="holder">
+                        <div class="textbox">
+                           {{item.episode_description|raw}}
+                        </div>
+                        <div class="info-box">
+                            <div class="box">
+                                <strong class="title">Band Members</strong>{{item.band_members|raw}}</div>
+                                <ul class="social-links">
+                                    <li>{{item.band_social|raw}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <div class="location-block">
+                <div class="container">
+                    <h2>Locations Visited in Episode:</h2>
+                    <div class="map-holder">
+                        {{item.my_map|raw}}
+                    </div>
                 </div>
             </div>
-            <section class="featurd-block">
+            <section class="recent-block">
                 <div class="container">
-                    <article class="feature-post">
-                        <div class="img-holder">
-                            <img src="images/img1.jpg" alt="img description">
-                        </div>
-                        <div class="textbox">
-                        <div class="block">
-                            <div class="frame">
-                                <div class="container">
-                                    <span class="subtitle">FEATURED</span>
-                                    <h1>Y LA BAMBA <span>PORTLAND</span></h1>
-                                    <a href="#" class="btn">view episode</a>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    </article>
-                    <div class="holder">
-                        <article class="reguler-post">
-                            <div class="img-holder">
-                                <img src="images/img2.jpg" alt="img description">
-                            </div>
-                            <div class="textbox">
-                                <h2>P.O.S <span>Minneapolis</span></h2>
-                                <a href="#" class="link">view episode</a>
-                            </div>
-                        </article>
-                        <article class="reguler-post">
-                            <div class="img-holder">
-                                <img src="images/img3.jpg" alt="img description">
-                            </div>
-                            <div class="textbox">
-                                <h2>the midnight pine <span>san diego</span></h2>
-                                <a href="#" class="link">view episode</a>
-                            </div>
-                        </article>
-                        <article class="reguler-post">
-                            <div class="img-holder">
-                                <img src="images/img3.jpg" alt="img description">
-                            </div>
-                            <div class="textbox">
-                                <h2>roadkill ghost choir <span>athens</span></h2>
-                                <a href="#" class="link">view episode</a>
-                            </div>
-                        </article>
-                        <article class="reguler-post">
-                            <div class="img-holder">
-                                <img src="images/img3.jpg" alt="img description">
-                            </div>
-                            <div class="textbox">
-                                <h2>hembree <span>kansas city</span></h2>
-                                <a href="#" class="link">view episode</a>
-                            </div>
-                        </article>
-                        <article class="reguler-post">
-                            <div class="img-holder">
-                                <img src="images/img3.jpg" alt="img description">
-                            </div>
-                            <div class="textbox">
-                                <h2>creepoid <span>philadelphia</span></h2>
-                                <a href="#" class="link">view episode</a>
-                            </div>
-                        </article>
+                    <div class="img-holder">
+                        <img src="{{item.bottom_image}}" alt="{{item.band_name}}">
+                    </div>
+                    <div class="textbox">
+                        <h2>Explore the City Using Parachute:</h2>
+                        {{item.related_links|raw}}
                     </div>
                 </div>
             </section>
-            <div class="intro-text">
+
+            {% if item.extra_videos == true %}
+
+                <section class="show-block">
+                    <div class="container">
+                        <header class="head">
+                            <h2>Extras From This Episode:</h2>
+                        </header>
+                    {{item.extra_videos|raw}}
+                    </div>
+                </section>
+
+                    {% else %}
+
+                {% endif %}
+
+            {% if item.more_episodes == true %}
+            <section class="episodes-block">
                 <div class="container">
-                    <p>Keep checking back for more artists in new cities. in the meantime, explore other things that parachute by mapquest has to offer:</p>
+                    <h2>More Episodes</h2>
+                    <ul>
+                        <li>
+                            <a href="/soundslocal/episode/{{item.episode_link1}}">
+                                <div class="img-holder">
+                                    <img src="{{item.episode_img1}}" alt="{{item.band_name}}">
+                                </div>
+                                <strong class="title">{{item.episode_title1}}</strong>
+                            </a>
+                        </li>
+                        {% if item.episode_link2 == true %}
+                        <li>
+                           <a href="/soundslocal/episode/{{item.episode_link2}}">
+                                <div class="img-holder">
+                                    <img src="{{item.episode_img2}}" alt="{{item.band_name}}">
+                                </div>
+                                <strong class="title">{{item.episode_title2}}</strong>
+                            </a>
+                        </li>
+                        {% else %}
+                    {% endif %}
+
+                    {% if item.episode_link3 == true %}
+                        <li>
+                           <a href="/soundslocal/episode/{{item.episode_link3}}">
+                                <div class="img-holder">
+                                    <img src="{{item.episode_img3}}" alt="{{item.band_name}}">
+                                </div>
+                                <strong class="title">{{item.episode_title3}}</strong>
+                            </a>
+                        </li>
+                         {% else %}
+                    {% endif %}
+
+                    {% if item.episode_link4 == true %}
+                        <li>
+                           <a href="/soundslocal/episode/{{item.related_link4}}">
+                                <div class="img-holder">
+                                    <img src="{{item.episode_img4}}" alt="{{item.band_name}}">
+                                </div>
+                                <strong class="title">{{item.episode_title4}}</strong>
+                            </a>
+                        </li>
+                        {% else %}
+                    {% endif %}
+
+                    {% if item.episode_link5 == true %}
+                        <li>
+                           <a href="/soundslocal/episode/{{item.episode_link5}}">
+                                <div class="img-holder">
+                                    <img src="{{item.episode_img5}}" alt="{{item.band_name}}">
+                                </div>
+                                <strong class="title">{{item.episode_title5}}</strong>
+                            </a>
+                        </li>
+                        {% else %}
+                    {% endif %}
+                    </ul>
                 </div>
-            </div>
+
+
+                {% else %}
+
+            {% endif %}
+
+            {% else %}
+
+            <div class="img-holder">
+                    <img src="{{asset('images/ComingSoon.jpg')}}" alt="Sounds Local">
+                </br>
+                </br>
+                </div>
+
+        {% endif %}
+
+            </section>
+
+            {% endfor %}
+
+
+
+    <div class="intro-text">
+        <div class="container">
+            <p>#EatDrinkSing</p>
+    </div>
         </main>
     </div>
-    <footer id="footer">
+  <footer id="footer">
         <div class="footer-holder">
                 <div class="footer-frame">
                     <div class="footer-top">
@@ -118,10 +207,10 @@
                                 <h3>About</h3>
                                 <nav class="footer-nav">
                                     <ul>
-                                        <li><a href="#">About MapQuest</a></li>
-                                        <li><a href="#">Contact Us</a></li>
-                                        <li><a href="#">Advertise</a></li>
-                                        <li><a href="#">About Our Ads</a></li>
+                                        <li><a href="http://company.mapquest.com/" target="_blank">About MapQuest</a></li>
+                                        <li><a href="mailto:parachute@mapquest.com" target="_blank">Contact Us</a></li>
+                                        <li><a href="http://advertising.aol.com/brands/mapquest" target="_blank">Advertise</a></li>
+                                        <li><a href="http://adinfo.aol.com/about-our-ads/" target="_blank">About Our Ads</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -129,10 +218,10 @@
                                 <h3>More MapQuest</h3>
                                 <nav class="footer-nav">
                                     <ul>
-                                        <li><a href="#">Driving Directions</a></li>
-                                        <li><a href="h#">Find Place or Address</a></li>
-                                        <li><a href="#">Business Solutions</a></li>
-                                        <li><a href="#">Book Travel</a></li>
+                                        <li><a href="https://www.mapquest.com/directions" target="_blank">Driving Directions</a></li>
+                                        <li><a href="https://www.mapquest.com/search" target="_blank">Find Place or Address</a></li>
+                                        <li><a href="https://developer.mapquest.com/" target="_blank">Business Solutions</a></li>
+                                        <li><a href="https://bookings.mapquest.com/refclickid=&refclickid=pchutefooter&refid=5101" target="_blank">Book Travel</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -140,8 +229,8 @@
                                 <h3>Even More</h3>
                                 <nav class="footer-nav">
                                     <ul>
-                                        <li><a href="#">Become a Contributor</a></li>
-                                        <li><a href="#">Custom Content Solutions</a></li>
+                                        <li><a href="https://contributor.mapquest.com/registration/" target="_blank">Become a Contributor</a></li>
+                                        <li><a href="https://parachute.mapquest.com/2016/05/23/parachute-by-mapquest-custom-content-solutions/" target="_blank">Custom Content Solutions</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -150,24 +239,24 @@
                     <div class="footer-bottom">
                         <div class="container">
                             <div class="col">
-                                <h3>Follow MapQuest</h3>
+                                <h3>Follow</h3>
                                 <ul class="social-networks">
-                                    <li><a class="facebook" href="#"><img src="images/ico-social1.png" alt="img description"></a></li>
-                                    <li><a class="twitter" href="#"><img src="images/ico-social2.png" alt="img description"></a></li>
-                                    <li><a class="gplus" href="#"><img src="images/ico-social3.png" alt="img description"></a></li>
-                                    <li><a class="youtube" href="#"><img src="images/ico-social4.png" alt="img description"></a></li>
-                                    <li><a class="instagram" href="#"><img src="images/ico-social5.png" alt="img description"></a></li>
-                                    <li><a class="linkedin" href="#"><img src="images/ico-social6.png" alt="img description"></a></li>
+                                    <li><a class="facebook" href="https://www.facebook.com/pchutebymq/"><img src= "{{asset('images/ico-social1.png')}}" alt="Facebook"></a></li>
+                                    <li><a class="twitter" href="https://twitter.com/MQchute"><img src="{{asset('images/ico-social2.png')}}" alt="Twitter"></a></li>
+                                    <li><a class="gplus" href="https://plus.google.com/+mapquest/videos"><img src="{{asset('images/ico-social3.png')}}" alt="Google Plus"></a></li>
+                                    <li><a class="youtube" href="https://www.youtube.com/user/mapquest"><img src="{{asset('images/ico-social4.png')}}" alt="YouTube"></a></li>
+                                    <li><a class="instagram" href="https://instagram.com/mapquest/"><img src="{{asset('images/ico-social5.png')}}" alt="Instagram"></a></li>
+                                    <li><a class="linkedin" href="https://instagram.com/mapquest/"><img src="{{asset('images/ico-social6.png')}}" alt="LinkedIn"></a></li>
                                 </ul>
                             </div>
                             <div class="col">
                                 <h3>MapQuest Apps</h3>
                                 <ul class="app-links">
-                                    <li><a class="android" href="#"><img src="images/ico-social7.png" alt="img description"></a></li>
-                                    <li><a class="apple" href="#"><img src="images/ico-social8.png" alt="img description"></a></li>
+                                    <li><a class="android" href="https://play.google.com/store/apps/details?id=com.mapquest.android.ace"><img src="{{asset('images/ico-social7.png')}}" alt="For Android"></a></li>
+                                    <li><a class="apple" href="https://itunes.apple.com/app/mapquest-maps-gps-voice-navigation/id316126557?mt=8"><img src="{{asset('images/ico-social8.png')}}" alt="For iOS"></a></li>
                                 </ul>
                                 <span class="link-text">
-                                    <a class="link-arrow" href="#">More Apps from MapQuest</a>
+                                    <a class="link-arrow" href="http://mobile.mapquest.com/#intro">More Apps from MapQuest</a>
                                 </span>
                             </div>
                         </div>

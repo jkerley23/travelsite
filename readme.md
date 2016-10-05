@@ -7,6 +7,7 @@
 # run Gulp commands to get set up
 
 ```
+npm install
 gulp sass
 gulp prod-build
 ```
