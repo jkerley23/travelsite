@@ -92,6 +92,14 @@ pokemon:
   layers: @layers/tracking.yml
   trailing_slash: force
 
+trexit:
+  path:
+    - /trexit/
+    - /trexit/page/{page:\d+}
+  view: @blocks/pages/trexit.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
+
 ad:
   path: /_uac/adpage.html
   view: @blocks/pages/adpage.twig
