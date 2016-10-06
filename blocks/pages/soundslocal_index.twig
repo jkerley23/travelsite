@@ -1,0 +1,179 @@
+{%- import "@blocks/macros/asset-file.twig" as assetfile -%}
+{%- import "@blocks/macros/resize.twig" as resize -%}
+
+{% set featured = api.data.query({ schema_name: "sl_featured"}).results %}
+
+{% set episodes = api.data.query({
+    schema_name: "sl_episode",
+    sort_by: {
+    created: 1
+    }
+}).results %}
+
+{# {{prettydump(episodes)}}
+{{prettydump(featured)}} #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sounds Local</title>
+    <link media="all" rel="stylesheet" href="{{ asset('styles/'~assetfile.assetfile('sl-main.min.css')) }}">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700" rel="stylesheet">
+    <link rel="shortcut icon" href="{{asset('images/sl_favicon2.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('images/sl_favicon2.ico')}}" type="image/x-icon">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
+    <script type="text/javascript" src="{{ asset('scripts/jquery.sl-main.js') }}" defer></script>
+    <meta name="google-site-verification" content="O11SM7EL9ZaCmA0pZjEt4sWpND7KEYlmlQf5qDH0hu8"/>
+</head>
+<body class="home-page">
+    <div id="wrapper">
+        <div class="w1">
+        <header id="header">
+            <div class="container">
+                <nav id="nav">
+                    <a href="#" class="nav-opener"><span></span></a>
+                    <div class="nav-drop" align="center">
+                        <ul>
+                            <li><a href="https://parachute.mapquest.com/rootsnblues-giveaway/" target="_blank">Roots N Blues Giveaway</a></li>
+                            <li><a href="/" target="_blank">Parachute</a></li>
+                            <li><a href="https://www.mapquest.com" target="_blank">MapQuest</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <strong class="logo"><a href="#featured_video"><img src="{{ asset('images/SLlogo.png') }}" alt="Sounds Local"></a></strong>
+            </div>
+        </header>
+        <main id="main">
+            <div class="intro-text">
+                <div class="container">
+                    <p>Parachute brings you around the country where local musicians give you a tour of their cities.</p>
+                </div>
+            </div>
+            <section class="featurd-block">
+                <div class="container">
+                    {% for item in featured %}
+                        {% set item = item.instance %}
+                    <article class="feature-post">
+                        <a name="featured_video">{{item.featured_video|raw}}</a>
+                        {# <div class="img-holder">
+                            <a href="/soundslocal/episode/{{item.featured_slug}}">
+                                <img src="{{item.featured_image}}" alt="{{item.featured_band}}">
+                            </a>
+                        </div>
+                        <div class="textbox">
+                        <div class="block">
+                            <div class="frame">
+                                <div class="container">
+                                    <span class="subtitle">FEATURED</span>
+                                    <h1>{{item.featured_band}} <span>{{item.featured_city}}</span></h1>
+                                    <a href="/soundslocal/episode/{{item.featured_slug}}" class="btn">VIEW EPISODE</a>
+                                </div>
+                            </div>
+                        </div>
+                        </div> #}
+                    </article>
+                    {% endfor %}
+                    <div class="holder">
+                    {% for item in episodes %}
+                        {% set item = item.instance %}
+                        <article class="reguler-post">
+                            <div class="img-holder">
+                                {% if item.episode_live == true %}
+                                <a href="/soundslocal/episode/{{item.slug}}">
+                                    <img src="{{item.bottom_image}}" alt="{{item.band_name}}">
+                                </a>
+                                {% else %}
+                                    <img src="{{item.bottom_image}}" alt="{{item.band_name}}">
+                                {% endif %}
+                            </div>
+                            <div class="textbox">
+                                <h2>{{item.band_name}}<span>{{item.location}}</span></h2>
+                                {% if item.episode_live == true %}
+                                <a href="/soundslocal/episode/{{item.slug}}" class="link">VIEW EPISODE</a>
+                                {% else %}
+                                <a class="link">COMING SOON</a>
+                            {% endif %}
+                            </div>
+                        </article>
+                    {% endfor %}
+                    </div>
+                </div>
+            </section>
+            <div class="intro-text">
+                <div class="container">
+                    <p>#EatDrinkSing</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer id="footer">
+        <div class="footer-holder">
+                <div class="footer-frame">
+                    <div class="footer-top">
+                        <div class="container">
+                            <div class="col">
+                                <h3>About</h3>
+                                <nav class="footer-nav">
+                                    <ul>
+                                        <li><a href="http://company.mapquest.com/" target="_blank">About MapQuest</a></li>
+                                        <li><a href="mailto:parachute@mapquest.com" target="_blank">Contact Us</a></li>
+                                        <li><a href="http://advertising.aol.com/brands/mapquest" target="_blank">Advertise</a></li>
+                                        <li><a href="http://adinfo.aol.com/about-our-ads/" target="_blank">About Our Ads</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col">
+                                <h3>More MapQuest</h3>
+                                <nav class="footer-nav">
+                                    <ul>
+                                        <li><a href="https://www.mapquest.com/directions" target="_blank">Driving Directions</a></li>
+                                        <li><a href="https://www.mapquest.com/search" target="_blank">Find Place or Address</a></li>
+                                        <li><a href="https://developer.mapquest.com/" target="_blank">Business Solutions</a></li>
+                                        <li><a href="https://bookings.mapquest.com/refclickid=&refclickid=pchutefooter&refid=5101" target="_blank">Book Travel</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col">
+                                <h3>Even More</h3>
+                                <nav class="footer-nav">
+                                    <ul>
+                                        <li><a href="https://contributor.mapquest.com/registration/" target="_blank">Become a Contributor</a></li>
+                                        <li><a href="https://parachute.mapquest.com/2016/05/23/parachute-by-mapquest-custom-content-solutions/" target="_blank">Custom Content Solutions</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <div class="container">
+                            <div class="col">
+                                <h3>Follow</h3>
+                                <ul class="social-networks">
+                                    <li><a class="facebook" href="https://www.facebook.com/pchutebymq/"><img src= "{{asset('images/ico-social1.png')}}" alt="Facebook"></a></li>
+                                    <li><a class="twitter" href="https://twitter.com/MQchute"><img src="{{asset('images/ico-social2.png')}}" alt="Twitter"></a></li>
+                                    <li><a class="gplus" href="https://plus.google.com/+mapquest/videos"><img src="{{asset('images/ico-social3.png')}}" alt="Google Plus"></a></li>
+                                    <li><a class="youtube" href="https://www.youtube.com/user/mapquest"><img src="{{asset('images/ico-social4.png')}}" alt="YouTube"></a></li>
+                                    <li><a class="instagram" href="https://instagram.com/mapquest/"><img src="{{asset('images/ico-social5.png')}}" alt="Instagram"></a></li>
+                                    <li><a class="linkedin" href="https://instagram.com/mapquest/"><img src="{{asset('images/ico-social6.png')}}" alt="LinkedIn"></a></li>
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <h3>MapQuest Apps</h3>
+                                <ul class="app-links">
+                                    <li><a class="android" href="https://play.google.com/store/apps/details?id=com.mapquest.android.ace"><img src="{{asset('images/ico-social7.png')}}" alt="For Android"></a></li>
+                                    <li><a class="apple" href="https://itunes.apple.com/app/mapquest-maps-gps-voice-navigation/id316126557?mt=8"><img src="{{asset('images/ico-social8.png')}}" alt="For iOS"></a></li>
+                                </ul>
+                                <span class="link-text">
+                                    <a class="link-arrow" href="http://mobile.mapquest.com/#intro">More Apps from MapQuest</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

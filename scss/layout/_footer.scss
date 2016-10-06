@@ -1,0 +1,135 @@
+#footer {
+    width:100%;
+    overflow: hidden;
+    display: table-footer-group;
+    .footer-holder {
+        height: 1%;
+        display: table-row;
+    }
+    .footer-frame {
+        display: table-cell;
+    }
+}
+
+.footer-top{
+    overflow: hidden;
+    padding: 22px 0 10px;
+    border-bottom: 1px solid $alto;
+    .col{
+        width: 160px;
+        float: left;
+        padding: 0 10px 0 0;
+        @include media('<desktop') {
+            width: 33.333%;
+        }
+        @include media('<phone') {
+            width: 50%;
+        }
+    }
+    h3{
+        @include font(15px, 20px);
+        color: $tundora;
+        padding: 25px 0 25px;
+        margin: 0 0 6px;
+        font-weight: 500;
+    }
+    .footer-nav{
+        ul{
+            @include listreset;
+            @include font(13px, 18px);
+        }
+        li{
+            margin: 0 0 10px;
+            a{
+                color: $shakespeare;
+                text-decoration: none;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.footer-bottom{
+    overflow: hidden;
+    padding: 20px 0 22px;
+    .col{
+        width: 33.333%;
+        float: left;
+        padding: 0 15px 0 0;
+        @include media('<desktop') {
+            width: 50%;
+        }
+        @include media('<phone') {
+            width: 100%;
+        }
+    }
+    h3{
+        @include font(15px, 20px);
+        color: $gray;
+        padding: 25px 0 25px;
+        margin: 0 0 6px;
+        font-weight: 500;
+    }
+    .link-text{
+        @include font(12px, 18px);
+        font-weight: 600;
+        display: block;
+        .link-arrow{
+            color: $orient;
+            display: inline-block;
+            text-decoration: none;
+            &:after {
+                @include align(middle);
+                @include size(11px, 8px);
+                background: url("../images/ico-arrow.png") no-repeat;
+                content: '';
+                margin: 0 0 0 5px;
+            }
+            &:hover{
+                opacity: 0.85;
+            }
+        }
+    }
+}
+
+.social-networks{
+    @include listreset;
+    overflow: hidden;
+    max-width: 275px;
+    @include media('<phone') {
+        max-width: inherit;
+    }
+    li{
+        float: left;
+        margin: 0 6px 5px 0;
+        a{
+            display: block;
+            &:hover{
+                opacity: 0.85;
+            }
+        }
+        img{
+            @include img;
+        }
+    }
+}
+
+.app-links{
+    @include listreset;
+    overflow: hidden;
+    li{
+        float: left;
+        margin: 0 6px 5px 0;
+        a{
+            display: block;
+            &:hover{
+                opacity: 0.85;
+            }
+        }
+        img{
+            @include img;
+        }
+    }
+}

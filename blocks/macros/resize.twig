@@ -1,0 +1,7 @@
+{%- macro resize(image, width, height, max) -%}
+  {%- if max == "true" -%}
+    {{- image|dims.resize(width, height).crop(width, height, 0, 0).quality(80) -}}
+  {%- else -%}
+    {{- image|dims.resize(width, height, 'min').crop(width, height, 0, 0).quality(80) -}}
+  {%- endif -%}
+{%- endmacro -%}

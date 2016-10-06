@@ -1,0 +1,37 @@
+#header{
+    @include clearfix;
+    padding: 25px 0 30px;
+    position: relative;
+    z-index: 5;
+    @include media('<desktop'){
+        padding: 25px 0;
+    }
+    @include media('<tablet'){
+        padding: 15px 0;
+    }
+    .logo{
+        float: left;
+        width: 147px;
+        margin: 5px 0 1px 34px;
+        position: relative;
+        z-index: 1;
+        @include media('<desktop'){
+            margin: 0;
+            width: 130px;
+        }
+        @include media('<tablet'){
+            width: 110px;
+        }
+        .home-page &{
+            width: auto;
+            float: none;
+            display: block;
+            overflow: hidden;
+            max-width: 690px;
+            margin: 0 auto 5px;
+        }
+        img{
+            @include img;
+        }
+    }
+}

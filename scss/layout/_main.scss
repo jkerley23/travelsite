@@ -1,0 +1,580 @@
+#main{
+    @include clearfix;
+    width: 100%;
+}
+
+.intro-text{
+    @include font(18px, 20px);
+    color: #ded0c5;
+    width: 100%;
+    background: #1b2f57;
+    text-align: center;
+    padding: 30px 0;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 4;
+    letter-spacing: 0.6px;
+    font-weight: 300;
+    @include media('<desktop') {
+        @include font(16px, 20px);
+    }
+    @include media('<tablet') {
+        @include font(14px, 18px);
+        padding: 15px 0;
+    }
+    @include media('<phone') {
+        font-size: 13px;
+    }
+    &:after {
+        @include arrow(21px 21px 0);
+        border-top-color: #d0d0d04d;
+        top: 100%;
+        left: 50%;
+        margin: 0 0 0 -21px;
+    }
+    .container{
+        max-width: 830px;
+    }
+    p{
+        margin: 0;
+    }
+}
+
+.featurd-block{
+    overflow: hidden;
+    background: #ded0c5;
+    .feature-post{
+        overflow: hidden;
+        margin: 0 -15px;
+        position: relative;
+        .img-holder{
+            overflow: hidden;
+            @include media('<phone') {
+                @include fixed-img(480px);
+            }
+            img{
+                @include img;
+            }
+        }
+        .textbox{
+            @include position(0);
+            color: #ded0c5;
+            .block{
+                @include size(100%);
+                display: table;
+                table-layout: fixed;
+            }
+            .frame{
+                @include size(100%);
+                display: table-cell;
+                vertical-align: middle;
+                padding: 0 15px 50px;
+                letter-spacing: 0.5px;
+                @include media('<tablet') {
+                    padding: 0 10px;
+                }
+            }
+            .subtitle{
+                @include font(18px, 24px);
+                text-transform: uppercase;
+                display: block;
+                @include media('<desktop') {
+                    @include font(16px, 22px);
+                }
+                @include media('<tablet') {
+                    @include font(14px, 18px);
+                }
+            }
+            h1{
+                @include font(70px, 1);
+                text-transform: uppercase;
+                margin: 0 0 20px;
+                font-weight: 400;
+                letter-spacing: 2px;
+                @include media('<desktop') {
+                    font-size: 45px;
+                }
+                @include media('<tablet') {
+                    font-size: 25px;
+                    letter-spacing: 1px;
+                    margin: 0 0 10px;
+                }
+                span{
+                    @include font(50px, 1);
+                    display: block;
+                    @include media('<desktop') {
+                        font-size: 30px;
+                    }
+                    @include media('<tablet') {
+                        font-size: 20px;
+                    }
+                }
+            }
+            .btn{
+                @include size(228px, 44px);
+                @include font(18px, 24px);
+                padding: 10px;
+                color: #ded0c5;
+                display: block;
+                border-radius: 22px;
+                text-align: center;
+                font-weight: 300;
+                background: #1b2f57;
+                text-decoration: underline;
+                @include media('<tablet') {
+                    @include size(150px, 34px);
+                    @include font(14px, 24px);
+                    padding: 5px;
+                }
+                &:hover{
+                    background: #e8aa23;
+                }
+            }
+        }
+    }
+    .holder{
+        @include clearfix;
+        padding: 0 15px;
+        @include media('<tablet') {
+            padding: 0 2px;
+        }
+    }
+    .reguler-post{
+        overflow: hidden;
+        padding: 30px 9999px;
+        margin: 0 -9999px;
+        background: #1b2f57;
+        @include media('<tablet') {
+            padding: 15px 9999px;
+        }
+        &:nth-child(even){
+            background: #ded0c5;
+
+            h2 {
+                color: #1b2f57;
+            }
+        }
+        &:hover{
+            background: #e8aa23;
+        }
+        .img-holder{
+            @include align(middle);
+            width: 54%;
+            margin: 0 -2px;
+            @include media('<tablet') {
+                width: 50%;
+            }
+            @include media('<phone') {
+                width: 100%;
+                margin: 0 0 15px;
+                display: block;
+            }
+            img{
+                @include img;
+            }
+        }
+        .textbox{
+            @include align(middle);
+            width: 46%;
+            margin: 0 -2px;
+            color: #ded0c5;
+            padding: 0 0 0 35px;
+            @include media('<tablet') {
+                padding: 0 0 0 15px;
+                width: 50%;
+            }
+            @include media('<phone') {
+                width: 100%;
+                display: block;
+            }
+        }
+        h2{
+            @include font(40px, 1.1);
+            text-transform: uppercase;
+            margin: 0 0 45px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            @include media('<desktop') {
+                font-size: 27px;
+                margin: 0 0 20px;
+            }
+            @include media('<tablet') {
+                font-size: 18px;
+                margin: 0 0 10px;
+            }
+            span{
+                @include font(30px, 1.1);
+                display: block;
+                @include media('<desktop') {
+                    font-size: 17px;
+                }
+                @include media('<tablet') {
+                    font-size: 12px;
+                }
+            }
+        }
+        .link{
+            @include font(20px, 1.2);
+            color: #d53b1f;
+            @include media('<desktop') {
+                font-size: 16px;
+            }
+            @include media('<tablet') {
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+.video-block{
+    max-width: 1054px;
+    overflow: hidden;
+    margin: 0 auto 51px;
+    padding: 0 15px;
+    @include media('<tablet') {
+        padding: 0 10px;
+        margin-bottom: 25px;
+    }
+    img{
+        @include img;
+    }
+}
+
+.info-post{
+    overflow: hidden;
+    padding: 0 0 21px;
+    margin: 0 0 -21px;
+    width: 100%;
+    .head{
+        @include clearfix;
+        padding: 0 32px 30px;
+        position: relative;
+        z-index: 4;
+        @include media('<desktop') {
+            padding: 0 0 30px;
+        }
+        @include media('<tablet') {
+            padding: 0 0 10px;
+        }
+        &:after {
+            @include arrow(21px 21px 0);
+            border-top-color: $white;
+            top: 100%;
+            left: 50%;
+            margin: 0 0 0 -21px;
+        }
+    }
+    h1{
+        @include font(60px, 1);
+        font-weight: 400;
+        color: #1b2f57;
+        margin: 0 0 22px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        @include media('<desktop') {
+            @include font(50px, 1);
+        }
+        @include media('<tablet') {
+            @include font(35px, 1);
+            margin: 0 0 15px;
+        }
+    }
+    h2{
+        @include font(40px, 1);
+        font-weight: 600;
+        display: block;
+        color: #d53b1f;
+        letter-spacing: 1.2px;
+        margin: 0 0 13px;
+        @include media('<desktop') {
+            @include font(30px, 1);
+        }
+        @include media('<tablet') {
+            @include font(20px, 1.3);
+        }
+    }
+    .holder{
+        @include clearfix;
+        background: #1b2f57;
+        padding: 50px 9999px 20px;
+        margin: 0 -9999px;
+        color: #ded0c5;
+        position: relative;
+        z-index: 3;
+        @include media('<tablet') {
+            padding: 35px 9999px 20px;
+        }
+        &:before {
+            @include arrow(21px 21px 0);
+            border-top-color: #1b2f57;
+            top: 100%;
+            left: 50%;
+            margin: 0 0 0 -21px;
+        }
+        .textbox{
+            float: left;
+            width: 60%;
+            font-weight: 600;
+            padding: 0 60px 0 35px;
+            letter-spacing: 0.5px;
+            @include media('<desktop') {
+                padding: 0 50px 0 0;
+            }
+            @include media('<tablet') {
+                width: 100%;
+                padding: 0;
+                margin: 0 0 10px;
+            }
+        }
+        .info-box{
+            float: right;
+            width: 40%;
+            padding: 0 0 0 45px;
+            letter-spacing: 0.6px;
+            @include media('<desktop') {
+                padding: 0 0 0 15px;
+            }
+            @include media('<tablet') {
+                width: 100%;
+                padding: 0;
+            }
+            .box{
+                overflow: hidden;
+                margin: 0 0 25px;
+            }
+            ul{
+                @include listreset;
+                overflow: hidden;
+                li{
+                    a{
+                        color: #ded0c5;
+                        text-decoration: none;
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+            .social-links{
+                padding: 7px 0 0;
+                font-weight: 600;
+                li{
+                    float: left;
+                    width: 39%;
+                    padding: 15px 0 0;
+                    @include media('<tablet') {
+                        width: 50%;
+                    }
+                    a{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.location-block{
+    @include clearfix;
+    width: 100%;
+    background: #a0c3bd;
+    padding: 81px 0 61px;
+    @include media('<tablet') {
+        padding: 35px 0 20px;
+    }
+    .container{
+        max-width: 996px;
+    }
+    h2{
+        @include font(40px, 1);
+        font-weight: 600;
+        display: block;
+        color: #d53b1f;
+        letter-spacing: 1.2px;
+        margin: 0 0 35px;
+        @include media('<desktop') {
+            @include font(30px, 1);
+        }
+        @include media('<tablet') {
+            @include font(20px, 1.3);
+            margin: 0 0 20px;
+        }
+    }
+    .map-holder{
+        overflow: hidden;
+        img{
+            @include img;
+        }
+    }
+}
+
+.show-block{
+    @include clearfix;
+    position: relative;
+    padding: 37px 0 43px;
+    background: #1b2f57;
+    color: #1b2f57;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    @include media('<tablet') {
+        padding: 25px 0;
+    }
+    &:before {
+        @include arrow(21px 21px 0);
+        border-top-color: #1b2f57;
+        top: 100%;
+        left: 50%;
+        margin: 0 0 0 -21px;
+    }
+    .container{
+        max-width: 996px;
+    }
+    h2{
+        @include font(40px, 1);
+        font-weight: 600;
+        display: block;
+        color: #ded0c5;
+        letter-spacing: 1.2px;
+        margin: 0 0 25px;
+        @include media('<desktop') {
+            @include font(30px, 1);
+        }
+        @include media('<tablet') {
+            @include font(20px, 1.3);
+        }
+    }
+    p{
+        margin: 0 0 25px;
+    }
+    .date{
+        display: block;
+        text-transform: uppercase;
+    }
+    .addr{
+        display: inline-block;
+        margin: 0 0 0 20px;
+        @include media('<tablet') {
+            display: block;
+            margin: 0;
+        }
+    }
+    .link{
+        color: #ded0c5;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+.recent-block{
+    overflow: hidden;
+    padding: 68px 0 25px;
+    background: #ded0c5;
+    @include media('<tablet') {
+        padding: 35px 0 25px;
+    }
+    .img-holder{
+        overflow: hidden;
+        margin: 0 0 53px;
+        @include media('<tablet') {
+            margin: 0 0 25px;
+        }
+        img{
+            @include img;
+        }
+    }
+    .textbox{
+        overflow: hidden;
+        padding: 0 32px;
+        @include media('<desktop') {
+            padding: 0;
+        }
+    }
+    h2{
+        @include font(40px, 1);
+        font-weight: 600;
+        display: block;
+        color: #1b2f57;
+        letter-spacing: 1.2px;
+        margin: 0 0 55px;
+        @include media('<desktop') {
+            @include font(30px, 1);
+        }
+        @include media('<tablet') {
+            @include font(20px, 1.3);
+            margin: 0 0 25px;
+        }
+    }
+    ul{
+        @include listreset;
+        font-weight: 600;
+        letter-spacing: 0.6px;
+        li{
+            margin: 0 0 59px;
+            @include media('<tablet') {
+                margin: 0 0 20px;
+            }
+        }
+    }
+}
+
+.episodes-block{
+    overflow: hidden;
+    padding: 30px 0;
+    @include media('<tablet') {
+        padding: 10px 0;
+    }
+    .container{
+        max-width: 996px;
+    }
+    h2{
+        @include font(40px, 1);
+        font-weight: 600;
+        display: block;
+        color: #1b2f57;
+        letter-spacing: 1.2px;
+        margin: 0 0 26px;
+        @include media('<desktop') {
+            @include font(30px, 1);
+        }
+        @include media('<tablet') {
+            @include font(20px, 1.3);
+            margin: 0 0 20px;
+        }
+    }
+    ul{
+        @include listreset;
+        @include inline-reset;
+        overflow: hidden;
+        margin: 0 -13px;
+        li{
+            @include align;
+            width: 33.333%;
+            padding: 13px;
+            margin: 0 0 10px;
+            @include media('<tablet') {
+                width: 50%;
+                font-size: 15px;
+                margin: 0;
+            }
+        }
+        .img-holder{
+            overflow: hidden;
+            margin: 0 0 6px;
+            img{
+                @include img;
+            }
+        }
+        a{
+            text-decoration: none;
+            display: block;
+            &:hover{
+                color: $crown;
+            }
+        }
+        strong{
+            font-weight: 400;
+        }
+    }
+}

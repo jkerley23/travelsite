@@ -1,25 +1,20 @@
 {
-  "name": "grunt-with-node-sass",
-  "version": "0.9.5",
+  "name": "TraveSite",
+  "version": "1.0.0",
+  "main": "index.html",
+  "author": "AOL",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://stash.ops.aol.com/projects/MAPQUEST/repos/travelsite/browse"
+  },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-autoprefixer": "2.0.0",
-    "grunt-browser-sync": "1.5.3",
-    "grunt-cli": "0.1.13",
-    "grunt-combine-media-queries": "1.0.19",
-    "grunt-contrib-clean": "0.6.0",
-    "grunt-contrib-copy": "0.6.0",
-    "grunt-contrib-watch": "0.6.1",
-    "grunt-csscomb": "3.0.0",
-    "grunt-img": "^0.1.8",
-    "grunt-newer": "0.8.0",
-    "grunt-notify": "0.4.1",
-    "grunt-pngmin": "0.6.4",
-    "grunt-sass": "0.16.1",
-    "grunt-sftp-deploy": "0.2.2",
-    "grunt-svgmin": "^2.0.0",
-    "grunt-svg2string": "0.1.6",
-    "grunt-svgstore": "0.4.1",
-    "load-grunt-tasks": "1.0.0"
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^7.0.0",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "rev-del": "^1.0.5",
+    "run-sequence": "^1.2.1"
   }
 }
