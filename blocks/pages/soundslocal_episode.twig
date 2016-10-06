@@ -24,7 +24,7 @@
     <link rel="shortcut icon" href="{{asset('images/sl_favicon2.ico')}}" type="image/x-icon">
     <link rel="icon" href="{{asset('images/sl_favicon2.ico')}}" type="image/x-icon">
     <meta name="google-site-verification" content="O11SM7EL9ZaCmA0pZjEt4sWpND7KEYlmlQf5qDH0hu8"/>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
     <script type="text/javascript" src="{{ asset('scripts/jquery.sl-main.js') }}" defer></script>
 </head>
 <body>
@@ -65,6 +65,7 @@
                         <div class="info-box">
                             <div class="box">
                                 <strong class="title">Band Members</strong>{{item.band_members|raw}}</div>
+                                <strong class="title">Find</strong>
                                 <ul class="social-links">
                                     <li>{{item.band_social|raw}}</li>
                                 </ul>
@@ -114,7 +115,7 @@
                     <h2>More Episodes</h2>
                     <ul>
                         <li>
-                            <a href="/soundslocal/episode/{{item.episode_link1}}">
+                            <a href="/soundslocal/episode/{{item.episode_link1}}" target="_blank">
                                 <div class="img-holder">
                                     <img src="{{item.episode_img1}}" alt="{{item.band_name}}">
                                 </div>
@@ -147,7 +148,7 @@
 
                     {% if item.episode_link4 == true %}
                         <li>
-                           <a href="/soundslocal/episode/{{item.related_link4}}">
+                           <a href="/soundslocal/episode/{{item.episode_link4}}">
                                 <div class="img-holder">
                                     <img src="{{item.episode_img4}}" alt="{{item.band_name}}">
                                 </div>

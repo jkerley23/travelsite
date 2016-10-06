@@ -23,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700" rel="stylesheet">
     <link rel="shortcut icon" href="{{asset('images/sl_favicon2.ico')}}" type="image/x-icon">
     <link rel="icon" href="{{asset('images/sl_favicon2.ico')}}" type="image/x-icon">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
     <script type="text/javascript" src="{{ asset('scripts/jquery.sl-main.js') }}" defer></script>
     <meta name="google-site-verification" content="O11SM7EL9ZaCmA0pZjEt4sWpND7KEYlmlQf5qDH0hu8"/>
 </head>
@@ -42,7 +42,7 @@
                         </ul>
                     </div>
                 </nav>
-                <strong class="logo"><a href="/soundslocal"><img src="{{ asset('images/SLlogo.png') }}" alt="Sounds Local"></a></strong>
+                <strong class="logo"><a href="#featured_video"><img src="{{ asset('images/SLlogo.png') }}" alt="Sounds Local"></a></strong>
             </div>
         </header>
         <main id="main">
@@ -56,7 +56,8 @@
                     {% for item in featured %}
                         {% set item = item.instance %}
                     <article class="feature-post">
-                        <div class="img-holder">
+                        <a name="featured_video">{{item.featured_video|raw}}</a>
+                        {# <div class="img-holder">
                             <a href="/soundslocal/episode/{{item.featured_slug}}">
                                 <img src="{{item.featured_image}}" alt="{{item.featured_band}}">
                             </a>
@@ -68,12 +69,12 @@
                                     <span class="subtitle">FEATURED</span>
                                     <h1>{{item.featured_band}} <span>{{item.featured_city}}</span></h1>
                                     <a href="/soundslocal/episode/{{item.featured_slug}}" class="btn">VIEW EPISODE</a>
-                                {% endfor %}
                                 </div>
                             </div>
                         </div>
-                        </div>
+                        </div> #}
                     </article>
+                    {% endfor %}
                     <div class="holder">
                     {% for item in episodes %}
                         {% set item = item.instance %}
