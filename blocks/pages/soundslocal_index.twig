@@ -48,7 +48,7 @@
         <main id="main">
             <div class="intro-text">
                 <div class="container">
-                    <p>Parachute brings you around the country where local musicians give you a tour of their cities.</p>
+                    <p>Sounds Local by Parachute brings you around the country to see cities through the eyes of local musicians.</p>
                 </div>
             </div>
             <section class="featurd-block">
@@ -103,7 +103,7 @@
             </section>
             <div class="intro-text">
                 <div class="container">
-                    <p>#EatDrinkSing</p>
+                    <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fmapq.st%2FEatDrinkSing&text=Sounds%20Local%20by%20@MQchute%20brings%20you%20around%20the%20US%20to%20see%20cities%20through%20the%20eyes%20of%20local%20musicians.%20%23EatDrinkSing&" target="_blank" style="text-decoration:none; color:#ded0c5"><p>#EatDrinkSing</p></a>
                 </div>
             </div>
         </main>
@@ -151,22 +151,22 @@
                             <div class="col">
                                 <h3>Follow</h3>
                                 <ul class="social-networks">
-                                    <li><a class="facebook" href="https://www.facebook.com/pchutebymq/"><img src= "{{asset('images/ico-social1.png')}}" alt="Facebook"></a></li>
-                                    <li><a class="twitter" href="https://twitter.com/MQchute"><img src="{{asset('images/ico-social2.png')}}" alt="Twitter"></a></li>
-                                    <li><a class="gplus" href="https://plus.google.com/+mapquest/videos"><img src="{{asset('images/ico-social3.png')}}" alt="Google Plus"></a></li>
-                                    <li><a class="youtube" href="https://www.youtube.com/user/mapquest"><img src="{{asset('images/ico-social4.png')}}" alt="YouTube"></a></li>
-                                    <li><a class="instagram" href="https://instagram.com/mapquest/"><img src="{{asset('images/ico-social5.png')}}" alt="Instagram"></a></li>
-                                    <li><a class="linkedin" href="https://instagram.com/mapquest/"><img src="{{asset('images/ico-social6.png')}}" alt="LinkedIn"></a></li>
+                                    <li><a class="facebook" href="https://www.facebook.com/pchutebymq/" target="_blank"><img src= "{{asset('images/ico-social1.png')}}" alt="Facebook"></a></li>
+                                    <li><a class="twitter" href="https://twitter.com/MQchute" target="_blank"><img src="{{asset('images/ico-social2.png')}}" alt="Twitter"></a></li>
+                                    <li><a class="gplus" href="https://plus.google.com/+mapquest/videos" target="_blank"><img src="{{asset('images/ico-social3.png')}}" alt="Google Plus"></a></li>
+                                    <li><a class="youtube" href="https://www.youtube.com/user/mapquest" target="_blank"><img src="{{asset('images/ico-social4.png')}}" alt="YouTube"></a></li>
+                                    <li><a class="instagram" href="https://instagram.com/mapquest/" target="_blank"><img src="{{asset('images/ico-social5.png')}}" alt="Instagram"></a></li>
+                                    <li><a class="linkedin" href="https://www.linkedin.com/company/mapquest" target="_blank"><img src="{{asset('images/ico-social6.png')}}" alt="LinkedIn"></a></li>
                                 </ul>
                             </div>
                             <div class="col">
                                 <h3>MapQuest Apps</h3>
                                 <ul class="app-links">
-                                    <li><a class="android" href="https://play.google.com/store/apps/details?id=com.mapquest.android.ace"><img src="{{asset('images/ico-social7.png')}}" alt="For Android"></a></li>
-                                    <li><a class="apple" href="https://itunes.apple.com/app/mapquest-maps-gps-voice-navigation/id316126557?mt=8"><img src="{{asset('images/ico-social8.png')}}" alt="For iOS"></a></li>
+                                    <li><a class="android" href="https://play.google.com/store/apps/details?id=com.mapquest.android.ace" target="_blank"><img src="{{asset('images/ico-social7.png')}}" alt="For Android"></a></li>
+                                    <li><a class="apple" href="https://itunes.apple.com/app/mapquest-maps-gps-voice-navigation/id316126557?mt=8" target="_blank"><img src="{{asset('images/ico-social8.png')}}" alt="For iOS"></a></li>
                                 </ul>
                                 <span class="link-text">
-                                    <a class="link-arrow" href="http://mobile.mapquest.com/#intro">More Apps from MapQuest</a>
+                                    <a class="link-arrow" href="http://mobile.mapquest.com/#intro" target="_blank">More Apps from MapQuest</a>
                                 </span>
                             </div>
                         </div>
@@ -175,5 +175,17 @@
             </div>
         </footer>
     </div>
+    {% include "@blocks/partials/tracking.twig" %}
+        <!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84360094-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>
