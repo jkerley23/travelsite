@@ -1,7 +1,6 @@
 {%- import "@blocks/macros/asset-file.twig" as assetfile -%}
 {%- import "@blocks/macros/resize.twig" as resize -%}
-
-{% set episode = api.data.query({
+{%- set episode = api.data.query({
     schema_name: "sl_episode",
     filters: {
         instance: {
@@ -9,11 +8,8 @@
             }
         }
         }).results
-    %}
-
-{{prettydump(episode)}}
-
- <!DOCTYPE html>
+-%}
+<!DOCTYPE html>
 <html>
 <head>
  <meta charset="utf-8">
@@ -180,7 +176,7 @@
             {% else %}
 
             <div class="img-holder">
-                    <img src="{{ resize.resize(asset('images/ComingSoon.jpg'),1060,600 ) }}" alt="Sounds Local">
+                    <img src="{{ asset('images/ComingSoon.jpg') }}" alt="Sounds Local">
                 </br>
                 </br>
                 </div>

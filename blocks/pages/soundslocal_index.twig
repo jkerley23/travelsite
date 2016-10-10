@@ -1,18 +1,13 @@
 {%- import "@blocks/macros/asset-file.twig" as assetfile -%}
 {%- import "@blocks/macros/resize.twig" as resize -%}
-
-{% set featured = api.data.query({ schema_name: "sl_featured"}).results %}
-
-{% set episodes = api.data.query({
-    schema_name: "sl_episode",
-    sort_by: {
-    created: 1
-    }
-}).results %}
-
-{# {{prettydump(episodes)}}
-{{prettydump(featured)}} #}
-
+{%- set featured = api.data.query({ schema_name: "sl_featured"}).results -%}
+{%- set episodes = api.data.query({
+        schema_name: "sl_episode",
+        sort_by: {
+        created: 1
+        }
+    }).results
+-%}
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,10 +77,10 @@
                             <div class="img-holder">
                                 {% if item.episode_live == true %}
                                 <a href="/soundslocal/episode/{{item.slug}}">
-                                    <img src="{{item.bottom_image}}" alt="{{item.band_name}}">
+                                    <img src="{{resize.resize(item.bottom_image, 537, 304)}}" alt="{{item.band_name}}">
                                 </a>
                                 {% else %}
-                                    <img src="{{item.bottom_image}}" alt="{{item.band_name}}">
+                                    <img src="{{resize.resize(item.bottom_image, 537, 304)}}" alt="{{item.band_name}}">
                                 {% endif %}
                             </div>
                             <div class="textbox">
