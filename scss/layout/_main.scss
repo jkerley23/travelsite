@@ -227,6 +227,9 @@
 }
 .episode-social{
         padding: 0 33px 35px 34.49px;
+        max-width: 2560px; // Matches embedded video player - watch it for changes.
+        margin: auto;
+        box-sizing: content-box;
         @include media('<tablet') {
                 padding: 0 33px 35px 10px;
         }
@@ -245,7 +248,7 @@
         @include img;
     }
 
-    // Keep an eye on this - AMP team could change video player structure at any time.
+    // Watch this for changes - AMP team could change video player structure at any time.
     .vdb_player > div {
         margin: auto;
     }
