@@ -244,6 +244,11 @@
     img{
         @include img;
     }
+
+    // Keep an eye on this - AMP team could change video player structure at any time.
+    .vdb_player > div {
+        margin: auto;
+    }
 }
 
 .info-post{
