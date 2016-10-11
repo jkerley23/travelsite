@@ -225,15 +225,21 @@
         }
     }
 }
+.episode-social{
+        padding: 0 33px 35px 34.49px;
+        @include media('<tablet') {
+                padding: 0 33px 35px 10px;
+        }
+    }
 
 .video-block{
-    max-width: 1054px;
+/*     max-width: 1054px; */
     overflow: hidden;
-    margin: 0 auto 51px;
-    padding: 0 15px;
+    margin: 0 auto 20px;
+    padding: 0 35px 0 35px;
     @include media('<tablet') {
         padding: 0 10px;
-        margin-bottom: 25px;
+        margin-bottom: 15px;
     }
     img{
         @include img;

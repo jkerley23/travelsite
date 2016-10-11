@@ -22,6 +22,20 @@
     <meta name="google-site-verification" content="O11SM7EL9ZaCmA0pZjEt4sWpND7KEYlmlQf5qDH0hu8"/>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
     <script type="text/javascript" src="{{ asset('scripts/jquery.sl-main.js') }}" defer></script>
+      <!-- meta tags -->
+    {% for item in episode %}
+    {% set item = item.instance %}
+      <meta name="title" content="Sounds Local - {{item.band_name}} " />
+      <meta name="description" content="{{item.episode_description|raw}}"/>
+      <meta name="keywords" content="local,travel,music"/>
+      <meta name="H1" content="Web Series"/>
+      <!-- fb opengraph tags -->
+      <meta property="og:title" content="Sounds Local - {{item.band_name}}"/>
+      <meta property="og:type" content="website"/>
+      <meta property="og:url" content="/soundslocal/episode/{{item.slug}}"/>
+      <meta property="og:image" content="{{resize.resize(item.bottom_image, 537, 304)}}" />
+      <meta property="og:description" content="{{item.episode_description|raw}}" />
+  {% endfor %}
 </head>
 <body>
     <div id="wrapper">
@@ -45,9 +59,17 @@
             {% for item in episode %}
                 {% set item = item.instance %}
             {% if item.episode_live == true %}
+            </br>
             <div class="video-block">
                 {{item.video_tag|raw}}
             </div>
+             <div class="episode-social">
+                    <a href="http://www.facebook.com/sharer/sharer.php?m2w" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;" class="facebook"><img src= "/assets-ha94f4f36c5055b2a45d4ac1e15bcaf3c/images/ico-social1.png?h=2c6c4cced885cc0ca053d545f48a1036" alt="Facebook"></a>
+
+                    <a href="https://twitter.com/intent/tweet?text=Sounds Local with Y La Bamba https://parachute.mapquest.com/soundslocal/episode/y-la-bamba&via=MQchute" target="_blank" class="twitter"><img src="/assets-ha94f4f36c5055b2a45d4ac1e15bcaf3c/images/ico-social2.png?h=3333fefe73e274921e7e9989d24f7136" alt="Twitter"></a>
+
+                    <a href="https://plus.google.com/share?url=https://parachute.mapquest.com/soundslocal/episode/y-la-bamba" target="_blank" class="gplus"><img src="/assets-ha94f4f36c5055b2a45d4ac1e15bcaf3c/images/ico-social3.png?h=6746dceec87fa496639621074d483876" alt="Google Plus"></a>
+                </div>
             <article class="info-post">
                 <div class="container">
                     <header class="head">
