@@ -1,0 +1,40 @@
+{% set slideshow = api.slideshows.get({ id: arg }) %}
+
+{#{{ prettydump(slideshow) }}#}
+<div class="slideshow">
+    <div class="mask">
+        <div class="arrow-wrapper">
+            <a class="ss-arrow arrow-prev"></a>
+            <a class="ss-arrow arrow-next"></a>
+        </div>
+
+        <p class="slide-swipe-hint">
+            Swipe for more!
+        </p>
+
+        <ul class="slideset">
+            {% for slide in slideshow.slides %}
+                <li class="slide">
+                    <img class="slide-image" src="{{ slide.image_url_large }}" alt="{{ slide.alt_text }}">
+                    <span class="slide-image-credit">{{ slide.credit }}</span>
+
+                    <div class="slide-caption-area">
+                        <img class="slide-parachute-logo" src="{{ asset('images/parachute-logo-square.png') }}" alt="Parachute logo">
+
+                        <div class="caption-wrapper">
+                            <span class="caption">{{ slide.caption }}</span>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <ul class="ss-pagination">
+        {% for slide in slideshow.slides %}
+            <li>
+                <img src="{{ slide.image_url_thumb }}" alt="Preview of: {{ slide.alt_text }}">
+            </li>
+        {% endfor %}
+    </ul>
+</div>
