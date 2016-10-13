@@ -4,13 +4,14 @@
 {%- set episodes = api.data.query({
         schema_name: "sl_episode",
         sort_by: {
-        created: 1
+        updated: 1
         }
     }).results
 -%}
 <!DOCTYPE html>
 <html>
 <head>
+{#     {{prettydump(episodes)}} #}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sounds Local</title>
@@ -48,23 +49,22 @@
                         </ul>
                     </div>
                 </nav>
-                <strong class="logo"><a href="#featured_video"><img src="{{ asset('images/SLlogo.png') }}" alt="Sounds Local"></a></strong>
+                <strong class="logo"><a href="#featured_episode"><img src="{{ asset('images/SLlogo.png') }}" alt="Sounds Local"></a></strong>
             </div>
         </header>
         <main id="main">
             <div class="intro-text">
                 <div class="container">
-                    <p>Sounds Local by Parachute brings you around the country to see cities through the eyes of local musicians.</p>
+                    <p>Six bands give us a tour of their home city, highlighting their favorite places to eat, drink and sing.</p>
                 </div>
             </div>
             <section class="featurd-block">
-                <div class="container">
                     {% for item in featured %}
                         {% set item = item.instance %}
                     <article class="feature-post">
-                        <a name="featured_video">{{item.featured_video|raw}}</a>
-                        {# <div class="img-holder">
-                            <a href="/soundslocal/episode/{{item.featured_slug}}">
+                        {# <a name="featured_video">{{item.featured_video|raw}}</a> #}
+                        <div class="img-holder">
+                            <a name="featured_episode" href="/soundslocal/episode/{{item.featured_slug}}">
                                 <img src="{{item.featured_image}}" alt="{{item.featured_band}}">
                             </a>
                         </div>
@@ -78,10 +78,10 @@
                                 </div>
                             </div>
                         </div>
-                        </div> #}
                     </article>
                     {% endfor %}
                     <div class="holder">
+                        <div class="container">
                     {% for item in episodes %}
                         {% set item = item.instance %}
                         <article class="reguler-post">
@@ -106,6 +106,7 @@
                     {% endfor %}
                     </div>
                 </div>
+            </div>
             </section>
             <div class="intro-text">
                 <div class="container">

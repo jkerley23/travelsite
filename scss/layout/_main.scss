@@ -27,7 +27,7 @@
     }
     &:after {
         @include arrow(21px 21px 0);
-        border-top-color: #d0d0d04d;
+        border-top-color: #1b2f57;
         top: 100%;
         left: 50%;
         margin: 0 0 0 -21px;
@@ -42,7 +42,7 @@
 
 .featurd-block{
     overflow: hidden;
-    background: #ded0c5;
+    background: #000;
     .feature-post{
         overflow: hidden;
         margin: 0 -15px;
@@ -118,8 +118,8 @@
                 display: block;
                 border-radius: 22px;
                 text-align: center;
-                font-weight: 300;
-                background: #1b2f57;
+                font-weight: 700;
+                background: #e67829;
                 text-decoration: underline;
                 @include media('<tablet') {
                     @include size(150px, 34px);
