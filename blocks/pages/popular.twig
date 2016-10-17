@@ -44,20 +44,22 @@
 	</header>
 	<ul class="article-list recent">
 		{% for item in popPosts %}
-		<li>
-			<div class="image-holder"><a href="{{ item.relative_path|replace({'//':'/'}) }}">
-		  {% if item.image == true %}
-			<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
-		  {% else %}
-			<img src="{{ asset('images/noimage2.png') }}" height="100" width="150" alt="Parachute from MapQuest">
-		  {% endif %}
-			</a>
-		</div>
-			<div class="details">
-				<h2><a href="{{ item.relative_path|replace({'//':'/'}) }}">{{ item.title|raw }}</a></h2>
-				<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}"> {{ item.byline }} </a> |</span> <span class="date">posted <time>{{ item.published|date('F j, Y') }}</time> </span></aside>
-			</div>
-		</li>
+			{% if 'xMQx' not in item.tags %}
+                <li>
+                    <div class="image-holder"><a href="{{ item.relative_path|replace({'//':'/'}) }}">
+                  {% if item.image == true %}
+                    <img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
+                  {% else %}
+                    <img src="{{ asset('images/noimage2.png') }}" height="100" width="150" alt="Parachute from MapQuest">
+                  {% endif %}
+                    </a>
+                </div>
+                    <div class="details">
+                        <h2><a href="{{ item.relative_path|replace({'//':'/'}) }}">{{ item.title|raw }}</a></h2>
+                        <aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}"> {{ item.byline }} </a> |</span> <span class="date">posted <time>{{ item.published|date('F j, Y') }}</time> </span></aside>
+                    </div>
+                </li>
+			{%  endif %}
 		 {% endfor %}
 	</ul>
 	<footer class="footer">
