@@ -4,7 +4,7 @@
 {%- set episodes = api.data.query({
         schema_name: "sl_episode",
         sort_by: {
-        updated: 1
+        created: 1
         }
     }).results
 -%}
