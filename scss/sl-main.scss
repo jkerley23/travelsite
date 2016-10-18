@@ -16,6 +16,8 @@ $media-expressions: (
   'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
   'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
 );
+$color_black_5_approx: rgba(5, 5, 5, .05);
+$color_black_25_approx: rgba(5, 5, 5, .25);
 
 // ligatured operators ≥ ≤
 
@@ -34,3 +36,27 @@ $media-expressions: (
 @import 'components/_navigation';
 @import 'layout/_main';
 @import 'layout/_footer';
+
+//TODO: Put this in a shared spot rather than copy+paste
+.unlockable-blocker {
+	position: absolute;
+	background-color: $color_black_5_approx;
+
+	&::before {
+		content: attr(data-text);
+		background-color: $color_black_25_approx;
+		color: #fff;
+		position: absolute;
+		text-align: center;
+		display: block;
+		width: 100%;
+		margin-top: 50px;
+	}
+}
+
+.blocker-scroller {
+	background-color: $color_black_25_approx;
+	&::before {
+		content: '';
+	}
+}

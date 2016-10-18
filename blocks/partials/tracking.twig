@@ -1,5 +1,13 @@
 {% set params = {dl_custom: {cobrand: 'main'}} %}
-{# Use route name in routes.yml to find out the page and set analytics params accordingly #}
+{#
+Use route name in routes.yml to find out the page and set analytics params accordingly
+
+Variables passed in from parent pages:
+
+soundslocal_episode.twig:
+-episodeId (Id of the video data)
+-episodeLocation (Physical location of where the video was shot)
+#}
 {% set paramSelector = {
     'home': {
         page_type: 'main'
@@ -19,7 +27,8 @@
             name: 'video'
         }
     },
-    'quests': {page_type: 'category',
+    'quests': {
+        page_type: 'category',
         category: {
             name: 'quest'
         }
@@ -60,7 +69,9 @@
         },
         video_presence: 'video_vidible_entrybody',
         prop: {
-            '2': 'sounds local'
+            '2': 'sounds local',
+            '9': episodeId ?? 'null',
+            '58': episodeLocation ?? 'null'
         }
     }
 } %}

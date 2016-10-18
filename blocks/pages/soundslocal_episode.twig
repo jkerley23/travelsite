@@ -1,4 +1,4 @@
-{%- if req.secure != true -%}
+{%- if req.secure != true -%},
     {%- do res.redirect('https://'~req.host~req.path~(req.query ? '?' ~ req.query : ''), 301) -%}
 {%- endif -%}
 {%- import "@blocks/macros/asset-file.twig" as assetfile -%}
@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {{prettydump(episode)}}
+    {#{{prettydump(episode)}}#}
  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sounds Local</title>
@@ -288,7 +288,7 @@
             </div>
         </footer>
     </div>
-    {% include "@blocks/partials/tracking.twig" with { '': } %}
+    {% include "@blocks/partials/tracking.twig" with { 'episodeId': episode[0].id, 'episodeLocation': episode[0].instance.location } %}
         <!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
