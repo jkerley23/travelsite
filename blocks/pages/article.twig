@@ -1,5 +1,6 @@
 {% extends '@blocks/layouts/main.twig' %}
 {% import "@blocks/macros/prop62.twig" as prop62 %}
+{%- import "@blocks/macros/resize.twig" as resize -%}
 
 {% set article_prop62 = prop62.video_presence(post.contents) %}
 {# {% set video = api.videos.get({ id: {{video.aol_video_id}} }) %} #}
@@ -19,7 +20,7 @@
   <meta property="og:url" content="https://{{ post.url }}"/>
 	{% set image = post.images.featured %}
 		{% if image == true %}
-	 <meta property="og:image" content="{{ post.images.featured }}" />
+	 <meta property="og:image" content="{{ resize.resize(post.images.featured,537,304) }}" />
 		{% endif %}
  <meta property="og:description" content="{{ post.contents|truncate(250)|striptags}}" />
 {% endblock %}
