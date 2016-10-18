@@ -1,3 +1,6 @@
+{%- if req.secure != true -%}
+    {%- do res.redirect('https://'~req.host~req.path~(req.query ? '?' ~ req.query : ''), 301) -%}
+{%- endif -%}
 {%- import "@blocks/macros/asset-file.twig" as assetfile -%}
 {%- import "@blocks/macros/resize.twig" as resize -%}
 {%- set episode = api.data.query({
@@ -12,6 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {{prettydump(episode)}}
  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sounds Local</title>

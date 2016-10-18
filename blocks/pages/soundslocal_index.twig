@@ -1,5 +1,9 @@
+{%- if req.secure != true -%}
+    {%- do res.redirect('https://'~req.host~req.path~(req.query ? '?' ~ req.query : ''), 301) -%}
+{%- endif -%}
 {%- import "@blocks/macros/asset-file.twig" as assetfile -%}
 {%- import "@blocks/macros/resize.twig" as resize -%}
+{% set article_prop62 = prop62.video_presence(post.contents) %}
 {%- set featured = api.data.query({ schema_name: "sl_featured"}).results -%}
 {%- set episodes = api.data.query({
         schema_name: "sl_episode",

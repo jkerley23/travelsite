@@ -16,6 +16,10 @@
   {% set params = params|merge({page_type: 'search', page_name: 'search results', omni_custom: {eVar11: 'sTerms:'~req.get.q }}) %}
 {% elseif req.route == 'popular' %}
   {% set params = params|merge({page_type: 'category', category: { name: 'popular' }}) %}
+{% elseif req.route == 'sl_index' %}
+  {% set  params = params|merge({page_type: 'main', page_name: { name: 'sounds local main'}, prop: {'2': 'sounds local' }}) %}
+{% elseif req.route == 'sl_episode' %}
+  {% set  params = params|merge({page_type: 'video', page_name: 'episode|' ~req.params.slug, video: {source: 'original_content'}, video_presence: 'video_vidible_entrybody', prop: {'2': 'sounds local'}}) %}
 {% else  %}
   {% set params = params|merge({page_type: 'custom'}) %}
 {% endif %}
