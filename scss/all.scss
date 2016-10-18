@@ -49,6 +49,7 @@ $color_boston_blue_approx: #2c91be;
 $color_eastern_blue_approx: #2284bd;
 $color_black_25_approx: rgba(5, 5, 5, .25);
 $color_black_20_approx: rgba(5, 5, 5, .2);
+$color_black_5_approx: rgba(5, 5, 5, .05);
 $color_mine_shaft_approx: #333;
 $color_sail_approx: #b1d3fc;
 $color_gravel_approx: #4c4c4c;
@@ -2405,4 +2406,27 @@ table {
 	width: 11px;
 	height: 9px;
 	background: $url_0 no-repeat -29px -5px;
+}
+
+.unlockable-blocker {
+	position: absolute;
+	background-color: $color_black_5_approx;
+
+	&::before {
+		content: attr(data-text);
+		background-color: $color_black_25_approx;
+		color: #fff;
+		position: absolute;
+		text-align: center;
+		display: block;
+		width: 100%;
+		margin-top: 50px;
+	}
+}
+
+.blocker-scroller {
+	background-color: $color_black_25_approx;
+	&::before {
+		content: '';
+	}
 }
