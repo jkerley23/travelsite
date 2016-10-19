@@ -1,17 +1,9 @@
 (function($) {
-	$(function () {
-		initMobileNav();
-		initTabs();
+	$(function() {
 		initCycleCarousel();
+		initTabs();
 		initPlaceholder();
 	});
-
-	function initMobileNav() {
-		$('#nav').mobileNav({
-			menuActiveClass: 'active',
-			menuOpener: '.opener'
-		});
-	}
 
 	function initCycleCarousel() {
 		$('.slideshow').scrollAbsoluteGallery({
