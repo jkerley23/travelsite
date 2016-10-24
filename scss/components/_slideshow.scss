@@ -135,6 +135,24 @@ $caption_height: 65px;
 				z-index: 10;
 				width: calc(100% - #{$caption_height});
 
+				&::-webkit-scrollbar {
+					-webkit-appearance: none;
+				}
+
+				&::-webkit-scrollbar:vertical {
+					width: 11px;
+				}
+
+				&::-webkit-scrollbar-thumb {
+					border-radius: 8px;
+					border: 2px solid $color_bright_turquoise_approx_25; /* should match background, can't be transparent */
+					background-color: $color_bright_turquoise_approx_25;
+				}
+
+				&::-webkit-scrollbar-track {
+					background-color: $black_50;
+				}
+
 				.caption {
 					text-align: left;
 					bottom: 0;
