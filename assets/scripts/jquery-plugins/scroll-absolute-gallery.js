@@ -20,6 +20,7 @@
 			currentNumber: 'span.current-num',
 			totalNumber: 'span.total-num',
 			maskAutoSize: false,
+			forceMaskHeightValue: false,
 			autoRotation: false,
 			pauseOnHover: false,
 			stretchSlideToMask: false,
@@ -72,12 +73,15 @@
 
 			// reposition elements
 			this.options.maskAutoSize = this.options.vertical ? false : this.options.maskAutoSize;
-			if(this.options.vertical) {
+			if(this.options.forceMaskHeightValue) {
+				this.mask.css({
+					height: this.options.forceMaskHeightValue
+				});
+			} else if(this.options.vertical) {
 				this.mask.css({
 					height: this.slides.innerHeight()
 				});
-			}
-			if(this.options.maskAutoSize){
+			} else if(this.options.maskAutoSize){
 				this.mask.css({
 					height: this.slider.height()
 				});

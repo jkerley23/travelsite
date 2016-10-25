@@ -16,7 +16,8 @@
 			pagerLinks: '.ss-pagination li',
 			stretchSlideToMask: true,
 			pauseOnHover: true,
-			maskAutoSize: true,
+			maskAutoSize: false,
+			forceMaskHeightValue: '375px',
 			animSpeed: 500,
 			hideNextPrevButtonsIfTouchDevice: true,
 			swipeThreshold: 90

@@ -1,7 +1,7 @@
 {% set slideshow = api.slideshows.get({ id: arg }) %}
 
 {#{{ prettydump(slideshow) }}#}
-<div class="slideshow">
+<div class="slideshow" domflag>
     <div class="mask">
         <div class="arrow-wrapper">
             <a class="ss-arrow arrow-prev"></a>
