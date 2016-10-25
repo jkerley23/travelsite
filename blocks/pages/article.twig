@@ -39,7 +39,9 @@
 </div>
 &nbsp;
 <h1>{{ post.title|raw }}</h1>
-{# {{ prettydump(post) }} #}
+
+ {#{{ prettydump(post) }}#}
+
 	<aside class="meta">
 		<div class="meta-info">
 			<div class="share-info">
@@ -59,9 +61,11 @@
 		by <a href="/contributor/{{ post.contributor_slug }}">{{ post.byline }}</a> | {{ post.published.date|date('F j, Y') }} </span>
 		</div>
 	</aside>
-	{{ post.contents|raw ({
-		'Video': '@blocks/pages/permalink-inline-video.twig'
-	}) }}
+
+	{{ post.contents|out ({
+		Slideshow: '@blocks/partials/slideshow.twig'
+	}) | raw}}
+
 	{% if video and video.status == 'available' %}
 	<div class="inline-video">
 		<div class="vdb_player vdb_{{ config.video.player_id ~  config.video.company_id }}">
@@ -69,11 +73,13 @@
 					src="//delivery.vidible.tv/jsonp/pid={{ config.video.player_id }}/vid={{ video.aol_video_id }}/{{ config.video.company_id }}.js"></script>
 		</div>
 	</div>
-{% endif %}
+	{% endif %}
+
 	{# {% if post.published.date >= '2016-05-03'%}
 		<em>{{post.contributor.bio|raw}}</em>
 		<p>
 	{% endif %} #}
+
 {% set tags = post.tags %}
 
 <div class="article-info">

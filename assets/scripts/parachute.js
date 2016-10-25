@@ -10,15 +10,16 @@
 			mask: '.mask',
 			slider: '.slideset',
 			slides: '.slide',
-			btnPrev: 'a.btn-prev',
-			btnNext: 'a.btn-next',
-			pagerLinks: '.pagination li',
+			btnPrev: 'a.ss-arrow.arrow-prev',
+			btnNext: 'a.ss-arrow.arrow-next',
+			swipeHint: '.slide-swipe-hint',
+			pagerLinks: '.ss-pagination li',
 			stretchSlideToMask: true,
 			pauseOnHover: true,
 			maskAutoSize: true,
-			autoRotation: true,
-			switchTime: 3000,
-			animSpeed: 500
+			animSpeed: 500,
+			hideNextPrevButtonsIfTouchDevice: true,
+			swipeThreshold: 90
 		});
 	}
 

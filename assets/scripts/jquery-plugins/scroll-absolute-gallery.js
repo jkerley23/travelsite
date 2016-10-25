@@ -10,6 +10,7 @@
 			slides: '>li',
 			btnPrev: '.btn-prev',
 			btnNext: '.btn-next',
+			swipeHint: '.slide-swipe-hint',
 			pagerLinks: 'ul.pager > li',
 			generatePagination: false,
 			pagerList: '<ul>',
@@ -26,7 +27,8 @@
 			animSpeed: 500,
 			handleTouch: true,
 			swipeThreshold: 15,
-			vertical: false
+			vertical: false,
+			hideNextPrevButtonsIfTouchDevice: false
 		}, options);
 		this.init();
 	}
@@ -46,6 +48,7 @@
 			this.slides = this.slider.find(this.options.slides);
 			this.btnPrev = this.holder.find(this.options.btnPrev);
 			this.btnNext = this.holder.find(this.options.btnNext);
+			this.swipeHint = this.holder.find(this.options.swipeHint);
 
 			// slide count display
 			this.currentNumber = this.holder.find(this.options.currentNumber);
@@ -156,6 +159,11 @@
 
 			// handle swipe on mobile devices
 			if(this.options.handleTouch && window.Hammer && this.mask.length && this.slides.length > 1 && isTouchDevice) {
+				if(this.options.hideNextPrevButtonsIfTouchDevice) {
+					this.btnPrev.hide();
+					this.btnNext.hide();
+				}
+
 				this.swipeHandler = new Hammer.Manager(this.mask[0]);
 				this.swipeHandler.add(new Hammer.Pan({
 					direction: self.options.vertical ? Hammer.DIRECTION_VERTICAL : Hammer.DIRECTION_HORIZONTAL,
@@ -174,10 +182,11 @@
 					clearTimeout(self.timer);
 				}).on('panend', function(e) {
 					if(e.distance > self.options.swipeThreshold) {
+						self.swipeHint.fadeOut();
 						if(e.offsetDirection === Hammer.DIRECTION_RIGHT || e.offsetDirection === Hammer.DIRECTION_DOWN) {
-							self.nextSlide();
-						} else {
 							self.prevSlide();
+						} else {
+							self.nextSlide();
 						}
 					} else {
 						var tmpObj = {};
@@ -187,6 +196,8 @@
 					}
 					self.swipeOffset = 0;
 				});
+			} else {
+				this.swipeHint.hide();
 			}
 
 			// start autorotation

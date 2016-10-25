@@ -1,3 +1,80 @@
+// **** Parachute ****
+
+//colors
+$black: #000;
+$color_iron_approx: #d7d7d7;
+$white: #fff;
+$color_robins_egg_blue_approx: #00bfe6;
+$color_cape_cod_approx: #3e433e;
+$color_gray_nurse_approx: #e8e8e8;
+$color_wild_sand_approx: #f5f5f5;
+$color_pelorous_approx: #439ec9;
+$color_quill_gray_approx: #d4d4d4;
+$color_suva_gray_approx: #888;
+$black_50: rgba(0, 0, 0, .50);
+$black_55: rgba(0, 0, 0, .55);
+$black_75: rgba(0, 0, 0, .75);
+$color_bright_turquoise_approx: #17dbff;
+$color_bright_turquoise_approx_25: rgba(23, 219, 255, .25);
+$color_nobel_approx: #b6b6b6;
+$color_pumice_approx: #c9c9c9;
+$color_stack_approx: #8d8d8d;
+$color_chambray_approx: #2c478e;
+$color_cerulean_approx: #00afe4;
+$color_allports_approx: #00799f;
+$color_cardinal_approx: #ce1d32;
+$color_punch_approx: #de4035;
+$color_kabul_approx: #634d44;
+$color_torch_red_approx: #ff0031;
+$color_blue_bayoux_approx: #4a6274;
+$color_azure_approx: #3c5898;
+$color_glacier_approx: #6aadd1;
+$color_storm_dust_approx: #666;
+$color_monza_approx: #de010d;
+$color_persian_red_approx: #cd3627;
+$color_affair_approx: #83499c;
+$color_dove_gray_approx: #707070;
+$color_zeus_approx: #231f20;
+$alto: #dbdbdb;
+$color_shady_lady_approx: #a5a5a5;
+$color_bali_hai_approx: #8da3b0;
+$color_abbey_approx: #515657;
+$color_silver_chalice_approx: #aaa;
+$color_tundora_approx: #434344;
+$color_tapa_approx: #757575;
+$color_pink_swan_approx: #bababa;
+$color_sushi_approx: #7db239;
+$color_flame_pea_approx: #e35b41;
+$color_bondi_blue_approx: #0087b1;
+$color_regent_gray_approx: #80909b;
+$color_cararra_approx: #ececec;
+$color_gallery_approx: #f0f0f0;
+$color_curious_blue_approx: #2c96cd;
+$color_boston_blue_approx: #2c91be;
+$color_eastern_blue_approx: #2284bd;
+$color_black_25_approx: rgba(5, 5, 5, .25);
+$color_black_20_approx: rgba(5, 5, 5, .2);
+$color_black_5_approx: rgba(5, 5, 5, .05);
+$color_mine_shaft_approx: #333;
+$color_sail_approx: #b1d3fc;
+$color_gravel_approx: #4c4c4c;
+$color_celery_approx: #a3c656;
+$color_dodger_blue_approx: #21acf8;
+$color_orient_approx: #00567d;
+
+//fonts
+$font_0: Helvetica;
+$font_1: Arial;
+$font_2: sans-serif;
+
+//urls
+$url_0: url(../images/sprite.png);
+$url_ss_arrows: url(../images/ss-arrows.png);
+
+
+
+// **** Soundslocal ****
+
 // Colors
 // Color calculator - http://razorjam.github.io/sasscolourfunctioncalculator/
 // Color names - http://name-of-color.com/
@@ -59,3 +136,5 @@ $headings-color: inherit !default;
 
 
 $animation-speed: 0.3s;
+
+
