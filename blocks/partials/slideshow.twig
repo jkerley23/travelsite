@@ -33,7 +33,7 @@
     <ul class="ss-pagination">
         {% for slide in slideshow.slides %}
             <li>
-                <img src="{{ slide.image_url_thumb }}" alt="Preview of: {{ slide.alt_text }}">
+                <a href="javascript:void(0);"><img src="{{ slide.image_url_thumb }}" alt="Preview of: {{ slide.alt_text }}"></a>
             </li>
         {% endfor %}
     </ul>
