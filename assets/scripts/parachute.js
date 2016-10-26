@@ -17,7 +17,7 @@
 			stretchSlideToMask: true,
 			pauseOnHover: true,
 			maskAutoSize: false,
-			forceMaskHeightValue: '375px',
+			forceMaskHeightValue: '500px',
 			animSpeed: 500,
 			hideNextPrevButtonsIfTouchDevice: true,
 			swipeThreshold: 90
