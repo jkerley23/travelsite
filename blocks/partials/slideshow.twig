@@ -17,11 +17,10 @@
         <ul class="slideset">
             {% for slide in slideshow.slides %}
                 {% set strippedCaption = slide.caption|striptags(allowedTags) %}
-                {% set strippedAltText = slide.alt_text|striptags %}
                 {% set strippedCredit = slide.credit|striptags %}
 
                 <li class="slide">
-                    <img class="slide-image" src="{{ slide.image_url_large }}" alt="{{ strippedAltText|raw }}">
+                    <img class="slide-image" src="{{ slide.image_url_large }}" alt="{{ slide.alt_text }}">
                     <span class="slide-image-credit">{{ strippedCredit|raw }}</span>
 
                     <div class="slide-caption-area">
@@ -38,11 +37,9 @@
 
     <ul class="ss-pagination">
         {% for slide in slideshow.slides %}
-            {% set strippedAltText = slide.alt_text|striptags %}
-
             <li>
                 <a href="javascript:void(0);">
-                    <img src="{{ slide.image_url_thumb }}" alt="Thumbnail preview of: {{ strippedAltText|raw }}">
+                    <img src="{{ slide.image_url_thumb }}" alt="Thumbnail preview of: {{ slide.alt_text }}">
                 </a>
             </li>
         {% endfor %}
