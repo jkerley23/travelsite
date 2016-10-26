@@ -7,12 +7,13 @@
 {# {% if path == ['/xMQx/'] %}
 	{% do res.redirect('/', 301) %}
 			{% endif %} #}
+{%  set metaDescription = post.contents|out({Slideshow: null})|truncate(250)|striptags %}
 
 {% block body_class %}index{% endblock %}
 {% block header_class %}alt{% endblock %}
 {% block meta %}
   <meta name="title" content="{{ post.title }}" />
-  <meta name="description" content=" {{post.contents|truncate(250)|striptags}}"/>
+  <meta name="description" content=" {{ metaDescription }}"/>
   <meta name="H1" content="Local Events"/>
   <!-- fb opengraph tags -->
   <meta property="og:title" content="{{ post.title}}"/>
@@ -22,7 +23,7 @@
 		{% if image == true %}
 	 <meta property="og:image" content="{{ resize.resize(post.images.featured,537,304) }}" />
 		{% endif %}
- <meta property="og:description" content="{{ post.contents|truncate(250)|striptags}}" />
+ <meta property="og:description" content="{{ metaDescription }}" />
 {% endblock %}
 {% block body %}
 <title>{{ post.title }}</title>
