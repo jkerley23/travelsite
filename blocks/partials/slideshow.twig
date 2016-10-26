@@ -1,6 +1,8 @@
 {% set slideshow = api.slideshows.get({ id: arg }) %}
+{% set allowedTags = '<br><p><strong><em><u>' %}
 
 {#{{ prettydump(slideshow) }}#}
+
 <div class="slideshow">
     <div class="mask">
         <div class="arrow-wrapper">
@@ -14,15 +16,19 @@
 
         <ul class="slideset">
             {% for slide in slideshow.slides %}
+                {% set strippedCaption = slide.caption|striptags(allowedTags) %}
+                {% set strippedAltText = slide.alt_text|striptags %}
+                {% set strippedCredit = slide.credit|striptags %}
+
                 <li class="slide">
-                    <img class="slide-image" src="{{ slide.image_url_large }}" alt="{{ slide.alt_text }}">
-                    <span class="slide-image-credit">{{ slide.credit }}</span>
+                    <img class="slide-image" src="{{ slide.image_url_large }}" alt="{{ strippedAltText|raw }}">
+                    <span class="slide-image-credit">{{ strippedCredit|raw }}</span>
 
                     <div class="slide-caption-area">
                         <img class="slide-parachute-logo" src="{{ asset('images/parachute-logo-square.png') }}" alt="Parachute logo">
 
                         <div class="caption-wrapper">
-                            <span class="caption">{{ slide.caption }}</span>
+                            <span class="caption">{{ strippedCaption|raw }}</span>
                         </div>
                     </div>
                 </li>
@@ -32,8 +38,12 @@
 
     <ul class="ss-pagination">
         {% for slide in slideshow.slides %}
+            {% set strippedAltText = slide.alt_text|striptags %}
+
             <li>
-                <a href="javascript:void(0);"><img src="{{ slide.image_url_thumb }}" alt="Preview of: {{ slide.alt_text }}"></a>
+                <a href="javascript:void(0);">
+                    <img src="{{ slide.image_url_thumb }}" alt="Thumbnail preview of: {{ strippedAltText|raw }}">
+                </a>
             </li>
         {% endfor %}
     </ul>
