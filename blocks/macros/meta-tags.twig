@@ -1,0 +1,38 @@
+{#
+
+Properties in the 'data' hash:
+	title - Also affects OG tag.
+	description - also affects OG tag.
+	h1
+	ogType
+	ogUrl
+	ogImage
+
+None are required - defaults provided.
+
+#}
+
+{%- macro render(data) -%}
+	{% set defaults = {
+		title: "Events, Concerts, and Local News in Your Area - MapQuest" ,
+		description: "Insider tips by locals. Find places to eat and drink, things to add to your bucket-list, or catch an emerging band on tour.",
+		keywords: "local,travel",
+		h1: "Local Events",
+		ogType: "website",
+		ogUrl: "https://parachute.mapquest.com"
+	} %}
+
+	{% set data = defaults|merge(data) %}
+
+	<meta name="title" content="{{ data.title }}" />
+	<meta name="description" content="{{ data.description }}" />
+	<meta name="H1" content="{{ data.h1 }}"/>
+	<meta property="og:title" content="{{ data.title }}"/>
+	<meta property="og:type" content="{{ data.ogType }}"/>
+	<meta property="og:url" content="{{ data.ogUrl }}"/>
+	{% if data.image is defined %}
+		<meta property="og:image" content="{{ data.image }}" />
+	{% endif %}
+	<meta property="og:description" content="{{ data.description }}" />
+{%- endmacro -%}
+

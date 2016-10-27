@@ -1,0 +1,63 @@
+{#
+
+This handles pages that have some content followed by a tabbed list of articles.
+
+Set the following variables in children templates if the defaults, as seen on the home page, are not desireable:
+
+	metaData - Hash contining the following properties: (1-1 property name to meta tag attribute):
+	{
+		title - Also affects OG tag.
+		description - also affects OG tag.
+		h1
+		ogType
+		ogUrl
+		ogImage
+	}
+
+	tabData: Array containing hashes with the following properties:
+	[
+		{
+			name: Class name of the tab. Lowercase and no spaces/special characters.
+			label: The label of the tab - this is how the user will see it. Any characters.
+			data: Posts API hash. See below default below for examples.
+			dataOptions: if 'data' is not specified, you can put the API call options hash here.
+			class: CSS class to apply to this tab
+		},
+		{
+			(Properties of next tab)
+		},
+		...
+	]
+
+	paginationData: Hash with the following properties: (Only specify if different than first tab)
+	{
+		page: Page number.
+		next_page_size: Nubmer of articles in the next page.
+		pathlink: Root path to browse to upon pagnation Next or Prev click if not the / after the root url.
+		content_type: "Next Article" text - replaces the word "Article"
+	}
+
+#}
+
+{% extends '@blocks/layouts/main.twig' %}
+{% import "@blocks/macros/meta-tags.twig" as metaTags %}
+
+{% block body_class %}index{% endblock %}
+{% block header_class %}alt{% endblock %}
+
+{% block meta %}
+	{{ metaTags.render(metaData) }}
+{% endblock %}
+
+{% block body %}
+	{% block featureTitle %}
+		<title>Parachute by Mapquest</title>
+	{% endblock %}
+
+	{% if (req.params.page ?? 1) == 1 %}
+		{% block featureBody %}{% endblock %}
+	{% endif %}
+
+	{% include '@blocks/partials/recent-top-posts.twig' %}
+{% endblock %}
+

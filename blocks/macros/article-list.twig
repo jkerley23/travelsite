@@ -1,0 +1,22 @@
+{#
+
+Expected values in 'data' hash:
+	postsData: Array of post API call result.
+	customClassString: Any classes to be added to the ul element.
+	disableAuthorType: 'true' to stop "Contributor" / "Local Blogger" from showing up.
+
+#}
+{% macro render(data) %}
+	{% import "@blocks/macros/article-list-item.twig" as articleListItem %}
+
+	<ul class="article-list {{ data.customClassString }}">
+		{% for item in data.postsData.results ?? data.postsData %}
+			{# Top posts api does not provide this kind of filter, so we check here: #}
+			{% if 'xMQx' not in item.tags and status == published %}
+				<li>
+					{{ articleListItem.render({postData: item, disableAuthorType: data.disableAuthorType}) }}
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+{% endmacro %}

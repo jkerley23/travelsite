@@ -1,70 +1,24 @@
-{% extends '@blocks/layouts/main.twig' %}
-{% import "@blocks/macros/pagination.twig" as pagination %}
-
-{% block body_class %}index{% endblock %}
-{% block header_class %}alt{% endblock %}
-{% block meta %}
-  <meta name="title" content="Articles about {{ tag|capitalize }} - MapQuest" />
-  <meta name="description" content="Articles from local insiders about {{ tag|capitalize }}." />
-  <meta name="H1" content="Local Events"/>
-  <!-- fb opengraph tags -->
-  <meta property="og:title" content="Articles about {{ tag|capitalize }} - Parachute by MapQuest"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="http://parachute.mapquest.com/tag/{{ tag }}/"/>
-	{% set image = post.images.featured %}
-		{% if image == true %}
-	 <meta property="og:image" content="{{ post.images.featured }}" />
-		{% endif %}
- <meta property="og:description" content="Articles from local insiders about {{ tag|capitalize }}." />
-{% endblock %}
+{% extends '@blocks/layouts/feature.twig' %}
 
 {% set tag = req.params.tag|regex_replace('/%20/', ' ') %}
 
-{% set tPosts = api.posts.query({
-	site_ids: [979, 1032],
-	page: req.params.page|default(1),
-	tags: [tag],
-	status: published,
-    limit: 20,
-    tags_exclude: ['xMQx']
-}) %}
+{% set metaData = {
+	title: "Articles about #{tag|capitalize} - MapQuest" ,
+	description: "Articles from local insiders about #{tag|capitalize}." ,
+	ogUrl: "http://parachute.mapquest.com/tag/#{tag}/",
+} %}
 
-{% set taggedPosts = tPosts.results %}
-{% block body %}
+{% set tabData = [{
+	name: 'tag',
+	label: "Articles about #{tag|capitalize}",
+	dataOptions: { tags: [tag] },
+	class: 'tab-large'
+}] %}
+
+{% set paginationData = {
+	pathlink: '/tag/'~tag
+} %}
+
+{%  block featureTitle %}
 	<title>Articles About {{ tag|capitalize }}</title>
-<!-- recent article section of the page -->
-<div class="recent-articles">
-			{% set pagination_vars = {
-			'page': tPosts.page,
-			'next_page_size': tPosts.next_page_size,
-			'pathlink': '/tag/'~tag
-			}
-		%}
-	<header class="header">
-		{{ pagination.format(pagination_vars)}}
-		<strong class="title">Articles About {{ tag|capitalize }}</strong>
-	</header>
-	<ul class="article-list recent">
-		{% for item in taggedPosts %}
-		<li>
-			<div class="image-holder"><a href="{{ item.relative_path|replace({'//':'/'}) }}">
-			 {% if item.image == true %}
-				<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
-			 {% else %}
-				<img src="{{ asset('images/noimage2.png') }}" height="100" width="150" alt="Parachute from MapQuest">
-			 {% endif %}
-				</a>
-			</div>
-			<div class="details">
-				<h2><a href="{{ item.relative_path|replace({'//':'/'}) }}">{{ item.title|raw }}</a></h2>
-				<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}"> {{ item.byline }} </a> |</span> <span class="date">posted <time>{{ item.published|date('F j, Y') }}</time> </span></aside>
-			</div>
-		</li>
-		 {% endfor %}
-	</ul>
-	<footer class="footer">
-		{{ pagination.format(pagination_vars)}}
-	</footer>
-</div>
-{% endblock %}
-
+{%  endblock %}

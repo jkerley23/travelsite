@@ -1,0 +1,59 @@
+@import '../base/variables';
+
+.tab-section {
+	margin: 0 0 20px;
+	.tab-header {
+		overflow: hidden;
+		border-bottom: 2px solid $color_robins_egg_blue_approx;
+		margin-bottom: 20px;
+
+		.tab-title {
+			width: 165px;
+			margin: 7px 8px 0 0;
+			background: $color_abbey_approx;
+			display: table;
+
+			&.tab-large {
+				width: 300px;
+			}
+
+			@media only screen and (max-width: 599px) {
+				width: 90px;
+				height: 40px;
+
+				&.tab-large {
+					width: 220px;
+				}
+			}
+
+			&.active {
+				background: $color_robins_egg_blue_approx;
+			}
+
+			a {
+				display: table-cell;
+				font-size: 17px;
+				font-weight: 400;
+				vertical-align: middle;
+				text-align: center;
+				color: $white;
+				padding: 8px;
+
+				@media only screen and (max-width: 599px) {
+					font-size: 13px;
+					padding: 5px;
+				}
+
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.tab-footer {
+		overflow: hidden;
+		padding: 4px 0;
+	}
+}
+

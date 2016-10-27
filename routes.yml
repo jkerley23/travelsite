@@ -52,14 +52,6 @@ contributors:
   layers: @layers/tracking.yml
   trailing_slash: force
 
-popular:
-  path:
-    - /popular
-    - /popular/page/{page:\d+}
-  view: @blocks/pages/popular.twig
-  layers: @layers/tracking.yml
-  trailing_slash: force
-
 nascar:
   path:
     - /motorsports
@@ -142,11 +134,11 @@ cats:
   layers: @layers/tracking.yml
   trailing_slash: force
 
-news:
+local_news:
   path:
-    - /news
-    - /news/page/{page:\d+}
-  view: @blocks/pages/news.twig
+    - /local-news
+    - /local-news/page/{page:\d+}
+  view: @blocks/pages/local-news.twig
   layers: @layers/tracking.yml
   trailing_slash: force
 

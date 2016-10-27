@@ -1,0 +1,58 @@
+{#
+
+Expected properties in 'data' hash:
+	postData: Single article item
+	size: 'large' for Featured look.
+	disableAuthorType: 'true' to stop "Contributor" / "Local Blogger" from showing up.
+
+#}
+
+{%- macro render(data) -%}
+	{% set imageData = data.postData.image == true ? {
+		src: data.size == 'large' ? data.postData.image_crops.mainfeature  : data.postData.image_crops.thumbnail,
+		alt: data.postData.featured_image_credit
+	} : {
+		src: asset('images/noimage2.png'),
+		alt: 'Parachute from Mapquest'
+	} %}
+
+	{% set authorTypeIndex = {
+		979: 'Contributor',
+		1032: 'Local Blogger'
+	} %}
+
+	<div class="article-item{% if data.size == 'large' %} featured-item{% endif %}">
+		<div class="image-holder">
+			<a href="{{ data.postData.relative_path|replace({'//':'/'}) }}">
+				<img height="100" width="150" src="{{ imageData.src }}" alt="{{ imageData.alt }}" >
+			</a>
+		</div>
+
+		<div class="details">
+			<h2>
+				{#TODO: Ask about Facebook title usage in parks#}
+				<a href="{{ data.postData.relative_path|replace({'//':'/'}) }}">{{ data.postData.title|raw }}</a>
+			</h2>
+
+			<aside class="meta">
+				<span class="author">
+					by <a href="/contributor/{{ data.postData.contributor_slug }}">{{ data.postData.byline }}</a>
+				</span>
+
+				<span>
+					{%- if data.disableAuthorType != true -%}
+						|
+						<span>
+						{{ authorTypeIndex[data.postData.site_id] }}
+						</span>
+					{%- endif -%}
+					|
+				</span>
+
+				<span class="date">
+					Posted <time>{{ data.postData.published|date('F j, Y') }}</time>
+				</span>
+			</aside>
+		</div>
+	</div>
+{% endmacro %}

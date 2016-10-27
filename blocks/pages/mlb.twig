@@ -1,104 +1,29 @@
-{% extends '@blocks/layouts/main.twig' %}
-{% import "@blocks/macros/pagination.twig" as pagination %}
+{% extends '@blocks/layouts/feature.twig' %}
+{% import "@blocks/macros/featured-articles.twig" as featuredArticles %}
 
-{% block body_class %}index{% endblock %}
-{% block header_class %}alt{% endblock %}
-{% block meta %}
-  <meta name="title" content="Local and travel related MLB and baseball content from MapQuest" />
-  <meta name="description" content="Find a place near the stadium to eat, tips on finding cheap seats, and more related to your favorite baseball team." />
-  <meta name="H1" content="Local Baseball"/>
-  <!-- fb opengraph tags -->
-  <meta property="og:title" content="Local and travel related MLB and baseball content from MapQuest"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="http://parachute.mapquest.com/mlb/"/>
-	{% set image = post.images.featured %}
-		{% if image == true %}
-	 <meta property="og:image" content="{{ post.images.featured }}" />
-		{% endif %}
- <meta property="og:description" content="Find a place near the stadium to eat, tips on finding cheap seats, and more related to your favorite baseball team." />
+{% set metaData = {
+	title: "Local and travel related MLB and baseball content from MapQuest" ,
+	description: "Find a place near the stadium to eat, tips on finding cheap seats, and more related to your favorite baseball team." ,
+	h1: "Local Baseball",
+	ogUrl: "http://parachute.mapquest.com/mlb/"
+} %}
+
+{% set tabData = [{
+	name: 'mlb',
+	label: 'Recent Baseball Articles',
+	dataOptions: { tags: ['MLB', 'baseball'] },
+	class: 'tab-large'
+}] %}
+
+{% block featureBody %}
+	{% set featuredArticlesData = {
+		label: 'Baseball Articles',
+		zone: 'Featured MLB'
+	} %}
+
+	{{ featuredArticles.render(featuredArticlesData) }}
 {% endblock %}
 
-{% set featuredPosts = api.posts.query({
-	site_ids: [979],
-	zone: 'Featured MLB',
-    limit: 4
-}) %}
-
-{% set mPosts = api.posts.query({
-	site_ids: [979, 1032],
-	page: req.params.page|default(1),
-	tags: ['MLB', 'baseball'],
-    limit: 10,
-    tags_exclude: ['xMQx']
-}) %}
-
-{% set mainFeature = featuredPosts.results[0] %}
-{% set mainFeatureList = featuredPosts.results|slice(1,4) %}
-{% set mlb = mPosts.results %}
-
-{% block body %}
+{% block featureTitle %}
 	<title>MLB and Baseball Articles from Parachute</title>
-
-{% if mPosts.page == 1 %}
-	<div class="featured-section">
-		<header class="header">
-			<strong class="title">Baseball Articles</strong>
-		</header>
-		<div class="article-holder">
-			<div class="featured-article">
-				<div class="image-holder"><a href="{{ mainFeature.relative_path|replace({'//':'/'}) }}"><img src="{{ mainFeature.image_crops.mainfeature }}" height="360" width="485" alt="{{ mainFeature.featured_image_credit }}"></a></div>
-				<div class="details">
-					<h1><a href="{{ mainFeature.relative_path|replace({'//':'/'}) }}"><strong>{{ mainFeature.title_facebook|raw }}</strong></a></h1>
-					<aside class="meta"><span class="author">by <a href="/contributor/{{ mainFeature.contributor_slug }}">{{ mainFeature.byline }}</a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ mainFeature.published|date('F j, Y') }}</time> </span></aside>
-				</div>
-			</div>
-			<ul class="article-list">
-			{% for item in mainFeatureList %}	<li>
-					<div class="image-holder"><a href="{{ item.relative_path|replace({'//':'/'}) }}"><img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}"></a></div>
-					<div class="details">
-						<h2><a href="{{ item.relative_path|replace({'//':'/'}) }}">{{ item.title_facebook|raw }}</a></h2>
-						<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}">{{ item.byline }}</a> |</span> <span class="date">posted <time>{{ item.published|date('F j, Y') }}</time> </span></aside>
-					</div>
-				</li>
-			{% endfor %}
-			</ul>
-		</div>
-	</div>
-{% endif %}
-<!-- recent article section of the page -->
-<div class="recent-articles">
-		{% set pagination_vars = {
-		'page': mPosts.page,
-		'next_page_size': mPosts.next_page_size,
-		'pathlink': '/mlb',
-		'content_type': 'Articles'
-		}
-	%}
-	<header class="header">
-		{{ pagination.format(pagination_vars)}}
-		<strong class="title">Recent Baseball Articles</strong>
-	</header>
-	<ul class="article-list recent">
-		{% for item in mlb %}
-		<li>
-		<div class="image-holder"><a href="{{ item.relative_path|replace({'//':'/'}) }}">
-		  {% if item.image == true %}
-			<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
-		  {% else %}
-			<img src="{{ asset('images/noimage2.png') }}" height="100" width="150" alt="Parachute from MapQuest">
-		  {% endif %}
-			</a>
-		</div>
-			<div class="details">
-				<h2><a href="{{ item.relative_path|replace({'//':'/'}) }}">{{ item.title|raw }}</a></h2>
-				<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}"> {{ item.byline }} </a> |</span> <span class="date">posted <time>{{ item.published|date('F j, Y') }}</time> </span></aside>
-			</div>
-		</li>
-		 {% endfor %}
-	</ul>
-	<footer class="footer">
-{{ pagination.format(pagination_vars)}}
-	</footer>
-</div>
 {% endblock %}
-

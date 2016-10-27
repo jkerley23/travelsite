@@ -1,21 +1,14 @@
-{% macro format(page_vars) %}
-
-{# Required parameters
-page_vars.page //current page
-page_vars.next_page_size //total on the next page
-page_vars.pathlink //url path for the page we are rendering
+{#
+Required parameters
+	page_vars (Hash):
+	{
+		page: current page
+		next_page_size: total on the next page
+		pathlink: url path for the page we are rendering
+	}
 #}
 
-{#     <ul class="post-pagination">
-        {% if page_vars.next_page_size > 0 %}
-        {% set prev_page = page_vars.page+1|default(2) %}
-            <li class="older"><a href="{{page_vars.pathlink}}/page/{{ prev_page }}/" rel="prev"><i class='s-arw-prev-small-blue'></i> Older {{ page_vars.name|default('Posts') }}</a></li>
-        {% endif %}
-        {% if page_vars.page > 1 %}
-        {% set next_page = page_vars.page-1 %}
-            <li class="newer"><a href="{{page_vars.pathlink}}/{% if next_page > 1 %}page/{{ next_page }}/{% endif %}" rel="next">Newer {{ page_vars.name|default('Posts') }} <i class='s-arw-next-small-blue'></i></a></li>
-        {% endif %}
-    </ul> #}
+{% macro format(page_vars) %}
     <div class="pagination">
         <ul>
         {% if page_vars.page > 1 %}
@@ -33,5 +26,4 @@ page_vars.pathlink //url path for the page we are rendering
         {% endif %}
         </ul>
     </div>
-
 {% endmacro %}
