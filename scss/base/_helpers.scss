@@ -38,6 +38,8 @@
     border-radius: 0 !important;
     //Instead of the line below you could use @include box-sizing($bs)
     box-sizing: border-box;
+    //Safari has to be a special flower and will resize input boxes without this:
+    -webkit-appearance: none;
 }
 
 // **** Soundslocal ****
