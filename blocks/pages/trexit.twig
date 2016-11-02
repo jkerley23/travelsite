@@ -1,104 +1,33 @@
-{% extends '@blocks/layouts/main.twig' %}
-{% import "@blocks/macros/pagination.twig" as pagination %}
+{% extends '@blocks/layouts/feature.twig' %}
+{% import "@blocks/macros/featured-articles.twig" as featuredArticles %}
 
-{% block body_class %}index{% endblock %}
-{% block header_class %}alt{% endblock %}
-{% block meta %}
-  <meta name="title" content="Move to Canada if Trump Wins" />
-  <meta name="description" content="Everything you need to know before moving to Canada if Donald Trump wins the election." />
-  <meta name="H1" content="Moving to Canada Tips"/>
-  <!-- fb opengraph tags -->
-  <meta property="og:title" content="Move to Canada if Trump Wins"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="http://parachute.mapquest.com/trexit/"/>
-	{% set image = post.images.featured %}
-		{% if image == true %}
-	 <meta property="og:image" content="{{ post.images.featured }}" />
-		{% endif %}
- <meta property="og:description" content="Everything you need to know before moving to Canada if Donald Trump wins the election." />
-{% endblock %}
+{% set metaData = {
+	title: "Move to Canada if Trump Wins" ,
+	description: "Everything you need to know before moving to Canada if Donald Trump wins the election." ,
+	h1: "Moving to Canada Tips",
+	ogUrl: "http://parachute.mapquest.com/trexit/",
+} %}
 
-{% set featuredPosts = api.posts.query({
-	site_ids: [979],
-	zone: 'trexit',
-    limit: 4
-}) %}
+{% set tabData = [{
+	name: 'trexit',
+	label: 'Recent Trump-related Articles',
+	dataOptions: { tags: ['trexit','run for the hills'] },
+	class: 'tab-large'
+}] %}
 
-{% set trumpPosts = api.posts.query({
-	site_ids: [979, 1032],
-	page: req.params.page|default(1),
-	tags: ['trexit','run for the hills'],
-    limit: 25,
-    tags_exclude: ['xMQx']
-}) %}
+{% set paginationData = {
+	content_type: 'Trump'
+} %}
 
-{% set mainFeature = featuredPosts.results[0] %}
-{% set mainFeatureList = featuredPosts.results|slice(1,4) %}
-{% set trump = trumpPosts.results %}
-
-{% block body %}
+{%  block featureTitle %}
 	<title>Trexit from MapQuest</title>
+{%  endblock %}
 
-{% if trumpPosts.page == 1 %}
-	<div class="featured-section">
-		<header class="header">
-			<strong class="title">Trexit Articles</strong>
-		</header>
-		<div class="article-holder">
-			<div class="featured-article">
-				<div class="image-holder"><a href="{{ mainFeature.relative_path|replace({'//':'/'}) }}"><img src="{{ mainFeature.image_crops.mainfeature }}" height="360" width="485" alt="{{ mainFeature.featured_image_credit }}"></a></div>
-				<div class="details">
-					<h1><a href="{{ mainFeature.relative_path|replace({'//':'/'}) }}"><strong>{{ mainFeature.title_facebook|raw }}</strong></a></h1>
-					<aside class="meta"><span class="author">by <a href="/contributor/{{ mainFeature.contributor_slug }}">{{ mainFeature.byline }}</a> |</span> <span class="date">posted <time>{{ mainFeature.published|date('F j, Y') }}</time> </span></aside>
-				</div>
-			</div>
-			<ul class="article-list">
-			{% for item in mainFeatureList %}	<li>
-					<div class="image-holder"><a href="{{ item.relative_path|replace({'//':'/'}) }}"><img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}"></a></div>
-					<div class="details">
-						<h2><a href="{{ item.relative_path|replace({'//':'/'}) }}">{{ item.title_facebook|raw }}</a></h2>
-						<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}">{{ item.byline }}</a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ item.published|date('F j, Y') }}</time> </span></aside>
-					</div>
-				</li>
-			{% endfor %}
-			</ul>
-		</div>
-	</div>
-{% endif %}
-<!-- recent article section of the page -->
-<div class="recent-articles">
-		{% set pagination_vars = {
-		'page': trumpPosts.page,
-		'next_page_size': trumpPosts.next_page_size,
-		'pathlink': '/trexit',
-		'content_type': 'Trump'
-		}
-	%}
-	<header class="header">
-		{{ pagination.format(pagination_vars)}}
-		<strong class="title">Recent Trump-related Articles</strong>
-	</header>
-	<ul class="article-list recent">
-		{% for item in trump %}
-		<li>
-		<div class="image-holder"><a href="{{ item.relative_path|replace({'//':'/'}) }}">
-		  {% if item.image == true %}
-			<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
-		  {% else %}
-			<img src="{{ asset('images/noimage2.png') }}" height="100" width="150" alt="Parachute from MapQuest">
-		  {% endif %}
-			</a>
-		</div>
-			<div class="details">
-				<h2><a href="{{ item.relative_path|replace({'//':'/'}) }}">{{ item.title|raw }}</a></h2>
-				<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}"> {{ item.byline }} </a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ item.published|date('F j, Y') }}</time> </span></aside>
-			</div>
-		</li>
-		 {% endfor %}
-	</ul>
-	<footer class="footer">
-{{ pagination.format(pagination_vars)}}
-	</footer>
-</div>
+{% block featureBody %}
+	{% set featuredArticlesData = {
+		label: 'Trexit Articles',
+		zone: 'trexit',
+	} %}
+
+	{{ featuredArticles.render(featuredArticlesData) }}
 {% endblock %}
-

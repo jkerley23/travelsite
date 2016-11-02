@@ -1,0 +1,19 @@
+@import '../base/variables';
+
+.article-item {
+	h2 a {
+		color: #3e433e;
+		text-decoration: none;
+
+		&:hover {
+			opacity: .85;
+			zoom: 1;
+		}
+	}
+
+	&.featured-item {
+		h2 a {
+			font-weight: bold;
+		}
+	}
+}

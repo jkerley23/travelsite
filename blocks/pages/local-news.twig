@@ -1,0 +1,23 @@
+{% extends '@blocks/layouts/feature.twig' %}
+{% import "@blocks/macros/featured-articles.twig" as featuredArticles %}
+
+{% set tabData = [{
+	name: 'news',
+	label: 'Recent Local News',
+	dataOptions: { site_ids: [1032], tags: ['news'] },
+	class: 'tab-large'
+}] %}
+
+{%  block featureTitle %}
+	<title>Parachute: Local News</title>
+{%  endblock %}
+
+{% block featureBody %}
+	{% set featuredArticlesData = {
+		label: 'Featured Local Articles',
+		zone: 'Featured Local',
+		siteIds: [1032]
+	} %}
+
+	{{ featuredArticles.render(featuredArticlesData) }}
+{% endblock %}

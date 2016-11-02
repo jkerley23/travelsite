@@ -1,0 +1,46 @@
+{#
+
+Expected values in 'data' hash:
+	label: Type of articels. Repalces "Featured" in "Featured Articles".
+	zone: Zone from which to pull articles
+	siteIds: Array if site IDs to pull from.
+
+#}
+
+
+{% macro render(data) %}
+	{% import "@blocks/macros/article-list-item.twig" as articleListItem %}
+	{% import "@blocks/macros/article-list.twig" as articleList %}
+
+	{% set featuredPostsData = api.posts.query({
+		site_ids: data.siteIds|default([979]),
+		zone: data.zone|default('Featured Articles'),
+		limit: 4
+	}).results %}
+
+	{% set featuredPost = featuredPostsData[0] %}
+	{% set featuredPostList = featuredPostsData|slice(1,4) %}
+
+	{% set featuredPostOptions = {
+		postData: featuredPost,
+		size: 'large',
+	} %}
+
+	{% set featuredPostsListOptions = {
+		postsData: featuredPostList,
+		disableAuthorType: true
+	} %}
+
+	<div class="featured-section">
+		<header class="header">
+			<strong class="title">{{ data.label|default('Featured Articles') }}</strong>
+		</header>
+		<div class="article-holder">
+			<div class="featured-article">
+				{{ articleListItem.render(featuredPostOptions) }}
+			</div>
+
+			{{ articleList.render(featuredPostsListOptions) }}
+		</div>
+	</div>
+{% endmacro %}

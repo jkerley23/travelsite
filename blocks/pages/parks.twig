@@ -1,104 +1,33 @@
-{% extends '@blocks/layouts/main.twig' %}
-{% import "@blocks/macros/pagination.twig" as pagination %}
+{% extends '@blocks/layouts/feature.twig' %}
+{% import "@blocks/macros/featured-articles.twig" as featuredArticles %}
 
-{% block body_class %}index{% endblock %}
-{% block header_class %}alt{% endblock %}
-{% block meta %}
-  <meta name="title" content="MapQuest National Parks | Explore all 58 National Parks through guides, photos, maps and videos." />
-  <meta name="description" content="Everything you need to know about where to explore, what to do, and even the wildlife to see at every National Park." />
-  <meta name="H1" content="National Parks"/>
-  <!-- fb opengraph tags -->
-  <meta property="og:title" content="MapQuest National Parks | Explore all 58 National Parks through guides, photos, maps and videos."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="http://parachute.mapquest.com/national-parks/"/>
-	{% set image = post.images.featured %}
-		{% if image == true %}
-	 <meta property="og:image" content="{{ post.images.featured }}" />
-		{% endif %}
- <meta property="og:description" content="Everything you need to know about where to explore, what to do, and even the wildlife to see at every National Park." />
-{% endblock %}
+{% set metaData = {
+	title: "MapQuest National Parks | Explore all 58 National Parks through guides, photos, maps and videos." ,
+	description: "Everything you need to know about where to explore, what to do, and even the wildlife to see at every National Park." ,
+	h1: "National Parks",
+	ogUrl: "http://parachute.mapquest.com/national-parks/",
+} %}
 
-{% set featuredPosts = api.posts.query({
-	site_ids: [979],
-	zone: 'Featured Parks',
-    limit: 4
-}) %}
+{% set tabData = [{
+	name: 'parks',
+	label: 'Recent National Parks Articles',
+	dataOptions: { tags: ['National Parks'] },
+	class: 'tab-large'
+}] %}
 
-{% set parkPosts = api.posts.query({
-	site_ids: [979, 1032],
-	page: req.params.page|default(1),
-	tags: ['National Parks'],
-    limit: 15,
-    tags_exclude: ['xMQx']
-}) %}
+{% set paginationData = {
+	content_type: 'National Parks'
+} %}
 
-{% set mainFeature = featuredPosts.results[0] %}
-{% set mainFeatureList = featuredPosts.results|slice(1,4) %}
-{% set parks = parkPosts.results %}
-
-{% block body %}
+{%  block featureTitle %}
 	<title>National Parks Articles from MapQuest</title>
+{%  endblock %}
 
-{% if parkPosts.page == 1 %}
-	<div class="featured-section">
-		<header class="header">
-			<strong class="title">National Parks Articles</strong>
-		</header>
-		<div class="article-holder">
-			<div class="featured-article">
-				<div class="image-holder"><a href="{{ mainFeature.relative_path|replace({'//':'/'}) }}"><img src="{{ mainFeature.image_crops.mainfeature }}" height="360" width="485" alt="{{ mainFeature.featured_image_credit }}"></a></div>
-				<div class="details">
-					<h1><a href="{{ mainFeature.relative_path|replace({'//':'/'}) }}"><strong>{{ mainFeature.title_facebook|raw }}</strong></a></h1>
-					<aside class="meta"><span class="author">by <a href="/contributor/{{ mainFeature.contributor_slug }}">{{ mainFeature.byline }}</a> |</span> <span class="date">posted <time>{{ mainFeature.published|date('F j, Y') }}</time> </span></aside>
-				</div>
-			</div>
-			<ul class="article-list">
-			{% for item in mainFeatureList %}	<li>
-					<div class="image-holder"><a href="{{ item.relative_path|replace({'//':'/'}) }}"><img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}"></a></div>
-					<div class="details">
-						<h2><a href="{{ item.relative_path|replace({'//':'/'}) }}">{{ item.title_facebook|raw }}</a></h2>
-						<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}">{{ item.byline }}</a> |</span> <span class="date">posted <time>{{ item.published|date('F j, Y') }}</time> </span></aside>
-					</div>
-				</li>
-			{% endfor %}
-			</ul>
-		</div>
-	</div>
-{% endif %}
-<!-- recent article section of the page -->
-<div class="recent-articles">
-		{% set pagination_vars = {
-		'page': parkPosts.page,
-		'next_page_size': parkPosts.next_page_size,
-		'pathlink': '/national-parks',
-		'content_type': 'National Parks'
-		}
-	%}
-	<header class="header">
-		{{ pagination.format(pagination_vars)}}
-		<strong class="title">Recent National Parks Articles</strong>
-	</header>
-	<ul class="article-list recent">
-		{% for item in parks %}
-		<li>
-		<div class="image-holder"><a href="{{ item.relative_path|replace({'//':'/'}) }}">
-		  {% if item.image == true %}
-			<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
-		  {% else %}
-			<img src="{{ asset('images/noimage2.png') }}" height="100" width="150" alt="Parachute from MapQuest">
-		  {% endif %}
-			</a>
-		</div>
-			<div class="details">
-				<h2><a href="{{ item.relative_path|replace({'//':'/'}) }}">{{ item.title|raw }}</a></h2>
-				<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}"> {{ item.byline }} </a> |</span> <span class="date">posted <time>{{ item.published|date('F j, Y') }}</time> </span></aside>
-			</div>
-		</li>
-		 {% endfor %}
-	</ul>
-	<footer class="footer">
-{{ pagination.format(pagination_vars)}}
-	</footer>
-</div>
+{% block featureBody %}
+	{% set featuredArticlesData = {
+		label: 'National Park Articles',
+		zone: 'Featured Parks'
+	} %}
+
+	{{ featuredArticles.render(featuredArticlesData) }}
 {% endblock %}
-

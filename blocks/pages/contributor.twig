@@ -1,74 +1,36 @@
-{% extends '@blocks/layouts/main.twig' %}
-{% import "@blocks/macros/pagination.twig" as pagination %}
+{% extends '@blocks/layouts/feature.twig' %}
 
-{% block body_class %}index{% endblock %}
-{% block header_class %}alt{% endblock %}
-{% block meta %}
-  <meta name="title" content="Articles written by {{ contributor.byline }}" />
-  <meta name="description" content=" Articles published on Parachute written by {{ contributor.byline }} - MapQuest "/>
-  <meta name="H1" content="Local Events"/>
-  <!-- fb opengraph tags -->
-  <meta property="og:title" content="Articles written by {{ contributor.byline }}"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="http://parachute.mapquest.com/contributor/{{ req.params.slug }}/"/>
-	{% set image = post.images.featured %}
-		{% if image == true %}
-	 <meta property="og:image" content="{{ post.images.featured }}" />
-		{% endif %}
- <meta property="og:description" content="Articles published on Parachute written by {{ contributor.byline }} - MapQuest" />
-{% endblock %}
 {% set contributor = api.contributors.getBySlug({
 	site_id: 979,
 	include_expired: true,
 	slug: req.params.slug,
 }) %}
 
-{% set cPosts = api.posts.query({
-	site_ids: [979, 1032],
-	page: req.params.page|default(1),
-	contributor_slugs: [req.params.slug],
-	status: published,
-    limit: 20,
-    tags_exclude: ['xMQx'],
-    include_expired: true,
-}) %}
+{% if contributor.byline is not defined %}
+	{% set contributor = api.contributors.getBySlug({
+		site_id: 1032,
+		include_expired: true,
+		slug: req.params.slug,
+	}) %}
+{% endif %}
 
-{% set contributorPosts = cPosts.results %}
-{% block body %}
-<title>Articles by {{ contributor.byline }}</title>
-<!-- recent article section of the page -->
-<div class="recent-articles">
-		{% set pagination_vars = {
-			'page': cPosts.page,
-			'next_page_size': cPosts.next_page_size,
-			'pathlink': '/contributor/'~req.params.slug
-			}
-		%}
-	<header class="header">
-{{ pagination.format(pagination_vars)}}
-		<strong class="title">Articles by {{ contributor.byline }}</strong>
-	</header>
-	<ul class="article-list recent">
-		{% for item in contributorPosts %}
-		<li>
-			<div class="image-holder"><a href="{{ item.relative_path|replace({'//':'/'}) }}">
-			 {% if item.image == true %}
-				<img src="{{ item.image_crops.thumbnail }}" height="100" width="150" alt="{{ item.featured_image_credit }}">
-			 {% else %}
-				<img src="{{ asset('images/noimage2.png') }}" height="100" width="150" alt="Parachute from MapQuest">
-				{% endif %}
-			</a>
-		</div>
-			<div class="details">
-				<h2><a href="{{ item.relative_path|replace({'//':'/'}) }}">{{ item.title|raw }}</a></h2>
-				<aside class="meta"><span class="author">by <a href="/contributor/{{ item.contributor_slug }}"> {{ item.byline }} </a> |</span> <span class="date">posted <time datetime="2014-09-29">{{ item.published|date('F j, Y') }}</time> </span></aside>
-			</div>
-		</li>
-		 {% endfor %}
-	</ul>
-	<footer class="footer">
-		{{ pagination.format(pagination_vars)}}
-	</footer>
-</div>
+{% set metaData = {
+	title: "Articles written by #{contributor.byline}" ,
+	description: "Articles published on Parachute written by #{contributor.byline} - MapQuest" ,
+	ogUrl: "http://parachute.mapquest.com/contributor/#{req.params.slug}/"
+} %}
+
+{% set tabData = [{
+	name: 'carticles',
+	label: "Articles by #{contributor.byline}",
+	dataOptions: { contributor_slugs: [req.params.slug], include_expired: true },
+	class: 'tab-large'
+}] %}
+
+{% set paginationData = {
+	pathlink: '/contributor/'~req.params.slug
+} %}
+
+{% block featureTitle %}
+	<title>Articles by {{ contributor.byline }}</title>
 {% endblock %}
-

@@ -1,0 +1,110 @@
+{#
+
+Expected variables:
+	tabData: Array containing hashes with the following properties:
+	[
+		{
+			name: Class name of the tab. Lowercase and no spaces/special characters.
+			label: The label of the tab - this is how the user will see it. Any characters.
+			data: Posts API hash. See below default below for examples.
+			dataOptions: if 'data' is not specified, you can put the API call options hash here.
+			class: CSS class to apply to this tab
+		},
+		{
+			(Properties of next tab)
+		},
+		...
+	]
+
+	paginationData: Hash with the following properties: (Only specify if different than first tab)
+	{
+		page: Page number.
+		next_page_size: Nubmer of articles in the next page.
+		pathlink: Root path to browse to upon pagnation Next or Prev click if not the / after the root url.
+		content_type: "Next Article" text - replaces the word "Article"
+	}
+
+
+
+#}
+
+{% import "@blocks/macros/pagination.twig" as pagination %}
+{% import "@blocks/macros/article-list.twig" as articleList %}
+
+{% set dataOptionsDefaults = {
+	site_ids: [979, 1032],
+	page: req.params.page|default(1),
+	status: published,
+	tags_exclude: ['xMQx'],
+	limit: 25
+} %}
+
+{% if tabData is not defined %}
+		{% set tabData = req.params.page > 1 ? [
+			{
+				name: 'all',
+				label: 'All Articles',
+			}
+		] : [
+			{
+				name: 'travel',
+				label: 'Travel Articles',
+				dataOptions: { site_ids: [979] }
+			}, {
+				name: 'local',
+				label: 'Local Articles',
+				dataOptions: { site_ids: [1032] }
+			}, {
+				name: 'popular',
+				label: 'Popular Articles',
+				data: api.posts.topPosts(dataOptionsDefaults)
+			}
+		] %}
+
+	{% set travelAndLocalRecentPostsData = api.posts.query(dataOptionsDefaults) %}
+
+	{% set paginationData = {
+		page: travelAndLocalRecentPostsData.page,
+		next_page_size: travelAndLocalRecentPostsData.next_page_size,
+	} %}
+{% endif %}
+
+{% set rootPath = req.path|split('/')[1] %}
+{% set firstTabData = tabData[0].data ?? api.posts.query(dataOptionsDefaults|merge(tabData[0].dataOptions)) %}
+
+{% set paginationDefaults = {
+	page: firstTabData.page,
+	next_page_size: firstTabData.next_page_size,
+	pathlink: (rootPath and rootPath != 'page') ? "/#{rootPath}" : ''
+} %}
+
+{% set paginationData = paginationDefaults|merge(paginationData) %}
+
+<div class="recent-articles">
+	<div class="tab-section">
+		{{ pagination.format(paginationData)}}
+		<ul class="tabset tab-header">
+			{% for tab in tabData %}
+				<li class="tab-title {{ tab.class }}{% if loop.first %} active{% endif %}">
+					<a href="#tab-{{ tab.name }}">
+						{{ tab.label }}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+
+		<div class="tab-content">
+			{% for tab in tabData %}
+				{% set tabFinalPostData = tab.data ?? api.posts.query(dataOptionsDefaults|merge(tab.dataOptions)) %}
+
+				<div id="tab-{{ tab.name }}">
+					{{ articleList.render({postsData: tabFinalPostData, customClassString: 'recent'}) }}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<footer class="recent-footer">
+		{{ pagination.format(paginationData) }}
+	</footer>
+</div>

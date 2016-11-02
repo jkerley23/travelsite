@@ -39,7 +39,7 @@
 {% endif %}
 </div>
 &nbsp;
-<h1>{{ post.title|raw }}</h1>
+<h1>{{ post.title|striptags|raw }}</h1>
 
  {#{{ prettydump(post) }}#}
 
@@ -63,9 +63,17 @@
 		</div>
 	</aside>
 
-	{{ post.contents|out ({
+	{% set allowedTags = '<strong><br><em><u><s><ol><li><ul><blockquote><p><a><img><table><tbody><tr><td><pre><code>' %}
+
+	{#Non-979 sites are auto-post. TODO: Find a less restrictive way to do this.#}
+	{% set strippedContents = post.site_id == 979 ?
+		post.contents :
+		post.contents|striptags(allowedTags)
+	%}
+
+	{{ strippedContents|out ({
 		Slideshow: '@blocks/partials/slideshow.twig'
-	}) | raw}}
+	})|raw }}
 
 	{% if video and video.status == 'available' %}
 	<div class="inline-video">
