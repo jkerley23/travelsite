@@ -59,7 +59,9 @@
 				{% else %}
 				<img src="{{ asset('images/anon.jpg') }}" height="24" width="24" alt="img description">
 				{% endif %} </a>
-		by <a href="/contributor/{{ post.contributor_slug }}">{{ post.byline }}</a> | {{ post.published.date|date('F j, Y') }} </span>
+		by <a href="/contributor/{{ post.contributor_slug }}">{{ post.byline }}</a> |
+				{{ post.site_id == 979 ? 'Contributor' : 'Local Blogger' }} |
+				{{ post.published.date|date('F j, Y') }} </span>
 		</div>
 	</aside>
 
