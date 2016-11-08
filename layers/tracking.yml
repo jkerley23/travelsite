@@ -32,3 +32,7 @@ when (req.route == 'contributors'):
   var prop1: 'writer'
   var prop2: 'writer'
 
+when (req.route == 'didclintonwin'):
+  var type: 'custom'
+  var pagename: 'didclintonwin'
+

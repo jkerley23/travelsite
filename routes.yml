@@ -142,3 +142,8 @@ local_news:
   layers: @layers/tracking.yml
   trailing_slash: force
 
+didclintonwin:
+  path: /didclintonwin
+  view: @blocks/pages/didclintonwin.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force

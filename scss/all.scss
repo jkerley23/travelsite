@@ -2265,8 +2265,30 @@ table {
 	}
 }
 
+.clinton-win {
+	background-color: $white;
+	text-align: center;
+
+	.clinton-text {
+		font-size: 150px;
+		font-weight: bold;
+		color: $color_chambray_approx;
+		margin: 0;
+	}
+
+	.clinton-spacing {
+		margin-top:10px;
+	}
+
+	.clinton-spacing-large {
+		margin-top:30px;
+	}
+}
+
 // Components
+// TODO: Reference 1 index file here that points to all of these
 
 @import 'components/_slideshow';
 @import 'components/_tabs';
+// TODO: Figure out why this is named incorrectly and why that fact doesn't seem to be messing anything up.
 @import 'components/article-items';

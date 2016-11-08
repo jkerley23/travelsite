@@ -1,4 +1,3 @@
-{% set params = {dl_custom: {cobrand: 'main'}} %}
 {#
 Use route name in routes.yml to find out the page and set analytics params accordingly
 
@@ -8,72 +7,77 @@ soundslocal_episode.twig:
 -episodeId (Id of the video data)
 -episodeLocation (Physical location of where the video was shot)
 #}
+{% set params = {dl_custom: {cobrand: 'main'}} %}
 {% set paramSelector = {
-    'home': {
-        page_type: 'main'
-    },
-    'posts': {
-        page_type: 'post',
-        post: post,
-        video_presence: ''~article_prop62
-    } ,
-    'tags': {
-        page_type: 'tag',
-        tag: req.params.tag
-    },
-    'videos': {
-        page_type: 'category',
-        category: {
-            name: 'video'
-        }
-    },
-    'quests': {
-        page_type: 'category',
-        category: {
-            name: 'quest'
-        }
-    },
-    'contributors': {
-        page_type: 'writer',
-        page_name: 'writer |' ~contributor.slug,
-        prop: {
-            '1': 'writer',
-            '2': 'writer'
-        }
-    },
-    'searches': {
-        page_type: 'search',
-        page_name: 'search results',
-        omni_custom: {
-            eVar11: 'sTerms:'~req.get.q
-        }
-    },
-    'popular': {
-        page_type: 'category',
-        category: {
-            name: 'popular'
-        }
-    },
-    'sl_index': {
-        page_type: 'main',
-        page_name: 'sounds local main',
-        prop: {
-            '2': 'sounds local'
-        }
-    },
-    'sl_episode': {
-        page_type: 'video',
-        page_name: 'episode|' ~req.params.slug,
-        video: {
-            source: 'original_content'
-        },
-        video_presence: 'video_vidible_entrybody',
-        prop: {
-            '2': 'sounds local',
-            '9': episodeId ?? 'null',
-            '58': episodeLocation ?? 'null'
-        }
-    }
+	'home': {
+		page_type: 'main'
+	},
+	'posts': {
+		page_type: 'post',
+		post: post,
+		video_presence: ''~article_prop62
+	} ,
+	'tags': {
+		page_type: 'tag',
+		tag: req.params.tag
+	},
+	'videos': {
+		page_type: 'category',
+		category: {
+			name: 'video'
+		}
+	},
+	'quests': {
+		page_type: 'category',
+		category: {
+			name: 'quest'
+		}
+	},
+	'contributors': {
+		page_type: 'writer',
+		page_name: 'writer |' ~contributor.slug,
+		prop: {
+			'1': 'writer',
+			'2': 'writer'
+		}
+	},
+	'searches': {
+		page_type: 'search',
+		page_name: 'search results',
+		omni_custom: {
+			eVar11: 'sTerms:'~req.get.q
+		}
+	},
+	'popular': {
+		page_type: 'category',
+		category: {
+			name: 'popular'
+		}
+	},
+	'sl_index': {
+		page_type: 'main',
+		page_name: 'sounds local main',
+		prop: {
+			'2': 'sounds local'
+		}
+	},
+	'sl_episode': {
+		page_type: 'video',
+		page_name: 'episode|' ~req.params.slug,
+		video: {
+			source: 'original_content'
+		},
+		video_presence: 'video_vidible_entrybody',
+		prop: {
+			'2': 'sounds local',
+			'9': episodeId ?? 'null',
+			'58': episodeLocation ?? 'null'
+		}
+	},
+	'didclintonwin': {
+		page_type: 'custom',
+		page_name: 'didclintonwin'
+	}
 } %}
 {% set params = params|merge(paramSelector[req.route] ?? {page_type: 'custom'}) %}
 {{ amp.analytics(params) }}
