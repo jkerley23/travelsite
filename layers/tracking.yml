@@ -36,3 +36,6 @@ when (req.route == 'didclintonwin'):
   var type: 'custom'
   var pagename: 'didclintonwin'
 
+when (req.route == 'didthedonaldwin'):
+  var type: 'custom'
+  var pagename: 'didthedonaldwin'

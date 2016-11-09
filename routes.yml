@@ -147,3 +147,10 @@ didclintonwin:
   view: @blocks/pages/didclintonwin.twig
   layers: @layers/tracking.yml
   trailing_slash: force
+
+didthedonaldwin:
+  path: /didthedonaldwin
+  view: @blocks/pages/didthedonaldwin.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force
+

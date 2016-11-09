@@ -2265,22 +2265,35 @@ table {
 	}
 }
 
-.clinton-win {
+.haswon-win {
 	background-color: $white;
 	text-align: center;
 
-	.clinton-text {
+	.haswon-text {
 		font-size: 150px;
 		font-weight: bold;
 		color: $color_chambray_approx;
 		margin: 0;
+
+		&.haswon-text-red {
+			color: $color_cardinal_approx;
+		}
 	}
 
-	.clinton-spacing {
+	.haswon-crop-bottom {
+		height: 300px;
+		overflow: hidden;
+
+		img {
+			margin: -10px
+		}
+	}
+
+	.haswon-spacing {
 		margin-top:10px;
 	}
 
-	.clinton-spacing-large {
+	.haswon-spacing-large {
 		margin-top:30px;
 	}
 }
