@@ -3,17 +3,15 @@
 {%- import "@blocks/macros/resize.twig" as resize -%}
 
 {% set article_prop62 = prop62.video_presence(post.contents) %}
-{# {% set video = api.videos.get({ id: {{video.aol_video_id}} }) %} #}
-{# {% if path == ['/xMQx/'] %}
-	{% do res.redirect('/', 301) %}
-			{% endif %} #}
-{%  set metaDescription = post.contents|out({Slideshow: null})|truncate(250)|striptags %}
+
+{#The replacement parser prioritises from left to right. Windows \r\n will not create two spaces with this:#}
+{% set metaDescription = post.contents|out({Slideshow: null})|truncate(250)|striptags|replace({'\n\r': ' ', '\r\n': ' ', '\n': ' ', '\r': ' '}) %}
 
 {% block body_class %}index{% endblock %}
 {% block header_class %}alt{% endblock %}
 {% block meta %}
   <meta name="title" content="{{ post.title }}" />
-  <meta name="description" content=" {{ metaDescription }}"/>
+  <meta name="description" content="{{ metaDescription }}"/>
   <meta name="H1" content="Local Events"/>
   <!-- fb opengraph tags -->
   <meta property="og:title" content="{{ post.title}}"/>
@@ -65,9 +63,9 @@
 		</div>
 	</aside>
 
+	{#Non-979 sites are auto-post. TODO: Find a less restrictive way to do this.#}
 	{% set allowedTags = '<strong><br><em><u><s><ol><li><ul><blockquote><p><a><img><table><tbody><tr><td><pre><code>' %}
 
-	{#Non-979 sites are auto-post. TODO: Find a less restrictive way to do this.#}
 	{% set strippedContents = post.site_id == 979 ?
 		post.contents :
 		post.contents|striptags(allowedTags)

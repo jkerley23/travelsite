@@ -38,7 +38,7 @@ gulp.task('css-rev', function() {
     .pipe(gulp.dest('assets/styles/'));
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', ['sass'], function() {
   gulp.watch('scss/**/*', ['sass']);
 });
 
