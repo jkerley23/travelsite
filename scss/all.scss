@@ -730,19 +730,7 @@ $tab_cutoff_width: 960px;
 		}
 	}
 }
-.footer-nav {
-	padding: 6px 0 0;
-	ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	li {
-		margin: 0 0 13px;
-		font-size: 12px;
-		line-height: 14px;
-	}
-}
+
 .app-links {
 	margin: 0;
 	padding: 0;
@@ -1701,15 +1689,18 @@ table {
 		margin: 8px 11px 5px 0;
 	}
 }
+
 #footer {
 	display: table-footer-group;
 	overflow: hidden;
 	background: $white;
 	height: 1%;
+
 	.row {
 		padding-left: 11.8%;
 		padding-right: 24.8%;
 	}
+
 	h3 {
 		margin: 0 0 6px;
 		font-size: 16px;
@@ -1717,24 +1708,48 @@ table {
 		font-weight: 400;
 		color: $color_gravel_approx;
 	}
-	.footer-bottom h3 {
-		color: $color_storm_dust_approx;
-		margin-bottom: 8px;
+
+	.footer-top {
+		padding: 22px 0 5px;
+		border-bottom: 1px solid $color_quill_gray_approx;
+
+		h3 {
+			overflow: visible;
+			height: 60px;
+		}
+	}
+
+	.footer-nav {
+		padding: 6px 0 0;
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		li {
+			margin: 0 0 13px;
+			font-size: 12px;
+			line-height: 14px;
+		}
+	}
+
+	.footer-bottom {
+		padding: 20px 0 22px;
+
+		h3 {
+			color: $color_storm_dust_approx;
+			margin-bottom: 8px;
+		}
 	}
 }
-.footer-top {
-	padding: 22px 0 5px;
-	border-bottom: 1px solid $color_quill_gray_approx;
-}
+
 .col {
 	display: inline-block;
 	vertical-align: top;
 	margin-right: -5px;
 	padding: 0 1.5%;
 }
-.footer-bottom {
-	padding: 20px 0 22px;
-}
+
 .suscribe-form {
 	.form-control {
 		margin: 0 !important;
@@ -2083,6 +2098,10 @@ table {
 	}
 }
 @media only screen and(max-width: 599px) {
+	.center-text-small {
+		text-align: center;
+		width: 100%;
+	}
 	.top-adbox {
 		display: none;
 	}
@@ -2092,10 +2111,8 @@ table {
 	}
 	.widget {
 		display: block;
-		width: 100%;
-		margin-right: 0;
-		margin-top: 5px;
-		margin-bottom: 35px;
+		width: 315px;
+		margin: 5px auto 35px auto;
 	}
 	#nav .opener {
 		position: relative;
@@ -2123,89 +2140,6 @@ table {
 		width: 100%;
 		padding: 0 3%;
 	}
-	//.pagination li {
-	//	float: left;
-	//	min-width: 40px;
-	//	height: 36px;
-	//	background: none;
-	//	text-align: center;
-	//	font-size: 11px;
-	//	line-height: 26px;
-	//	a {
-	//		display: block;
-	//		height: 100%;
-	//		color: $color_cape_cod_approx;
-	//		font-weight: 500;
-	//		padding: 8px 5px;
-	//		border-left: 0 solid $color_gray_nurse_approx;
-	//		text-decoration: none;
-	//		&.btn-next {
-	//			position: relative;
-	//			&:after {
-	//				content: "";
-	//				display: inline-block;
-	//				vertical-align: middle;
-	//				margin: 0 5px;
-	//				width: 0;
-	//				height: 0;
-	//				border-style: solid;
-	//				border-width: 4px 0 4px 4px;
-	//				border-color: transparent transparent transparent $color_cape_cod_approx;
-	//			}
-	//		}
-	//		&.btn-prev {
-	//			position: relative;
-	//			&:before {
-	//				content: "";
-	//				display: inline-block;
-	//				vertical-align: auto;
-	//				margin: 0 5px;
-	//				width: 0;
-	//				height: 0;
-	//				border-style: solid;
-	//				border-width: 4px 4px 4px 0;
-	//				border-color: transparent $color_cape_cod_approx transparent transparent;
-	//			}
-	//		}
-	//	}
-	//	strong {
-	//		display: block;
-	//		height: 100%;
-	//		color: $color_cape_cod_approx;
-	//		font-weight: 500;
-	//		padding: 8px 5px;
-	//		border-left: 0 solid $color_gray_nurse_approx;
-	//		text-decoration: none;
-	//		&.btn-next {
-	//			position: relative;
-	//			&:after {
-	//				content: "";
-	//				display: inline-block;
-	//				vertical-align: middle;
-	//				margin: 0 5px;
-	//				width: 0;
-	//				height: 0;
-	//				border-style: solid;
-	//				border-width: 4px 0 4px 4px;
-	//				border-color: transparent transparent transparent $color_cape_cod_approx;
-	//			}
-	//		}
-	//		&.btn-prev {
-	//			position: relative;
-	//			&:before {
-	//				content: "";
-	//				display: inline-block;
-	//				vertical-align: auto;
-	//				margin: 0 5px;
-	//				width: 0;
-	//				height: 0;
-	//				border-style: solid;
-	//				border-width: 4px 4px 4px 0;
-	//				border-color: transparent $color_cape_cod_approx transparent transparent;
-	//			}
-	//		}
-	//	}
-	//}
 	.recent-articles .header .title {
 		font-size: 13px;
 		line-height: 20px;
@@ -2219,6 +2153,28 @@ table {
 		background: $color_robins_egg_blue_approx;
 		margin-top: 7px;
 		max-width: 50%;
+	}
+
+	#footer {
+		text-align: center;
+
+		.footer-top {
+			.col {
+				width: 33.33%;
+			}
+		}
+
+		.footer-bottom {
+			.col {
+				width: 100%;
+
+				.social-networks {
+					width: 168px;
+					margin: 0 auto;
+					padding: 0;
+				}
+			}
+		}
 	}
 }
 .form-group:after {
