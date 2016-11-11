@@ -1,8 +1,13 @@
 {%- set params = {
     page: 1,
-	site_ids: [979],
+	site_ids: [979, 1032],
 	status: published,
+	tags_exclude: ['xMQx'],
     limit: 25
 } -%}
 {%- set posts = api.posts.query(params) -%}
+{%- set vars = {
+	title: 'Parachute by MapQuest',
+	description: 'Insider tips by locals. Find places to eat and drink, things to add to your bucket-list, or catch an emerging band on tour.'
+} -%}
 {%- include "@blocks/feeds/rss-header-footer.twig" with { 'posts': posts.results } -%}

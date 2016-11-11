@@ -7,8 +7,8 @@ soundslocal_episode.twig:
 -episodeId (Id of the video data)
 -episodeLocation (Physical location of where the video was shot)
 #}
-{% set params = {dl_custom: {cobrand: 'main'}} %}
-{% set paramSelector = {
+{%- set params = {dl_custom: {cobrand: 'main'}} -%}
+{%- set paramSelector = {
 	'home': {
 		page_type: 'main'
 	},
@@ -82,6 +82,8 @@ soundslocal_episode.twig:
 		page_type: 'custom',
 		page_name: 'didthedonaldwin'
 	}
-} %}
-{% set params = params|merge(paramSelector[req.route] ?? {page_type: 'custom'}) %}
-{{ amp.analytics(params) }}
+} -%}
+{%- set params = params|merge(paramSelector[req.route] ?? {page_type: 'custom'}) -%}
+{% if (post is not defined) or ('xMQx' not in post.tags and post.is_live == true) %}
+	{{ amp.analytics(params) }}
+{% endif %}

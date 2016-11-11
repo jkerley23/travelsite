@@ -12,16 +12,16 @@
 			{% set cats = cats|merge({(cat|lower):[]})%}
 		{% endfor %}
 	{% endif %}
+
+	{% set allowedTags = '<strong><br><em><u><s><ol><li><ul><blockquote><p><a><img><table><tbody><tr><td><pre><code>' %}
 {% endspaceless %}
 <item>
-	<title><![CDATA[{{ post.title|raw }}]]></title>
-	<image> <![CDATA[{{ post.images.featured }}]]></image>
+	<title>{{ post.title|striptags }}</title>
+	<image>{{ post.images.featured }}</image>
 	<link>http://{{ post.url }}</link>
 	<guid isPermaLink="false">http://{{ post.url }}</guid>
 	<description>
-	<![CDATA[
-	{{ post.contents|regex_replace('~<script\\ .*?<\\/.*?script>~i','')|regex_replace('~<style\\b[^>]*>(.*?)<\\/style>~s','')|regex_replace('/%/', '')|raw|truncate(250) }}
-	]]>
+		{{ post.contents|striptags|truncate(250) }}
 	</description>
 	{% if cats is not empty %}
 		{% set cats = cats|keys %}
@@ -29,7 +29,10 @@
 		    <category>{{ item }}</category>
 		{% endfor %}
 	{% endif %}
-	<dc:creator><![CDATA[{{ post.contributor.byline }}]]></dc:creator>
+	<content:encoded>
+		<![CDATA[{{ post.contents|striptags(allowedTags)|raw }}]]>
+	</content:encoded>
+	<dc:creator>{{ post.contributor.byline|striptags }}</dc:creator>
 	<pubDate>{{ post.published|date("D, d M Y H:i:s O") }}</pubDate>
 	<dc:identifier>{{ post.site_id }}|{{ post.id }}</dc:identifier>
 </item>
