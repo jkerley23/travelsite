@@ -38,8 +38,7 @@
 </div>
 &nbsp;
 <h1>{{ post.title|striptags|raw }}</h1>
-{#
- {{ prettydump(post) }} #}
+ {#{{ prettydump(post) }}#}
 
 	<aside class="meta">
 		<div class="meta-info">
@@ -53,9 +52,9 @@
 			<span class="author-info"><a href="/contributor/{{ post.contributor_slug }}"
 				class="author-avatar">
 				{% if post.contributor.metadata.image == true %}
-				<img src="{{ post.contributor.metadata.image_thumbnail }}" height="24" width="24" alt="img description">
+					<img src="{{ resize.resize(post.contributor.metadata.image, 24, 24) }}" height="24" width="24" alt="Author image">
 				{% else %}
-				<img src="{{ asset('images/anon.jpg') }}" height="24" width="24" alt="img description">
+					<img src="{{ asset('images/anon.jpg') }}" height="24" width="24" alt="img description">
 				{% endif %} </a>
 		by <a href="/contributor/{{ post.contributor_slug }}">{{ post.byline }}</a> |
 				{{ post.site_id == 979 ? 'Contributor' : 'Local Blogger' }} |
