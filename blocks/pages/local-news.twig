@@ -4,12 +4,12 @@
 {% set tabData = [{
 	name: 'news',
 	label: 'Recent Local News',
-	dataOptions: { site_ids: [1032] },
+	dataOptions: { site_ids: [1032,979], tags: ['local'] },
 	class: 'tab-large'
 }] %}
 
 {%  block featureTitle %}
-	<title>Parachute: Local News</title>
+	<title>Parachute: Local Posts</title>
 {%  endblock %}
 
 {% block featureBody %}
