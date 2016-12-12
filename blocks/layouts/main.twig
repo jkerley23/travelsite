@@ -29,19 +29,19 @@
 	<meta data-siteidentifier="parachute">
 	<!-- meta tags -->
 	{% block meta %}
-	  <meta name="title" content="Events, Concerts, and Local News in Your Area - MapQuest" />
-	  <meta name="description" content="Insider tips by locals. Find places to eat and drink, things to add to your bucket-list, or catch an emerging band on tour."/>
+	  <meta name="title" content="Travel inspiration and advice from real locals and people who've been there. - MapQuest" />
+	  <meta name="description" content="Insider tips from real travelers and real locals. Find places to eat and drink, things to add to your bucket-list, or inspiration for your next travel destination."/>
 	  <meta name="keywords" content="local,travel"/>
 	  <meta name="H1" content="Local Events"/>
 	  <!-- fb opengraph tags -->
-	  <meta property="og:title" content="Events, Concerts, and Local News in Your Area - MapQuest"/>
+	  <meta property="og:title" content="Travel inspiration and advice from real locals and people who've been there. - MapQuest"/>
 	  <meta property="og:type" content="website"/>
 	  <meta property="og:url" content="https://parachute.mapquest.com"/>
 		{% set image = post.images.featured %}
 			{% if image == true %}
   	  <meta property="og:image" content="{{ post.images.featured }}" />
 			{% endif %}
-	  <meta property="og:description" content="Insider tips by locals. Find places to eat and drink, things to add to your bucket-list, or catch an emerging band on tour." />
+	  <meta property="og:description" content="Insider tips from real travelers and real locals. Find places to eat and drink, things to add to your bucket-list, or inspiration for your next travel destination." />
 {% endblock %}
 	<meta property="fb:pages" content="1670990563146284" />
 	<!-- set the viewport width and initial-scale on mobile devices  -->
@@ -179,9 +179,9 @@ fjs.parentNode.insertBefore(js, fjs);
 			<a href="#" class="opener"><span>Opener</span></a>
 			<ul>
 				<li><a href="/soundslocal/">SOUNDS LOCAL</a></li>
-				<li><a href="/local-news/">LOCAL NEWS</a></li>
+				{# <li><a href="/local-news/">LOCAL </a></li> #}
 				<li><a href="https://www.mapquest.com/directions" target="blank">DIRECTIONS</a></li>
-				<li><a href="https://local.contributor.mapquest.com/registration/" target="blank">CONTRIBUTE</a></li>
+				<li><a href="https://contributor.mapquest.com/registration/" target="blank">CONTRIBUTE</a></li>
 			</ul>
 		</nav>
 	</div>
