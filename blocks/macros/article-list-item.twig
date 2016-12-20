@@ -9,12 +9,17 @@ Expected properties in 'data' hash:
 
 {%- macro render(data) -%}
 	{%- import "@blocks/macros/resize.twig" as resize -%}
+	{% if data.postData.images.featured %}
+		{% set imageWidth = data.size == 'large' ? 485 : 150 %}
+		{% set imageHeight = data.size == 'large' ? 360 : 100 %}
+		{% set imageSrc = resize.resize(data.postData.images.featured, imageWidth, imageHeight) %}
+	{% else %}
+		{% set imageSrc = data.size == 'large' ? data.postData.image_crops.mainfeature  : data.postData.image_crops.thumbnail%}
+	{% endif %}
 
-	{% set imageWidth = data.size == 'large' ? 485 : 150 %}
-	{% set imageHeight = data.size == 'large' ? 360 : 100 %}
 
 	{% set imageData = data.postData.image == true ? {
-		src: resize.resize(data.postData.images.featured, imageWidth, imageHeight),
+		src: imageSrc,
 		alt: data.postData.featured_image_credit
 	} : {
 		src: asset('images/noimage2.png'),
@@ -29,7 +34,7 @@ Expected properties in 'data' hash:
 	<div class="article-item{% if data.size == 'large' %} featured-item{% endif %}">
 		<div class="image-holder">
 			<a href="{{ data.postData.relative_path|replace({'//':'/'}) }}">
-				<img src="{{ imageData.src }}" alt="{{ imageData.alt }}" >
+				<img height="100" width="150" src="{{ imageData.src }}" alt="{{ imageData.alt }}">
 			</a>
 		</div>
 
