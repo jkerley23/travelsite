@@ -30,7 +30,7 @@
 	<base target="_blank">
 <div class = "featured-image">
 {% if post.images.featured == true %}
-	<img src="{{ post.image_crops.featured }}" height="600" width="1060" alt="{{ post.featured_image_description }}" onload="appboy.registerAppboyPushMessages()">
+	<img src="{{ resize.resize(post.images.featured, 1060, 600) }}" height="600" width="1060" alt="{{ post.featured_image_description }}" onload="appboy.registerAppboyPushMessages()">
 	<figcaption><em><sub>{{ post.featured_image_credit }}</sub></em></figcaption>
 {% else %}
 
