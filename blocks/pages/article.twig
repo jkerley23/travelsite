@@ -29,8 +29,14 @@
 <article class="page-article">
 	<base target="_blank">
 <div class = "featured-image">
-{% if post.images.featured == true %}
-	<img src="{{ resize.resize(post.images.featured, 1060, 600) }}" height="600" width="1060" alt="{{ post.featured_image_description }}" onload="appboy.registerAppboyPushMessages()">
+{% if post.images.featured %}
+	{#TODO: Remove roadtrippers checks when amp gets update to image_crops (dims 5)#}
+
+	{% set imgSrc = 'roadtrippers' in post.tags
+		? resize.resize(post.images.featured, 1060, 600)
+		: post.image_crops.featured %}
+
+	<img src="{{ imgSrc }}" height="600" width="1060" alt="{{ post.featured_image_description }}" onload="appboy.registerAppboyPushMessages()">
 	<figcaption><em><sub>{{ post.featured_image_credit }}</sub></em></figcaption>
 {% else %}
 
