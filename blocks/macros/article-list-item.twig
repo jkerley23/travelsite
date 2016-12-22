@@ -9,6 +9,7 @@ Expected properties in 'data' hash:
 
 {%- macro render(data) -%}
 	{#TODO: Remove roadtrippers checks when amp gets update to image_crops (dims 5)#}
+	{% import "@blocks/macros/resize.twig" as resize %}
 
 	{% if 'roadtrippers' in data.postData.tags %}
 		{% set imageWidth = data.size == 'large' ? 485 : 150 %}
