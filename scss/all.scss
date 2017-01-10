@@ -407,14 +407,16 @@
 
 $tab_cutoff_width: 960px;
 .pagination {
-	float: right;
+	position: absolute;
+	right: 0;
 	overflow: hidden;
-	border-bottom: 2px solid $color_robins_egg_blue_approx;
 	height: 39px;
+	//We float right for element in the footer
+	float: right;
 
 	@media only screen and (max-width: $tab_cutoff_width) {
+		position: static;
 		float: none;
-		border-bottom: none;
 		height: 28px;
 		margin-top: 4px;
 	}
@@ -1297,7 +1299,7 @@ table {
 		padding: 4px 0;
 
 		.pagination {
-			border-bottom: none;
+			position: static;
 		}
 	}
 }
