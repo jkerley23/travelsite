@@ -7,6 +7,24 @@ $caption_height: 65px;
 	position: relative;
 	margin: 35px 0 0 0;
 
+	.fullscreen-button {
+		position: absolute;
+		top: -32px;
+		left: -32px;
+		z-index: 2;
+		font-size: 15px;
+		background: $url_ss_arrows no-repeat -164px 0;
+		height: 102px;
+		width: 102px;
+		opacity: .7;
+		transform: scale(-0.3);
+
+		&:hover {
+			background-position-x: -63px;
+			opacity: 1;
+		}
+	}
+
 	.mask {
 		overflow: hidden;
 	}
@@ -39,7 +57,7 @@ $caption_height: 65px;
 			}
 
 			&.arrow-next {
-				right: 10px;
+				right: 0;
 				transform: scale(.5) rotate(180deg);
 			}
 		}
@@ -98,6 +116,7 @@ $caption_height: 65px;
 			font-size: 15px;
 			font-style: italic;
 			text-align: right;
+			max-width: 85%;
 		}
 
 		.slide-caption-area {
@@ -197,4 +216,36 @@ $caption_height: 65px;
 			}
 		}
 	}
+
+	&.modal {
+		z-index: 5101;
+		background-color: $black;
+		max-width: 100%;
+		width: 100%;
+		height: 100%;
+		overflow-y: auto;
+		margin: 0;
+
+		.mask {
+			position: relative;
+		}
+
+		.ss-arrow {
+			z-index: 5102;
+		}
+
+		.slide .slide-caption-area .caption-wrapper .caption {
+			font-size: 16px;
+		}
+
+		.close-button.close-modal {
+			top: 2px;
+			right: 2px;
+		}
+	}
+}
+
+.jquery-modal.blocker {
+	z-index: 5100;
+	padding: 10px;
 }
