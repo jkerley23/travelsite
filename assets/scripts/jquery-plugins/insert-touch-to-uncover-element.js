@@ -40,7 +40,6 @@
 			blocker = $(element.prev('.' + blockerClass));
 			sizeBlockerToElement();
 
-
 			if(options.addTouchEvents) {
 				touchHandler = new Hammer.Manager(blocker[0]); // Need to pass in the raw element.
 				touchHandler.add(new Hammer.Press());

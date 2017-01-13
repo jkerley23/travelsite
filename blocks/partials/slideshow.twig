@@ -1,47 +1,50 @@
+{#TODO: Git rid of href="javascript:void(0);" - replace with aria-friendly element.#}
+
 {% set slideshow = api.slideshows.get({ id: arg }) %}
 {% set allowedTags = '<br><p><strong><em><u>' %}
 
-{#{{ prettydump(slideshow) }}#}
-
 <div class="slideshow">
-    <div class="mask">
-        <div class="arrow-wrapper">
-            <a class="ss-arrow arrow-prev"></a>
-            <a class="ss-arrow arrow-next"></a>
-        </div>
+	<a href="javascript:void(0);" class="fullscreen-button"></a>
 
-        <p class="slide-swipe-hint">
-            Swipe for more!
-        </p>
+	<div class="mask">
+		<div class="arrow-wrapper">
+			<a href="javascript:void(0);" class="ss-arrow arrow-prev"></a>
+			<a href="javascript:void(0);" class="ss-arrow arrow-next"></a>
+		</div>
 
-        <ul class="slideset">
-            {% for slide in slideshow.slides %}
-                {% set strippedCaption = slide.caption|striptags(allowedTags) %}
-                {% set strippedCredit = slide.credit|striptags %}
+		<p class="slide-swipe-hint">
+			Swipe for more!
+		</p>
 
-                <li class="slide">
-                    <img class="slide-image" src="{{ slide.image_url_large }}" alt="{{ slide.alt_text }}">
-                    <span class="slide-image-credit">{{ strippedCredit|raw }}</span>
+		<ul class="slideset">
+			{% for slide in slideshow.slides %}
+				{% set strippedCaption = slide.caption|striptags(allowedTags) %}
+				{% set strippedCredit = slide.credit|striptags %}
 
-                    <div class="slide-caption-area">
-                        <img class="slide-parachute-logo" src="{{ asset('images/parachute-logo-square.png') }}" alt="Parachute logo">
+				<li class="slide">
+					<img class="slide-image" src="{{ slide.image_url_large }}" alt="{{ slide.alt_text }}">
+					<span class="slide-image-credit">{{ strippedCredit|raw }}</span>
 
-                        <div class="caption-wrapper">
-                            <span class="caption">{{ strippedCaption|raw }}</span>
-                        </div>
-                    </div>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
+					<div class="slide-caption-area">
+						<img class="slide-parachute-logo" src="{{ asset('images/parachute-logo-square.png') }}"
+							 alt="Parachute logo">
 
-    <ul class="ss-pagination">
-        {% for slide in slideshow.slides %}
-            <li>
-                <a href="javascript:void(0);">
-                    <img src="{{ slide.image_url_thumb }}" alt="Thumbnail preview of: {{ slide.alt_text }}">
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+						<div class="caption-wrapper">
+							<span class="caption">{{ strippedCaption|raw }}</span>
+						</div>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<ul class="ss-pagination">
+		{% for slide in slideshow.slides %}
+			<li>
+				<a href="javascript:void(0);">
+					<img src="{{ slide.image_url_thumb }}" alt="Thumbnail preview of: {{ slide.alt_text }}">
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
 </div>
