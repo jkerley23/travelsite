@@ -23,8 +23,10 @@
 		{% endif %}
  <meta property="og:description" content="{{ metaDescription }}" />
 {% endblock %}
+{% block title %}
+	<title>{{ post.title }}</title>
+{% endblock %}
 {% block body %}
-<title>{{ post.title }}</title>
 {% if post.status == 'published' or 'pending'  %}
 <article class="page-article">
 	<base target="_blank">
