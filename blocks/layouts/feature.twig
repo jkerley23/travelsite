@@ -49,11 +49,12 @@ Set the following variables in children templates if the defaults, as seen on th
 	{{ metaTags.render(metaData) }}
 {% endblock %}
 
-{% block body %}
-	{% block featureTitle %}
-		<title>Parachute by Mapquest</title>
-	{% endblock %}
+{% block title %}
+	<title>Parachute by MapQuest</title>
+{% endblock %}
 
+
+{% block body %}
 	{% if (req.params.page ?? 1) == 1 %}
 		{% block featureBody %}{% endblock %}
 	{% endif %}

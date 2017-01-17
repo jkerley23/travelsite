@@ -15,6 +15,10 @@
 	class: 'tab-large'
 }] %}
 
+{% block title %}
+	<title>MLB and Baseball Articles from Parachute</title>
+{% endblock %}
+
 {% block featureBody %}
 	{% set featuredArticlesData = {
 		label: 'Baseball Articles',
@@ -22,8 +26,4 @@
 	} %}
 
 	{{ featuredArticles.render(featuredArticlesData) }}
-{% endblock %}
-
-{% block featureTitle %}
-	<title>MLB and Baseball Articles from Parachute</title>
 {% endblock %}

@@ -893,6 +893,16 @@ fieldset {
 	margin: 0;
 	padding: 0;
 	border-style: none;
+
+	legend {
+		// We want Legend accessible by screen-readers only. This hides it from sighted users.
+		position: absolute;
+		left: -10000px;
+		top: auto;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
 }
 button::-moz-focus-inner {
 	border: 0;

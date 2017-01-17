@@ -3,7 +3,7 @@
 {%- endif -%}
 {%- import "@blocks/macros/asset-file.twig" as assetfile -%}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<script type='text/javascript' src='https://s.aolcdn.com/ads/adsWrapper.js'></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -103,6 +103,12 @@
     // appboy.requestInAppMessageRefresh();
   });
 	</script>
+
+	{% block title %}
+		<title>Parachute by Mapquest</title>
+	{% endblock %}
+
+</head>
 <body>
 	<!-- facebook SDK -->
 <script>
@@ -197,8 +203,10 @@ fjs.parentNode.insertBefore(js, fjs);
 <div class="search-container">
 <form action="/search/" class="search-form">
 <fieldset>
-  <input type="search" name="q" placeholder="Search ... ">
-  <button type="submit" class="btn-search">Search</button>
+	{# Via CSS, this legend element is only visible to screenreaders. #}
+	<legend>Search within Parachute</legend>
+	<input type="search" name="q" placeholder="Search ... " aria-label="Search">
+	<button type="submit" class="btn-search">Search</button>
 </fieldset>
 </form>
 </div>

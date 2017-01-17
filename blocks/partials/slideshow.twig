@@ -4,9 +4,11 @@
 {% set allowedTags = '<br><p><strong><em><u>' %}
 
 <div class="slideshow">
-	<a href="javascript:void(0);" class="fullscreen-button"></a>
+	{# For screen readers, we hide the main slideshow and expose only the thunbnails. Less clutter that way. #}
 
-	<div class="mask">
+	<a href="javascript:void(0);" class="fullscreen-button" aria-hidden="true"></a>
+
+	<div class="mask" aria-hidden="true">
 		<div class="arrow-wrapper">
 			<a href="javascript:void(0);" class="ss-arrow arrow-prev"></a>
 			<a href="javascript:void(0);" class="ss-arrow arrow-next"></a>
@@ -40,9 +42,11 @@
 
 	<ul class="ss-pagination">
 		{% for slide in slideshow.slides %}
+			{% set strippedCaptionPreview = slide.caption|striptags %}
+			{% set strippedCreditPreview = slide.credit|striptags %}
 			<li>
-				<a href="javascript:void(0);">
-					<img src="{{ slide.image_url_thumb }}" alt="Thumbnail preview of: {{ slide.alt_text }}">
+				<a href="javascript:void(0);" aria-label="{{ "Slide show image of #{slide.alt_text} by #{strippedCreditPreview}: #{strippedCaptionPreview}" }}">
+					<img src="{{ slide.image_url_thumb }}" alt="{{ slide.alt_text }}">
 				</a>
 			</li>
 		{% endfor %}
