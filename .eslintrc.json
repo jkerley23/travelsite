@@ -1,0 +1,26 @@
+{
+  "env": {
+    "browser": true,
+    "jquery": true,
+    "commonjs": true
+  },
+  "extends": [
+    "plugin:tape/recommended",
+    "eslint:recommended",
+    "google"
+  ],
+  "plugins": [
+    "jquery",
+    "tape"
+  ],
+  "rules": {
+    "max-len": ["error", 120],
+    "require-jsdoc": 0,
+    "no-var": 0,
+    "no-invalid-this": 0,
+    "comma-dangle": ["error", "never"],
+    "prefer-rest-params": 0,
+    "one-var": ["error", {"initialized": "never", "uninitialized": "always"}],
+    "tape/no-ignored-test-files": ["error", {"files": ["cms-plugins/**/*.spec.js"]}]
+  }
+}

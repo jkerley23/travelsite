@@ -8,5 +8,6 @@ node_modules
 /assets/js/*
 !/assets/js/vendor/
 !/assets/js/other/
+/cms-plugins/**/build
 .DS_Store
 

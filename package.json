@@ -2,19 +2,45 @@
   "name": "TraveSite",
   "version": "1.0.0",
   "main": "index.html",
-  "author": "AOL",
+  "author": "MapQuest",
   "license": "UNLICENSED",
+  "scripts": {
+    "debug-gulp": "iron-node node_modules/gulp/bin/gulp.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://stash.ops.aol.com/projects/MAPQUEST/repos/travelsite/browse"
   },
   "devDependencies": {
+    "eslint": "^3.16.0",
+    "eslint-config-google": "^0.7.1",
+    "eslint-plugin-jquery": "^1.1.1",
+    "eslint-plugin-tape": "^1.1.0",
     "gulp": "^3.9.1",
+    "gulp-exclude-gitignore": "^1.1.1",
+    "gulp-header": "^1.8.8",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-inline-source": "^3.0.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-markers": "^0.2.7",
+    "gulp-plumber": "^1.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-rev": "^7.0.0",
     "gulp-sass": "^2.3.1",
-    "gulp-sourcemaps": "^1.6.0",
+    "gulp-sourcemaps": "^1.11.1",
+    "gulp-tape": "0.0.9",
+    "isparta": "^4.0.0",
+    "jquery": "^1.12.4",
+    "jsdom": "9.11.0",
+    "jsdom-global": "2.1.1",
+    "merge-stream": "^1.0.1",
+    "redtape": "^1.0.0",
     "rev-del": "^1.0.5",
-    "run-sequence": "^1.2.1"
+    "run-sequence": "^1.2.1",
+    "sinon": "^1.17.7",
+    "tap-diff": "^0.1.1",
+    "tape": "^4.6.3",
+    "tape-catch": "^1.0.6",
+    "webpack-stream": "^3.2.0"
   }
 }
