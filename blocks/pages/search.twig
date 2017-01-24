@@ -4,36 +4,69 @@
 {% block body_class %}index{% endblock %}
 {% block header_class %}alt{% endblock %}
 {% block meta %}
-  <meta name="title" content="Search Results for {{ req.get.q }} - MapQuest" />
-  <meta name="description" content="Search results from local insiders on {{ req.get.q }}." />
-  <meta name="H1" content="Local Events"/>
-  <!-- fb opengraph tags -->
-  <meta property="og:title" content="Search Results for {{ req.get.q }} - MapQuest"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="http://parachute.mapquest.com/search/?q={{ req.get.q }}/"/>
-  {% set image = post.images.featured %}
-    {% if image == true %}
-   <meta property="og:image" content="{{ post.images.featured }}" />
-    {% endif %}
- <meta property="og:description" content="Search results from local insiders on {{ req.get.q }}." />
+	<meta name="title" content="Search Results for {{ req.get.q }} - MapQuest"/>
+	<meta name="description" content="Search results from local insiders on {{ req.get.q }}."/>
+	<meta name="H1" content="Local Events"/>
+	<!-- fb opengraph tags -->
+	<meta property="og:title" content="Search Results for {{ req.get.q }} - MapQuest"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="http://parachute.mapquest.com/search/?q={{ req.get.q }}/"/>
+	{% set image = post.images.featured %}
+	{% if image == true %}
+		<meta property="og:image" content="{{ post.images.featured }}"/>
+	{% endif %}
+	<meta property="og:description" content="Search results from local insiders on {{ req.get.q }}."/>
+{% endblock %}
+
+
+{% block title %}
+	<title>Parachute Search Results</title>
 {% endblock %}
 
 {% block body %}
-  <title>Parachute Search Results</title>
-<!-- recent article section of the page -->
-<script>
-(function()
-  var kerkley = false;
-  var cx = '012371198347892973785:ng2b0dncab4';
-  var gcse = document.createElement('script');
-  gcse.type = 'text/javascript';
-  gcse.async = true;
-  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(gcse, s);
-)();
-</script>
-<gcse:searchresults-only></gcse:searchresults-only>
+	<!-- recent article section of the page -->
+	<gcse:searchresults-only></gcse:searchresults-only>
 
+	<script>
+		(function() {
+			window.__gcse = {
+				callback: checkDocumentReady
+			};
+
+			function checkDocumentReady() {
+				if (document.readyState == 'complete') {
+					fixAccessibilityIssues();
+				} else {
+					google.setOnLoadCallback(fixAccessibilityIssues, true);
+				}
+			}
+
+			function fixAccessibilityIssues() {
+				// Skip the thumbnail so that the link text can be read instead.
+				$('.gsc-thumbnail').attr('aria-hidden', 'true');
+				$('.gsc-thumbnail ~ td').attr('tabindex', '0');
+
+				// This is a pop-up featuring an image - useless and gets in the way for screen reader users.
+				$('#base_imageResult_popup').attr('aria-hidden', 'true');
+
+				// No key press event specified by default - we just click on it when Space or Enter is pressed.
+				$('.gsc-table-cell-snippet-close').on("keypress", function(e) {
+					var keyCode = e.which;
+					if (keyCode === 13 || keyCode === 32) { // Space and enter
+						$(this).click();
+					}
+				});
+			}
+
+			// Google generated code:
+			var cx = '012371198347892973785:ng2b0dncab4';
+			var gcse = document.createElement('script');
+			gcse.type = 'text/javascript';
+			gcse.async = true;
+			gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(gcse, s);
+		})();
+	</script>
 {% endblock %}
 
