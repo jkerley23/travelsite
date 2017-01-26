@@ -45,9 +45,10 @@
 				// Skip the thumbnail so that the link text can be read instead.
 				$('.gsc-thumbnail').attr('aria-hidden', 'true');
 				$('.gsc-thumbnail ~ td').attr('tabindex', '0');
+				$('img.gs-image').attr('alt', 'Hidden search result image'); // Tells screen readers that the image is decorative.
+				$('a.gs-image').attr('tabindex', '-1');
 
-				// This is a pop-up featuring an image - useless and gets in the way for screen reader users.
-				$('#base_imageResult_popup').attr('aria-hidden', 'true');
+				$('#base_imageResult_popup').remove(); // We don't use that feature and it is seen by the accessibility crawler.
 
 				// No key press event specified by default - we just click on it when Space or Enter is pressed.
 				$('.gsc-table-cell-snippet-close').on("keypress", function(e) {
