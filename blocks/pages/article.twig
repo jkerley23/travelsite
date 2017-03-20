@@ -84,6 +84,10 @@
 		Slideshow: '@blocks/partials/slideshow.twig'
 	})|raw }}
 
+	{% if 'class="instagram-media"' in strippedContents %}
+		<script async defer src="https://platform.instagram.com/en_US/embeds.js"></script>
+	{% endif %}
+
 	{% if video and video.status == 'available' %}
 	<div class="inline-video">
 		<div class="vdb_player vdb_{{ config.video.player_id ~  config.video.company_id }}">
