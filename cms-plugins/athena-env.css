@@ -1,0 +1,9 @@
+body > div[scoped] {
+  width: 265px;
+  border: 1px solid lightgrey;
+}
+
+button {
+  font-size: 14px;
+}
+

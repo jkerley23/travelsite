@@ -1,0 +1,46 @@
+<!-- @BEGIN:blogsmith-header title="Add MapQuest Location" -->
+<!-- These BEGIN and END comments tell the gulp build-plugins task what to replace with blogsmith tags -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="../../athena-env.css" inline>
+  </head>
+
+  <body>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="../../athena-env.js" inline></script> <!-- Athena mocks -->
+    <!-- @END:blogsmith-header -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
+
+    <div scoped>
+      <link rel="stylesheet" href="./add-mq-location.css" inline>
+
+      <label for="addmqloc-location-selector">Select a location:</label><br/>
+      <input id="addmqloc-location-selector" type="text" autocomplete="off">
+      <div id="addmqloc-locations-errors"></div>
+      <button id="addmqloc-toggle-map">Show map / search specific location</button>
+      <div id="addmqloc-map-holder">
+        <span>Center the map to the search location:</span>
+        <div id="addmqloc-embedded-map"></div>
+      </div>
+
+      <section id="addmqloc-locations">
+        <h3>Locations associated with this article:</h3>
+        <ul></ul> <!-- The JS either populates this or hides the parent upon startup depending on data availability. -->
+      </section>
+
+      <p id="addmqloc-status">Loading plugin resources...</p>
+      <!-- 3rd-party dependencies -->
+      <script src="./deps/remote-list.js" inline></script>
+      <script src="./deps/debounce.js" inline></script>
+
+      <!-- Webpack bundle -->
+      <script src=../build/js-bundle/bundle.js inline></script>
+    </div>
+    <!-- @BEGIN:blogsmith-footer -->
+  </body>
+</html>
+<!-- @END:blogsmith-footer -->
+
