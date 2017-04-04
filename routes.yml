@@ -154,3 +154,8 @@ didthedonaldwin:
   layers: @layers/tracking.yml
   trailing_slash: force
 
+shittyfood:
+  path: /shitty-food
+  view: @blocks/pages/shitty-food.twig
+  layers: @layers/tracking.yml
+  trailing_slash: force

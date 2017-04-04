@@ -1,0 +1,36 @@
+{% extends '@blocks/layouts/feature.twig' %}
+{% import "@blocks/macros/featured-articles.twig" as featuredArticles %}
+
+{% set metaData = {
+  title: "Sh*tty Food Week from MapQuest. Not your mama's diet.",
+  description: "Find a place in your city to satisfy the unending gluttony of your inner barbarian" ,
+  h1: "Sh*tty Food",
+  ogUrl: "http://parachute.mapquest.com/shitty-food/"
+} %}
+
+{% set tabData = [{
+  name: 'shitty-food',
+  label: 'Shitty Food Week!',
+  dataOptions: { tags: ['shitty food week'] },
+  class: 'tab-large'
+}] %}
+
+{% block title %}
+  <title>The healthiest time of year is finally here!</title>
+{% endblock %}
+
+{% block featureBody %}
+  <h3>
+    <em>
+      Find the best places to eat the worst food across the country, courtesy of Parachute contributors and people who
+      love obesity.
+    </em>
+  </h3>
+
+  {% set featuredArticlesData = {
+    label: 'Fine Dining Articles',
+    zone: 'Shitty Food'
+  } %}
+
+  {{ featuredArticles.render(featuredArticlesData) }}
+{% endblock %}
