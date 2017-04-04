@@ -1,37 +1,110 @@
+@import '../base/variables';
+
 #header{
-    @include clearfix;
-    padding: 25px 0 30px;
+  @include clearfix;
+  padding: 25px 0 30px;
+  position: relative;
+  z-index: 5;
+
+  @include media('<desktop'){
+    padding: 25px 0;
+  }
+
+  @include media('<tablet'){
+    padding: 15px 0;
+  }
+
+  .logo {
+    float: left;
+    width: 147px;
+    margin: 5px 0 1px 34px;
     position: relative;
-    z-index: 5;
+    z-index: 1;
+
     @include media('<desktop'){
-        padding: 25px 0;
+      margin: 0;
+      width: 130px;
     }
+
     @include media('<tablet'){
-        padding: 15px 0;
+      width: 110px;
     }
-    .logo{
-        float: left;
-        width: 147px;
-        margin: 5px 0 1px 34px;
-        position: relative;
+
+    .home-page &{
+      width: auto;
+      float: none;
+      display: block;
+      overflow: hidden;
+      max-width: 690px;
+      margin: 0 auto 5px;
+    }
+
+    img {
+      @include img;
+    }
+  }
+
+  .webby-section {
+    display: block;
+    margin: 20px auto 0 auto;
+
+    .webby-container {
+      width: 450px;
+      height: 100px;
+      margin: auto;
+
+      @include media('<tablet'){
+        width: 303px;
+        height: 85px;
+      }
+
+      .webby-logo {
         z-index: 1;
-        @include media('<desktop'){
-            margin: 0;
-            width: 130px;
-        }
+        position: absolute;
+        width: 100px;
+        border-radius: 100%;
+        border: 7px solid white;
+
         @include media('<tablet'){
-            width: 110px;
+          width: 85px;
+          border: 5px solid white;
         }
-        .home-page &{
-            width: auto;
-            float: none;
-            display: block;
-            overflow: hidden;
-            max-width: 690px;
-            margin: 0 auto 5px;
+      }
+
+      .webby-label {
+        position: absolute;
+        width: 350px;
+        height: 55px;
+        margin: 23px 0 0 89px;
+        background-color: #a4ce00;
+        line-height: 55px;
+        font-weight: bold;
+        font-size: 19px;
+        text-align: center;
+
+        @include media('<tablet'){
+          width: 220px;
+          height: 45px;
+          margin: 20px 0 0 75px;
+          line-height: 45px;
+          font-size: 15px;
         }
-        img{
-            @include img;
-        }
+      }
     }
+  }
+
+  .webby-logo-inline {
+    display: inline;
+    width: 113px;
+    float: left;
+    margin-left: 30px;
+
+    @include media('<desktop'){
+      width: 100px;
+    }
+
+    @include media('<tablet'){
+      width: 84px;
+    }
+  }
 }
