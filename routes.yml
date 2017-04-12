@@ -155,7 +155,9 @@ didthedonaldwin:
   trailing_slash: force
 
 shittyfood:
-  path: /shitty-food
+  path:
+    - /shitty-food
+    - /shitty-food/page/{page:\d+}
   view: @blocks/pages/shitty-food.twig
   layers: @layers/tracking.yml
   trailing_slash: force
