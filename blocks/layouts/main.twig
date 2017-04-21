@@ -27,24 +27,24 @@
 
 	<!-- set the encoding of your site -->
 	<meta charset="utf-8">
-	<meta data-siteidentifier="parachute">
+	<meta data-siteidentifier="mapquest travel">
 	<!-- meta tags -->
 
 	{% block meta %}
-	  <meta name="title" content="Travel inspiration and advice from real locals and people who've been there. - MapQuest" />
-	  <meta name="description" content="Insider tips from real travelers and real locals. Find places to eat and drink, things to add to your bucket-list, or inspiration for your next travel destination."/>
-	  <meta name="keywords" content="local,travel"/>
-	  <meta name="H1" content="Local Events"/>
+	  <meta name="title" content="Travel inspiration and articles that will help you plan your next vacation. — MapQuest" />
+	  <meta name="description" content="Get inspired to plan your next trip by disocovering  a hidden gem, a unique food tour or something completely unexpected. — MapQuest"/>
+	  <meta name="keywords" content="travel, travel ideas, travel inspiration"/>
+	  <meta name="H1" content="Travel Articles"/>
 
 	  <!-- fb opengraph tags -->
-	  <meta property="og:title" content="Travel inspiration and advice from real locals and people who've been there. - MapQuest"/>
+	  <meta property="og:title" content="Travel inspiration and articles that will help you plan your next vacation. — MapQuest"/>
 	  <meta property="og:type" content="website"/>
-	  <meta property="og:url" content="https://parachute.mapquest.com"/>
+	  <meta property="og:url" content="https://travel.mapquest.com"/>
 		{% set image = post.images.featured %}
 			{% if image == true %}
   	  <meta property="og:image" content="{{ post.images.featured }}" />
 			{% endif %}
-	  <meta property="og:description" content="Insider tips from real travelers and real locals. Find places to eat and drink, things to add to your bucket-list, or inspiration for your next travel destination." />
+	  <meta property="og:description" content="Get inspired to plan your next trip by disocovering  a hidden gem, a unique food tour or something completely unexpected. — MapQuest" />
 	{% endblock %}
 	<meta property="fb:pages" content="1670990563146284" />
 
@@ -178,10 +178,10 @@ fjs.parentNode.insertBefore(js, fjs);
 		<nav id="nav">
 			<a href="#" class="opener"><span>Opener</span></a>
 			<ul>
-				<li><a href="/soundslocal/">SOUNDS LOCAL</a></li>
+				<li><a href="https://bookings.mapquest.com/?refid=5101&refclickid=ParachuteNav" target="blank">BOOK TRAVEL</a></li>
 				{# <li><a href="/local-news/">LOCAL </a></li> #}
 				<li><a href="https://www.mapquest.com/directions" target="blank">DIRECTIONS</a></li>
-				<li><a href="https://contributor.mapquest.com/registration/" target="blank">CONTRIBUTE</a></li>
+				<li><a href="/soundslocal/">SOUNDS LOCAL</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -234,7 +234,7 @@ fjs.parentNode.insertBefore(js, fjs);
 					<nav class="footer-nav">
 						<ul>
 							<li><a href="http://company.mapquest.com/" target="_blank">About MapQuest</a></li>
-							<li><a href="mailto:parachute@mapquest.com" target="_blank">Contact Us</a></li>
+							<li><a href="mailto:mapquest-travel@mapquest.com" target="_blank">Contact Us</a></li>
 							<li><a href="https://business.mapquest.com/products/targeted-advertising" target="_blank">Advertise</a></li>
 							<li><a href="http://www.verizon.com/about/privacy/about-our-ads" target="_blank">About Our Ads</a></li>
 						</ul>
@@ -257,7 +257,7 @@ fjs.parentNode.insertBefore(js, fjs);
 					<!-- footer navigation of the page -->
 					<nav class="footer-nav">
 						<ul>
-							<li><a href="https://contributor.mapquest.com/registration/" target="_blank">Become a Contributor</a></li>
+						{# 	<li><a href="https://contributor.mapquest.com/registration/" target="_blank">Become a Contributor</a></li> #}
 							<li><a href="https://parachute.mapquest.com/2016/05/23/parachute-by-mapquest-custom-content-solutions/" target="_blank">Custom Content Solutions</a></li>
 							<li><a href="https://hello.mapquest.com/privacy/" target="_blank">Privacy Policy</a></li>
 						</ul>
