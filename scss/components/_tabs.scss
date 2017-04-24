@@ -6,13 +6,13 @@
 
 	.tab-header {
 		overflow: hidden;
-		border-bottom: 2px solid $color_robins_egg_blue_approx;
+		border-bottom: 2px solid $color_travel_green;
 		margin-bottom: 20px;
 
 		.tab-title {
 			width: 165px;
 			margin: 7px 8px 0 0;
-			background: $color_abbey_approx;
+			background: $color_travel_grey;
 			display: table;
 
 			&.tab-large {
@@ -29,7 +29,7 @@
 			}
 
 			&.active {
-				background: $color_robins_egg_blue_approx;
+				background: $color_travel_green;
 			}
 
 			a {
