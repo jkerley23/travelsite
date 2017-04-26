@@ -24,11 +24,14 @@ Expected values in 'data' hash:
 	{% set featuredPostOptions = {
 		postData: featuredPost,
 		size: 'large',
+		disableAuthorType: true,
+		disablePostDate: true
 	} %}
 
 	{% set featuredPostsListOptions = {
 		postsData: featuredPostList,
-		disableAuthorType: true
+		disableAuthorType: true,
+		disablePostDate: true
 	} %}
 
 	<div class="featured-section">

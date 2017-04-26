@@ -55,14 +55,21 @@ Expected properties in 'data' hash:
 						|
 						<span>
 						{{ authorTypeIndex[data.postData.site_id] }}
+						|
 						</span>
 					{%- endif -%}
-					|
 				</span>
+
+{# 				<span class="date">
+					Posted <time>{{ data.postData.published|date('F j, Y') }}</time>
+				</span> #}
+
+					{%- if data.disablePostDate != true -%}
 
 				<span class="date">
 					Posted <time>{{ data.postData.published|date('F j, Y') }}</time>
 				</span>
+					{%- endif -%}
 			</aside>
 		</div>
 	</div>

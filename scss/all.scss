@@ -291,6 +291,7 @@
 		font-weight: 700;
 		font-size: 24px;
 		line-height: 24px;
+		padding: 74px 0px 2px 0px;
 		text-transform: uppercase;
 		&:before {
 			content: "//";
@@ -1108,7 +1109,7 @@ table {
 }
 .header-navbar {
 	background: $white;
-	padding: 32px 0 0;
+	padding: 0 0 0;
 	border-top: solid $color_cape_cod_approx thin;
 }
 .logo {
@@ -1817,7 +1818,7 @@ table {
 		padding: 20px 0;
 	}
 	.logo {
-		width: 320px;
+	/* 	width: 320px; */
 	}
 	.btn {
 		padding: 12px 14px;
@@ -1842,6 +1843,7 @@ table {
 	}
 	.logo {
 		width: 300px;
+		height: 25px;
 	}
 	#nav {
 		padding-top: 18px;
@@ -1849,6 +1851,7 @@ table {
 		li {
 			font-size: 16px;
 			line-height: 18px;
+			padding: 44px 0 15px 0;
 		}
 	}
 	.inner {
@@ -2127,7 +2130,8 @@ table {
 	}
 	.logo {
 		width: 240px;
-		padding-top: 25px;
+		padding-top: 15px;
+    	padding-bottom: 60px;
 	}
 	.widget {
 		display: block;
@@ -2136,7 +2140,8 @@ table {
 	}
 	#nav .opener {
 		position: relative;
-		top: 11px;
+		top: 32px;
+    	right: 15px;
 		display: inline-block;
 	}
 	.article-list.recent li .image-holder {
