@@ -24,7 +24,7 @@ Expected properties in 'data' hash:
 		alt: data.postData.featured_image_credit
 	} : {
 		src: asset('images/noimage2.png'),
-		alt: 'Parachute from Mapquest'
+		alt: 'MapQuest Travel'
 	} %}
 
 	{% set authorTypeIndex = {
@@ -55,14 +55,21 @@ Expected properties in 'data' hash:
 						|
 						<span>
 						{{ authorTypeIndex[data.postData.site_id] }}
+						|
 						</span>
 					{%- endif -%}
-					|
 				</span>
+
+{# 				<span class="date">
+					Posted <time>{{ data.postData.published|date('F j, Y') }}</time>
+				</span> #}
+
+					{%- if data.disablePostDate != true -%}
 
 				<span class="date">
 					Posted <time>{{ data.postData.published|date('F j, Y') }}</time>
 				</span>
+					{%- endif -%}
 			</aside>
 		</div>
 	</div>

@@ -14,7 +14,7 @@
 				window.DocumentTouch && document instanceof DocumentTouch,
 
 			minScrollerWidthRef = {
-				parachute: '767px',
+				paracute: '767px',
 				soundslocal: '1023px'
 			};
 
@@ -39,7 +39,7 @@
 	function initMobileNav(site) {
 		//TODO: Change markdown and css of Parachute to combine these.
 		var optionsRef = {
-			parachute: {
+			mapquesttravel: {
 				menuActiveClass: 'active',
 				menuOpener: '.opener'
 			},

@@ -27,24 +27,24 @@
 
 	<!-- set the encoding of your site -->
 	<meta charset="utf-8">
-	<meta data-siteidentifier="parachute">
+	<meta data-siteidentifier="mapquesttravel">
 	<!-- meta tags -->
 
 	{% block meta %}
-	  <meta name="title" content="Travel inspiration and advice from real locals and people who've been there. - MapQuest" />
-	  <meta name="description" content="Insider tips from real travelers and real locals. Find places to eat and drink, things to add to your bucket-list, or inspiration for your next travel destination."/>
-	  <meta name="keywords" content="local,travel"/>
-	  <meta name="H1" content="Local Events"/>
+	  <meta name="title" content="Travel inspiration and articles that will help you plan your next vacation. — MapQuest" />
+	  <meta name="description" content="Get inspired to plan your next trip by disocovering  a hidden gem, a unique food tour or something completely unexpected. — MapQuest"/>
+	  <meta name="keywords" content="travel, travel ideas, travel inspiration"/>
+	  <meta name="H1" content="Travel Articles"/>
 
 	  <!-- fb opengraph tags -->
-	  <meta property="og:title" content="Travel inspiration and advice from real locals and people who've been there. - MapQuest"/>
+	  <meta property="og:title" content="Travel inspiration and articles that will help you plan your next vacation. — MapQuest"/>
 	  <meta property="og:type" content="website"/>
-	  <meta property="og:url" content="https://parachute.mapquest.com"/>
+	  <meta property="og:url" content="https://travel.mapquest.com"/>
 		{% set image = post.images.featured %}
 			{% if image == true %}
   	  <meta property="og:image" content="{{ post.images.featured }}" />
 			{% endif %}
-	  <meta property="og:description" content="Insider tips from real travelers and real locals. Find places to eat and drink, things to add to your bucket-list, or inspiration for your next travel destination." />
+	  <meta property="og:description" content="Get inspired to plan your next trip by disocovering  a hidden gem, a unique food tour or something completely unexpected. — MapQuest" />
 	{% endblock %}
 	<meta property="fb:pages" content="1670990563146284" />
 
@@ -54,7 +54,7 @@
 	<!-- include the site stylesheet -->
 	<link media="all" rel="stylesheet" href="{{ asset('styles/'~assetfile.assetfile('all.min.css')) }}">
 	<link media="all" rel="stylesheet" href="{{ asset('scripts/jquery-plugins/jquery-modal/jquery.modal.min.css') }}">
-	<link rel="icon" href="{{ asset('images/favicon2.ico') }}" type="image/x-icon">
+	<link rel="icon" href="{{ asset('images/favicon_mqtravel1.ico') }}" type="image/x-icon">
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -69,43 +69,8 @@
 
 	{# TODO: Move inline scripts to separate file #}
 
-	<script type="text/javascript">
-  		+function(a,p,P,b,y) {
-    		appboy={};for(var s="destroy toggleAppboyLogging setLogger openSession changeUser requestImmediateDataFlush requestFeedRefresh subscribeToFeedUpdates logCardImpressions logCardClick logFeedDisplayed requestInAppMessageRefresh logInAppMessageImpression logInAppMessageClick logInAppMessageButtonClick subscribeToNewInAppMessages removeSubscription removeAllSubscriptions logCustomEvent logPurchase isPushSupported isPushBlocked registerAppboyPushMessages unregisterAppboyPushMessages submitFeedback ab ab.User ab.User.Genders ab.User.NotificationSubscriptionTypes ab.User.prototype.getUserId ab.User.prototype.setFirstName ab.User.prototype.setLastName ab.User.prototype.setEmail ab.User.prototype.setGender ab.User.prototype.setDateOfBirth ab.User.prototype.setCountry ab.User.prototype.setHomeCity ab.User.prototype.setEmailNotificationSubscriptionType ab.User.prototype.setPushNotificationSubscriptionType ab.User.prototype.setPhoneNumber ab.User.prototype.setAvatarImageUrl ab.User.prototype.setLastKnownLocation ab.User.prototype.setUserAttribute ab.User.prototype.setCustomUserAttribute ab.User.prototype.addToCustomAttributeArray ab.User.prototype.removeFromCustomAttributeArray ab.User.prototype.incrementCustomUserAttribute ab.InAppMessage ab.InAppMessage.SlideFrom ab.InAppMessage.ClickAction ab.InAppMessage.DismissType ab.InAppMessage.prototype.subscribeToClickedEvent ab.InAppMessage.prototype.subscribeToDismissedEvent ab.InAppMessage.prototype.removeSubscription ab.InAppMessage.prototype.removeAllSubscriptions ab.InAppMessage.Button ab.InAppMessage.Button.prototype.subscribeToClickedEvent ab.InAppMessage.Button.prototype.removeSubscription ab.InAppMessage.Button.prototype.removeAllSubscriptions ab.SlideUpMessage ab.ModalMessage ab.FullScreenMessage ab.ControlMessage ab.Feed ab.Feed.prototype.getUnreadCardCount ab.Card ab.ClassicCard ab.CaptionedImage ab.Banner display display.automaticallyShowNewInAppMessages display.showInAppMessage display.showFeed display.destroyFeed display.toggleFeed sharedLib".split(" "),i=0;i<s.length;i++){for(var k=appboy,l=s[i].split("."),j=0;j<l.length-1;j++)k=k[l[j]];k[l[j]]=function(){}}appboy.initialize=function(){console&&console.log("Appboy cannot be loaded - this is usually due to strict corporate firewalls or ad blockers.")};appboy.getUser=function(){return new appboy.ab.User};appboy.getCachedFeed=function(){return new appboy.ab.Feed};
-    	(y = a.createElement(p)).type = 'text/javascript';
-    	y.src = 'https://js.appboycdn.com/web-sdk/1.3/appboy.min.js';
-    	(c = a.getElementsByTagName(p)[0]).parentNode.insertBefore(y, c);
-    	if (y.addEventListener) {
-      		y.addEventListener("load", b, false);
-    	} else if (y.readyState) {
-      		y.onreadystatechange = b;
-    	}
-  	}(document, 'script', 'link', function() {
-    	appboy.initialize('4bc865da-1238-42d0-b288-fe3a8c63bfa3');
-    	appboy.display.automaticallyShowNewInAppMessages();
-
-    /*
-     * If you have a unique identifier for this user (e.g. they are logged into your site) it's a good idea to call
-     * changeUser here.
-     * See https://js.appboycdn.com/web-sdk/latest/doc/module-appboy.html#.changeUser for more information.
-     */
-    // appboy.changeUser(userIdentifier);
-
-    appboy.openSession();
-
-    /*
-     * By default, in-app messages are only refreshed every 10 minutes as part of the openSession call. Additionally,
-     * they are not refreshed on a new anonymous user's first-ever session. If you want them refreshed as part of every
-     * page load instead, uncomment this line - note that depending on your website's architecture and messaging strategy,
-     * this may cause users to receive messages very frequently as they navigate around the site, and therefore may not be
-     * desirable.
-     */
-    // appboy.requestInAppMessageRefresh();
-  });
-	</script>
-
 	{% block title %}
-		<title>Parachute by Mapquest</title>
+		<title>MapQuest Travel</title>
 	{% endblock %}
 
 </head>
@@ -170,18 +135,18 @@ fjs.parentNode.insertBefore(js, fjs);
 	<div class="container">
 		<!-- logo of the site -->
 	{% if req.route == 'cats' or 'CatQuest' in post.tags %}
-		<div class="logo"><a href="/"><img src="{{ asset('images/logo_drkblue2_catquest.png') }}" height="auto" width="393" alt="Parachute by MapQuest"></a></div>
+		<div class="logo"><a href="/"><img src="{{ asset('images/logo_drkblue2_catquest.png') }}" height="auto" width="393" alt="CatQuest"></a></div>
 	{% else %}
-		<div class="logo"><a href="/"><img src="{{ asset('images/logo_drkblue2.png') }}" height="auto" width="393" alt="Parachute by MapQuest"></a></div>
+		<div class="logo"><a href="/"><img src="{{ asset('images/MQ-Travel_Logo_logo3.png') }}" height="auto" width="500" alt="MapQuest Travel"></a></div>
 	{% endif %}
 		<!-- main navigation of the page -->
 		<nav id="nav">
 			<a href="#" class="opener"><span>Opener</span></a>
 			<ul>
-				<li><a href="/soundslocal/">SOUNDS LOCAL</a></li>
+				<li><a href="https://bookings.mapquest.com/?refid=5101&refclickid=ParachuteNav" target="blank">BOOK TRAVEL</a></li>
 				{# <li><a href="/local-news/">LOCAL </a></li> #}
 				<li><a href="https://www.mapquest.com/directions" target="blank">DIRECTIONS</a></li>
-				<li><a href="https://contributor.mapquest.com/registration/" target="blank">CONTRIBUTE</a></li>
+				<li><a href="/soundslocal/">SOUNDS LOCAL</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -190,7 +155,7 @@ fjs.parentNode.insertBefore(js, fjs);
 <form action="/search/" class="search-form">
 <fieldset>
 	{# Via CSS, this legend element is only visible to screenreaders. #}
-	<legend>Search within Parachute</legend>
+	<legend>Search within MapQuest Travel</legend>
 	<input type="search" name="q" placeholder="Search ... " aria-label="Search">
 	<button type="submit" class="btn-search">Search</button>
 </fieldset>
@@ -234,7 +199,7 @@ fjs.parentNode.insertBefore(js, fjs);
 					<nav class="footer-nav">
 						<ul>
 							<li><a href="http://company.mapquest.com/" target="_blank">About MapQuest</a></li>
-							<li><a href="mailto:parachute@mapquest.com" target="_blank">Contact Us</a></li>
+							<li><a href="mailto:mapquest-travel@mapquest.com" target="_blank">Contact Us</a></li>
 							<li><a href="https://business.mapquest.com/products/targeted-advertising" target="_blank">Advertise</a></li>
 							<li><a href="http://www.verizon.com/about/privacy/about-our-ads" target="_blank">About Our Ads</a></li>
 						</ul>
@@ -257,8 +222,8 @@ fjs.parentNode.insertBefore(js, fjs);
 					<!-- footer navigation of the page -->
 					<nav class="footer-nav">
 						<ul>
-							<li><a href="https://contributor.mapquest.com/registration/" target="_blank">Become a Contributor</a></li>
-							<li><a href="https://parachute.mapquest.com/2016/05/23/parachute-by-mapquest-custom-content-solutions/" target="_blank">Custom Content Solutions</a></li>
+						{# 	<li><a href="https://contributor.mapquest.com/registration/" target="_blank">Become a Contributor</a></li> #}
+							<li><a href="/2016/05/23/parachute-by-mapquest-custom-content-solutions/" target="_blank">Custom Content Solutions</a></li>
 							<li><a href="https://hello.mapquest.com/privacy/" target="_blank">Privacy Policy</a></li>
 						</ul>
 					</nav>

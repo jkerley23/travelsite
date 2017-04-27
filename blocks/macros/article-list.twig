@@ -14,7 +14,7 @@ Expected values in 'data' hash:
 			{# Top posts api does not provide this kind of filter, so we check here: #}
 			{% if 'xMQx' not in item.tags and status == published %}
 				<li>
-					{{ articleListItem.render({postData: item, disableAuthorType: data.disableAuthorType}) }}
+					{{ articleListItem.render({postData: item, disableAuthorType: data.disableAuthorType, disablePostDate: data.disablePostDate}) }}
 				</li>
 			{% endif %}
 		{% endfor %}
