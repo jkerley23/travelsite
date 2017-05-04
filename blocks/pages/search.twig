@@ -10,7 +10,7 @@
 	<!-- fb opengraph tags -->
 	<meta property="og:title" content="Search Results for {{ req.get.q }} - MapQuest"/>
 	<meta property="og:type" content="website"/>
-	<meta property="og:url" content="http://parachute.mapquest.com/search/?q={{ req.get.q }}/"/>
+	<meta property="og:url" content="http://travel.mapquest.com/search/?q={{ req.get.q }}/"/>
 	{% set image = post.images.featured %}
 	{% if image == true %}
 		<meta property="og:image" content="{{ post.images.featured }}"/>
@@ -20,7 +20,7 @@
 
 
 {% block title %}
-	<title>Parachute Search Results</title>
+	<title>MapQuest Travel Search Results</title>
 {% endblock %}
 
 {% block body %}

@@ -66,8 +66,8 @@
                     <div class="nav-drop">
                         <ul>
                             <li><a href="/soundslocal">Episodes</a></li>
-                            <li><a href="/" target="_blank">Parachute</a></li>
-                            <li><a href="https://www.mapquest.com" target="_blank">MapQuest</a></li>
+                            <li><a href="/" target="_blank">MapQuest Travel</a></li>
+                            <li><a href="https://www.mapquest.com" target="_blank">Directions</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -88,12 +88,12 @@
                                     src="/assets-ha94f4f36c5055b2a45d4ac1e15bcaf3c/images/ico-social1.png?h=2c6c4cced885cc0ca053d545f48a1036"
                                     alt="Facebook"></a>
 
-                        <a href="https://twitter.com/intent/tweet?text=Sounds Local with Y La Bamba https://parachute.mapquest.com/soundslocal/episode/y-la-bamba&via=MQchute"
+                        <a href="https://twitter.com/intent/tweet?text=Sounds Local with {{ item.band_name }} https://travel.mapquest.com/soundslocal/episode/{{ item.slug }}&via=MapQuest_Travel"
                            target="_blank" class="twitter"><img
                                     src="/assets-ha94f4f36c5055b2a45d4ac1e15bcaf3c/images/ico-social2.png?h=3333fefe73e274921e7e9989d24f7136"
                                     alt="Twitter"></a>
 
-                        <a href="https://plus.google.com/share?url=https://parachute.mapquest.com/soundslocal/episode/y-la-bamba"
+                        <a href="https://plus.google.com/share?url=https://travel.mapquest.com/soundslocal/episode/{{ item.slug }}"
                            target="_blank" class="gplus"><img
                                     src="/assets-ha94f4f36c5055b2a45d4ac1e15bcaf3c/images/ico-social3.png?h=6746dceec87fa496639621074d483876"
                                     alt="Google Plus"></a>
@@ -136,7 +136,7 @@
                                 <img src="{{ item.bottom_image }}" alt="{{ item.band_name }}">
                             </div>
                             <div class="textbox">
-                                <h2>Explore the City Using Parachute:</h2>
+                                <h2>Explore the City Using MapQuest Travel:</h2>
                                 {{ item.related_links|raw }}
                             </div>
                         </div>
@@ -228,7 +228,7 @@
 
             <div class="intro-text">
                 <div class="container">
-                    <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fmapq.st%2FEatDrinkSing&text=Sounds%20Local%20by%20@MQchute%20brings%20you%20around%20the%20US%20to%20see%20cities%20through%20the%20eyes%20of%20local%20musicians.%20%23EatDrinkSing&"
+                    <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fmapq.st%2FEatDrinkSing&text=Sounds%20Local%20by%20@MapQuest_Travel%20brings%20you%20around%20the%20US%20to%20see%20cities%20through%20the%20eyes%20of%20local%20musicians.%20%23EatDrinkSing&"
                        target="_blank" style="text-decoration:none; color:#ded0c5"><p>#EatDrinkSing</p></a>
                 </div>
             </div>
@@ -272,10 +272,10 @@
                             <h3>Even More</h3>
                             <nav class="footer-nav">
                                 <ul>
-                                    <li><a href="https://local.contributor.mapquest.com/registration/" target="_blank">Become
-                                            a Contributor</a></li>
+{#                                     <li><a href="https://local.contributor.mapquest.com/registration/" target="_blank">Become
+                                            a Contributor</a></li> #}
                                     <li>
-                                        <a href="https://parachute.mapquest.com/2016/05/23/parachute-by-mapquest-custom-content-solutions/"
+                                        <a href="/2016/05/23/parachute-by-mapquest-custom-content-solutions/"
                                            target="_blank">Custom Content Solutions</a></li>
                                 </ul>
                             </nav>
@@ -287,10 +287,10 @@
                         <div class="col">
                             <h3>Follow</h3>
                             <ul class="social-networks">
-                                <li><a class="facebook" href="https://www.facebook.com/parachutebymq/"
+                                <li><a class="facebook" href="https://www.facebook.com/mapquesttravel/"
                                        target="_blank"><img src="{{ asset('images/ico-social1.png') }}" alt="Facebook"></a>
                                 </li>
-                                <li><a class="twitter" href="https://twitter.com/MQchute" target="_blank"><img
+                                <li><a class="twitter" href="https://twitter.com/MapQuest_Travel" target="_blank"><img
                                                 src="{{ asset('images/ico-social2.png') }}" alt="Twitter"></a></li>
                                 <li><a class="gplus" href="https://plus.google.com/+mapquest/videos"
                                        target="_blank"><img src="{{ asset('images/ico-social3.png') }}"
