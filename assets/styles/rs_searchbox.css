@@ -98,7 +98,7 @@ a img {
     width: 26px;
     height: 25px;
     margin-top: -2px;
-    background-image: url(../images/products.png);
+    background-image: url(../images/products2.png);
     background-repeat: no-repeat;
 }
 .rs_searchWrapper .rs_products li #iconHotel {
@@ -443,7 +443,7 @@ a img {
     outline: none;
     width: 100%;
     height: 38px;
-    line-height: 30px; 
+    line-height: 30px;
     display: inline-block;
     font-family: 'Raleway', sans-serif;
     color: white;
@@ -473,7 +473,7 @@ a img {
         width: 24.25% !important;
         margin-right: 1% !important;
     }
-    .rs_searchWrapper .rs_searchbox .rs_date, 
+    .rs_searchWrapper .rs_searchbox .rs_date,
     .rs_searchWrapper .rs_searchbox .rs_people {
         width: 32.65%;
     }
@@ -504,7 +504,7 @@ a img {
     .rs_searchWrapper .rs_searchbox .rs_car_form .rs_time_row {
         margin-right: 1%;
     }
-    .rs_searchWrapper .rs_searchbox .rs_air_form .rs_origin_row, 
+    .rs_searchWrapper .rs_searchbox .rs_air_form .rs_origin_row,
     .rs_searchWrapper .rs_searchbox .rs_air_form .rs_destination_row,
     .rs_searchWrapper .rs_searchbox .rs_air_form #air_multi_dest .rs_origin_row,
     .rs_searchWrapper .rs_searchbox .rs_air_form #air_multi_dest .rs_destination_row {
@@ -523,7 +523,7 @@ a img {
     .rs_searchWrapper .rs_searchbox .rs_air_form .rs_button_row {
         width: 24%;
     }
-    .rs_searchWrapper .rs_searchbox .rs_vp_form .rs_origin_row, 
+    .rs_searchWrapper .rs_searchbox .rs_vp_form .rs_origin_row,
     .rs_searchWrapper .rs_searchbox .rs_vp_form .rs_destination_row {
         width: 49.5%;
     }
@@ -543,7 +543,7 @@ a img {
         width: 100%;
         margin-right: 0;
     }
-    .rs_searchWrapper .rs_searchbox .rs_date, 
+    .rs_searchWrapper .rs_searchbox .rs_date,
     .rs_searchWrapper .rs_searchbox .rs_people {
         width: 24.25%;
     }
@@ -605,17 +605,17 @@ a img {
         width: 49% !important;
         margin-right: 2% !important;
     }
-    .rs_searchWrapper .rs_searchbox .rs_air_form .rs_origin_row, 
+    .rs_searchWrapper .rs_searchbox .rs_air_form .rs_origin_row,
     .rs_searchWrapper .rs_searchbox .rs_air_form .rs_destination_row,
-    .rs_searchWrapper .rs_searchbox .rs_air_form #air_multi_dest .rs_origin_row, 
+    .rs_searchWrapper .rs_searchbox .rs_air_form #air_multi_dest .rs_origin_row,
     .rs_searchWrapper .rs_searchbox .rs_air_form #air_multi_dest .rs_destination_row {
         width: 100%;
     }
     .rs_searchWrapper .rs_searchbox .rs_air_form .rs_origin_row {
         margin-right: 0;
     }
-    .rs_searchWrapper .rs_searchbox .rs_air_form .rs_rooms_row, 
-    .rs_searchWrapper .rs_searchbox .rs_air_form #air_one_way .rs_rooms_row, 
+    .rs_searchWrapper .rs_searchbox .rs_air_form .rs_rooms_row,
+    .rs_searchWrapper .rs_searchbox .rs_air_form #air_one_way .rs_rooms_row,
     .rs_searchWrapper .rs_searchbox .rs_air_form #air_multi_dest .rs_rooms_row {
         width: 100%;
         margin-right: 0;
@@ -628,7 +628,7 @@ a img {
         float: none;
         width: 100%;
     }
-    .rs_searchWrapper .rs_searchbox .rs_vp_form .rs_origin_row, 
+    .rs_searchWrapper .rs_searchbox .rs_vp_form .rs_origin_row,
     .rs_searchWrapper .rs_searchbox .rs_vp_form .rs_destination_row {
         width: 100%;
     }
@@ -667,8 +667,8 @@ a img {
     .rs_searchWrapper .rs_searchbox .rs_select_box {
         text-indent: 0;
     }
-    .rs_searchWrapper .rs_searchbox .rs_autosuggest, 
-    .rs_searchWrapper .rs_searchbox .rs_from, 
+    .rs_searchWrapper .rs_searchbox .rs_autosuggest,
+    .rs_searchWrapper .rs_searchbox .rs_from,
     .rs_searchWrapper .rs_searchbox .rs_to {
         background-image: none !important;
     }

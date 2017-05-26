@@ -38,7 +38,7 @@
 		? resize.resize(post.images.featured, 1060, 600)
 		: post.image_crops.featured %}
 
-	<img src="{{ imgSrc }}" height="600" width="1060" alt="{{ post.featured_image_description }}" onload="appboy.registerAppboyPushMessages()">
+	<img src="{{ imgSrc }}" height="600" width="1060" alt="{{ post.featured_image_description }}">
 	<figcaption><em><sub>{{ post.featured_image_credit }}</sub></em></figcaption>
 {% else %}
 
@@ -75,6 +75,12 @@
 	{#Non-979 sites are auto-post. TODO: Find a less restrictive way to do this.#}
 	{% set allowedTags = '<strong><br><em><u><s><ol><li><ul><blockquote><p><a><img><table><tbody><tr><td><pre><code>' %}
 
+		{% block reservation_inline %}
+
+			{% include "@blocks/partials/reservation_inline.twig" %}
+
+		{% endblock %}
+		</br>
 	{% set strippedContents = post.site_id == 979 ?
 		post.contents :
 		post.contents|striptags(allowedTags)
@@ -96,6 +102,7 @@
 		</div>
 	</div>
 	{% endif %}
+
 
 {% set tags = post.tags %}
 

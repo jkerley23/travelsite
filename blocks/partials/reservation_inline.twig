@@ -16,7 +16,7 @@
 		$('.add_flight'+prev).show();
 	}
 	$(document).ready(function() {
-		$('#rs_mq_search_right').searchbox({
+		$('#rs_mq_search_inline').searchbox({
 			refid:5101,
 			environment: "prod",
 			hotel:{
@@ -90,15 +90,19 @@
 			$("<link/>", {
 			   rel: "stylesheet",
 			   type: "text/css",
-			   href: "css/mobile_search.css"
+			   href: "{{ asset('styles/mobile_search.css') }}"
 			}).appendTo("head");
 		}
 		$('.same-location').click(function(){
 			 $(".rs_droppff_div").hide();
+			 $('.rs_pickup_div').removeClass('rs_half_width');
+			 $('.rs_car_row').removeClass('rs_quarter_width');
 			 $('#different_return').attr('checked', false);
 		});
 		$('.diff-location').click(function(){
 			 $(".rs_droppff_div").show();
+			 $('.rs_pickup_div').addClass('rs_half_width');
+			 $('.rs_car_row').addClass('rs_quarter_width');
 			 $('#different_return').attr('checked', true);
 		});
 		$('.round-trip').click(function(){
@@ -151,8 +155,8 @@
 </head>
 <body>
 
-<div class="rs_searchWrapper" id="rs_searchRight">
-	<div id="rs_mq_search_right" class='rs_searchbox'>
+<div class="rs_searchWrapper">
+	<div id="rs_mq_search_inline" class='rs_searchbox'>
 		<h2>Book Travel</h2>
 		<img src="{{ asset('images/ppn.png') }}" class="rs_ppn_logo">
 		<div class="rs_form_row rs_product_resp">
@@ -164,10 +168,10 @@
 			</select>
 		</div>
 		<ul class="rs_products">
-			<li class="rs_tabs highlight_tab first_tab" id="rs_hotel_tab" data-tab="rs_hotel_form"><div class="rs_product_circle"><div class="rs_product_icon" id="iconHotel"></div></div></li>
-			<li class="rs_tabs" id="rs_car_tab" data-tab="rs_car_form"><div class="rs_product_circle"><div class="rs_product_icon" id="iconCar"></div></div></li>
-			<li class="rs_tabs" id="rs_air_tab" data-tab="rs_air_form"><div class="rs_product_circle"><div class="rs_product_icon" id="iconAir"></div></div></li>
-			<li class="rs_tabs last_tab" id="rs_vp_tab" data-tab="rs_vp_form"><div class="rs_product_circle"><div class="rs_product_icon" id="iconVP"></div></div></li>
+			<li class="rs_tabs highlight_tab first_tab" id="rs_hotel_tab" data-tab="rs_hotel_form"><div class="rs_product_circle"><div class="rs_product_icon" id="iconHotel"></div></div><span>Hotels</span></li>
+			<li class="rs_tabs" id="rs_car_tab" data-tab="rs_car_form"><div class="rs_product_circle"><div class="rs_product_icon" id="iconCar"></div></div><span>Cars</span></li>
+			<li class="rs_tabs" id="rs_air_tab" data-tab="rs_air_form"><div class="rs_product_circle"><div class="rs_product_icon" id="iconAir"></div></div><span>Flights</span></li>
+			<li class="rs_tabs last_tab" id="rs_vp_tab" data-tab="rs_vp_form"><div class="rs_product_circle"><div class="rs_product_icon" id="iconVP"></div></div><span>Vacations</span></li>
 			<div class="clear"></div>
 		</ul>
 		<div name="hotel" class="rs_search_form rs_hotel_form">
@@ -188,7 +192,7 @@
 					<input name="check_in" class="rs_chk_in" title='Enter your check in date.' type='text' autocomplete="off"  value="Check in">
 				</div>
 			</div>
-			<div class='rs_form_row rs_date rs_chk_out_row rs_no_margin'>
+			<div class='rs_form_row rs_date rs_chk_out_row'>
 				<div class='rs_date_input_container'>
 					<input name="check_out" class="rs_chk_out" type='text' title='Enter your check out date.' autocomplete="off"  value="Check out">
 				</div>
@@ -216,7 +220,7 @@
 				<select name="adults" class="rs_select_box js_guest_select"></select>
 			</div>
 			<div class='rs_button_row'>
-				<button type="submit" class="rs_search" title='Search'>Search</button>
+				<button type="submit" class="rs_search" title='Search' onclick="window.open(); return false;">Search</button>
 
 			</div>
 			<div class='clear'></div>
@@ -259,7 +263,7 @@
 				<select name="rs_adults" class="rs_adults_input rs_select_box pax">
 				</select>
 			</div>
-			<div class="rs_form_row rs_rooms_row rs_no_margin">
+			<div class="rs_form_row rs_rooms_row">
 				<select name="rs_children" class="rs_child_input rs_select_box pax">
 				</select>
 			</div>
@@ -309,20 +313,20 @@
 				</div>
 				<div class='clear'></div>
 			</div>
-			<div class="rs_form_row rs_date">
+			<div class="rs_form_row rs_car_row rs_date">
 				<div class='rs_date_input_container'>
 					<input name="rs_pu_date" class="rs_chk_in" value="Pick up">
 				</div>
 			</div>
-			<div class="rs_form_row rs_rooms_row rs_time_row">
+			<div class="rs_form_row rs_car_row rs_rooms_row rs_time_row">
 				<select name="rs_pu_time" class="rs_time_in rs_time"></select>
 			</div>
-			<div class="rs_form_row rs_date">
+			<div class="rs_form_row rs_car_row rs_date">
 				<div class='rs_date_input_container'>
 					<input name="rs_do_date" class="rs_chk_out" value="Drop off">
 				</div>
 			</div>
-			<div class="rs_form_row rs_rooms_row" id="rs_time_out_row">
+			<div class="rs_form_row rs_car_row rs_rooms_row" id="rs_time_out_row">
 				<select name="rs_do_time" class="rs_time_out rs_time"></select>
 			</div>
 			<div class="rs_button_row">
@@ -378,11 +382,11 @@
 					<select name="rs_adults" class="rs_adults_input rs_select_box pax">
 					</select>
 				</div>
-				<div class="rs_form_row rs_rooms_row rs_no_margin">
+				<div class="rs_form_row rs_rooms_row">
 					<select name="rs_children" class="rs_child_input rs_select_box pax">
 					</select>
 				</div>
-				<div class="rs_form_row rs_rooms_row">
+				<div class="rs_form_row rs_rooms_row rs_no_margin">
 					<select name="cabin_class" class="rs_select_box rs_cabin_box">
 						<option selected="" value="">Cabin Class</option>
 						<option value="economy">Economy/Coach</option>
@@ -423,7 +427,7 @@
 					<select name="rs_adults" class="rs_adults_input rs_select_box pax">
 					</select>
 				</div>
-				<div class="rs_form_row rs_rooms_row rs_no_margin">
+				<div class="rs_form_row rs_rooms_row">
 					<select name="rs_children" class="rs_child_input rs_select_box pax">
 					</select>
 				</div>
@@ -586,7 +590,7 @@
 				<div class="rs_form_row rs_rooms_row">
 					<select name="rs_adults" class="rs_adults_input rs_select_box pax"></select>
 				</div>
-				<div class="rs_form_row rs_rooms_row rs_no_margin">
+				<div class="rs_form_row rs_rooms_row">
 					<select name="rs_children" class="rs_child_input rs_select_box pax"></select>
 				</div>
 				<div class="rs_form_row rs_rooms_row rs_no_margin">
