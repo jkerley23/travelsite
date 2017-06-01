@@ -90,7 +90,7 @@
 			$("<link/>", {
 			   rel: "stylesheet",
 			   type: "text/css",
-			   href: "css/mobile_search.css"
+			   href: "{{ asset('styles/mobile_search.css') }}"
 			}).appendTo("head");
 		}
 		$('.same-location').click(function(){

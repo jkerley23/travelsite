@@ -75,7 +75,7 @@
 	{#Non-979 sites are auto-post. TODO: Find a less restrictive way to do this.#}
 	{% set allowedTags = '<strong><br><em><u><s><ol><li><ul><blockquote><p><a><img><table><tbody><tr><td><pre><code>' %}
 
-		{% block reservation_inline %}
+		{% block reservation_top %}
 
 			{% include "@blocks/partials/reservation_inline.twig" %}
 
@@ -102,7 +102,6 @@
 		</div>
 	</div>
 	{% endif %}
-
 
 {% set tags = post.tags %}
 
