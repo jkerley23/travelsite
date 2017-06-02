@@ -565,6 +565,19 @@ a img {
         margin-bottom: 0;
     }
 }
+@media only screen and (max-width: 900px) {
+    .rs_searchWrapper .rs_searchbox .rs_ppn_logo {
+    top: 1px;
+    right: 15px;
+    width: 150px;
+    }
+@media only screen and (max-width: 800px) {
+    .rs_searchWrapper .rs_searchbox .rs_ppn_logo {
+    top: 1px;
+    right: 15px;
+    width: 150px;
+    }
+}
 @media only screen and (max-width: 500px) {
     .rs_searchWrapper .rs_searchbox {
         padding: 15px;

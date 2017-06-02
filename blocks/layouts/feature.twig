@@ -55,6 +55,11 @@ Set the following variables in children templates if the defaults, as seen on th
 
 
 {% block body %}
+	{% block reservation_top %}
+		{% include "@blocks/partials/reservation_inline.twig" %}
+	{% endblock %}
+</br>
+
 	{% if (req.params.page ?? 1) == 1 %}
 		{% block featureBody %}{% endblock %}
 	{% endif %}

@@ -24,6 +24,11 @@
 {% endblock %}
 
 {% block body %}
+	{% block reservation_top %}
+		{% include "@blocks/partials/reservation_inline.twig" %}
+	{% endblock %}
+</br>
+
 	<!-- recent article section of the page -->
 	<gcse:searchresults-only></gcse:searchresults-only>
 
