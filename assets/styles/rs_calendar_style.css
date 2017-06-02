@@ -165,7 +165,7 @@
 	-ms-user-select: none;
 	user-select: none;
 	position:absolute;
-/*	right: 1px;*/
+	right: 1px;
 	background:#fff;
 	font-family:Arial, sans-serif;
 }
