@@ -29,7 +29,6 @@
 {% block body %}
 {% if post.status == 'published' or 'pending'  %}
 <article class="page-article">
-	<base target="_blank">
 <div class = "featured-image">
 {% if post.images.featured %}
 	{#TODO: Remove roadtrippers checks when amp gets update to image_crops (dims 5)#}
@@ -58,7 +57,7 @@
 				</ul>
 			</div>
 			<span class="author-info"><a href="/contributor/{{ post.contributor_slug }}"
-				class="author-avatar">
+				class="author-avatar" target="_blank">
 				{% set contributorImage = post.contributor.metadata.image %}
 				{% if contributorImage == true %}
 					{% set contributorImage = (contributorImage starts with '//' ? 'http:' : '' ) ~ contributorImage %}
@@ -66,7 +65,7 @@
 				{% else %}
 					<img src="{{ asset('images/anon.jpg') }}" height="24" width="24" alt="Default author image">
 				{% endif %} </a>
-		by <a href="/contributor/{{ post.contributor_slug }}">{{ post.byline }}</a> |
+		by <a href="/contributor/{{ post.contributor_slug }}" target="_blank">{{ post.byline }}</a> |
 				{{ post.site_id == 979 ? 'Contributor' : 'Local Blogger' }} |
 				{{ post.published.date|date('F j, Y') }} </span>
 		</div>
@@ -106,7 +105,6 @@
 {% set tags = post.tags %}
 
 <div class="article-info">
-
 	{% if tags == true %}
 		&nbsp;
 	<div class="tag-holder">
@@ -114,7 +112,7 @@
 		<!-- tags of the page -->
 		<ul class="tags">
 			{% for tag in tags %}
-		<li><a href="/tag/{{tag}}">{{tag}}</a></li>
+		<li><a href="/tag/{{tag}}" target="_blank">{{tag}}</a></li>
 			{% endfor %}
 		</ul>
 	</div>
