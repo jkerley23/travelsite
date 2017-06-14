@@ -1,2 +1,10 @@
 urls:
+st github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa
+Host github-COMPANY
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_jkerlz
   amp_cloud_docs: http://publishers.aol.com/support/documentation/sites/filebased.md
